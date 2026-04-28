@@ -146,8 +146,8 @@
         <img src="assets/images/logo/logo-3.png" alt="Exa" class="h-9 object-contain drop-shadow-lg"/>
       </div>
       <div class="flex items-center gap-2.5">
-        <button onclick="openWA('Exa Home Services')" class="w-9 h-9 rounded-full flex items-center justify-center" style="background:rgba(188,101,135,.25); border:1px solid rgba(188,101,135,.4)">
-          <svg class="w-5 h-5" fill="#25D366" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <button onclick="toggleMenu()" class="w-9 h-9 rounded-full flex items-center justify-center" style="background:rgba(188,101,135,.25); border:1px solid rgba(188,101,135,.4)">
+          <svg class="w-5 h-5 text-[#4E0636]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
     </div>
@@ -180,7 +180,7 @@
   </header>
 
   <!-- ═══════════ SCROLLABLE CONTENT ═══════════ -->
-  <main class="flex-1 overflow-y-auto pb-24" id="main-scroll">
+  <main class="flex-1 overflow-y-auto" id="main-scroll">
 
     <!-- ── Promo Banner ── -->
     <!-- <div class="promo-strip mx-4 mt-4 rounded-2xl px-4 py-2.5 flex items-center gap-3 fade-up">
@@ -193,7 +193,7 @@
     </div> -->
 
     <!-- ── Hero Card ── -->
-    <div class="mx-4 mt-4 rounded-3xl overflow-hidden relative lift fade-up" style="animation-delay:.05s">
+    <div id="hero" class="mx-4 mt-4 rounded-3xl overflow-hidden relative lift fade-up" style="animation-delay:.05s">
       <div class="swiper hero-swiper h-42 bg-[#f8f6f2]">
         <div class="swiper-wrapper">
           <div class="swiper-slide cursor-pointer" onclick="openWA('Exa Featured Service')">
@@ -207,7 +207,7 @@
     <!-- ════════════════════════════════════
          ROW 1: Top Services 🏆
     ═══════════════════════════════════════ -->
-    <section class="mt-6 fade-up" style="animation-delay:.1s">
+    <section id="services" class="mt-6 fade-up" style="animation-delay:.1s">
       <div class="flex items-center justify-between px-4 mb-3">
         <h2 class="font-serif text-[17px] text-[#4E0636]">Top Services 🏆</h2>
       </div>
@@ -220,7 +220,7 @@
     <!-- ════════════════════════════════════
          ROW 2: Trending Near You 🔥
     ═══════════════════════════════════════ -->
-    <section class="mt-6 fade-up" style="animation-delay:.2s">
+    <section id="trending" class="mt-6 fade-up" style="animation-delay:.2s">
       <div class="flex items-center justify-between px-4 mb-3">
         <h2 class="font-serif text-[17px] text-[#4E0636]">Trending Near You 🔥</h2>
       </div>
@@ -232,7 +232,7 @@
     <!-- ════════════════════════════════════
          ROW 3: Premium Picks ✨ (dark cards)
     ═══════════════════════════════════════ -->
-    <section class="mt-6 fade-up" style="animation-delay:.25s">
+    <section id="premium" class="mt-6 fade-up" style="animation-delay:.25s">
       <div class="flex items-center justify-between px-4 mb-3">
         <h2 class="font-serif text-[17px] text-[#4E0636]">Premium Picks ✨</h2>
       </div>
@@ -244,7 +244,7 @@
     <!-- ════════════════════════════════════
          ROW 4: Quick Fix & Affordable 💡 (grid)
     ═══════════════════════════════════════ -->
-    <section class="mt-6 px-4 pb-4 fade-up" style="animation-delay:.3s">
+    <section id="quickfix" class="mt-6 px-4 pb-4 fade-up" style="animation-delay:.3s">
       <div class="flex items-center justify-between mb-3">
         <h2 class="font-serif text-[17px] text-[#4E0636]">Quick Fix & Affordable 💡</h2>
       </div>
@@ -252,20 +252,56 @@
     </section>
 
     <!-- ── Testimonial Strip ── -->
-    <section class="mt-4 mx-4 mb-2 rounded-3xl overflow-hidden fade-up" style="animation-delay:.35s; background: linear-gradient(135deg,#4E0636,#5c0740)">
-      <div class="p-5">
-        <p class="text-[#E297B3] text-[10px] font-bold uppercase tracking-widest mb-1">What Clients Say</p>
-        <p class="font-serif text-white text-sm italic leading-snug">"Exa provided excellent service for my apartment. Professional, punctual, and outstanding quality!"</p>
-        <div class="flex items-center gap-2 mt-3">
-          <img src="https://plus.unsplash.com/premium_photo-1682089846950-974c7c7d5e91?fm=jpg&q=60&w=200" alt="Testimonial Author" class="w-8 h-8 rounded-full object-cover border-2 border-[#BC6587]"/>
-          <div>
-            <p class="text-white font-semibold text-xs">Priya Sharma</p>
-            <p class="text-white/50 text-[10px]">Business Owner, Bangalore</p>
+    <section id="testimonials" class="mt-4 mx-4 mb-2 rounded-3xl overflow-hidden fade-up relative" style="animation-delay:.35s; background: linear-gradient(135deg,#4E0636,#5c0740)">
+      <div class="swiper testimonials-swiper">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide pt-5 px-5 pb-8">
+            <p class="text-[#E297B3] text-[10px] font-bold uppercase tracking-widest mb-1">What Clients Say</p>
+            <p class="font-serif text-white text-sm italic leading-snug">"Exa provided excellent service for my apartment. Professional, punctual, and outstanding quality!"</p>
+            <div class="flex items-center gap-2 mt-3">
+              <img src="https://plus.unsplash.com/premium_photo-1682089846950-974c7c7d5e91?fm=jpg&q=60&w=200" alt="Testimonial Author" class="w-8 h-8 rounded-full object-cover border-2 border-[#BC6587]"/>
+              <div>
+                <p class="text-white font-semibold text-xs">Priya Sharma</p>
+                <p class="text-white/50 text-[10px]">Business Owner, Bangalore</p>
+              </div>
+              <div class="ml-auto flex gap-0.5">
+                <span class="text-[#E297B3] text-xs">★★★★★</span>
+              </div>
+            </div>
           </div>
-          <div class="ml-auto flex gap-0.5">
-            <span class="text-[#E297B3] text-xs">★★★★★</span>
+          <!-- Slide 2 -->
+          <div class="swiper-slide pt-5 px-5 pb-8">
+            <p class="text-[#E297B3] text-[10px] font-bold uppercase tracking-widest mb-1">What Clients Say</p>
+            <p class="font-serif text-white text-sm italic leading-snug">"The deep cleaning team was incredibly thorough. My home feels brand new! Highly recommended."</p>
+            <div class="flex items-center gap-2 mt-3">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fm=jpg&q=60&w=200" alt="Testimonial Author" class="w-8 h-8 rounded-full object-cover border-2 border-[#BC6587]"/>
+              <div>
+                <p class="text-white font-semibold text-xs">Rahul Verma</p>
+                <p class="text-white/50 text-[10px]">Homeowner, Mumbai</p>
+              </div>
+              <div class="ml-auto flex gap-0.5">
+                <span class="text-[#E297B3] text-xs">★★★★★</span>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="swiper-slide pt-5 px-5 pb-8">
+            <p class="text-[#E297B3] text-[10px] font-bold uppercase tracking-widest mb-1">What Clients Say</p>
+            <p class="font-serif text-white text-sm italic leading-snug">"Fast, reliable, and very affordable plumbing fix. They arrived within the hour!"</p>
+            <div class="flex items-center gap-2 mt-3">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?fm=jpg&q=60&w=200" alt="Testimonial Author" class="w-8 h-8 rounded-full object-cover border-2 border-[#BC6587]"/>
+              <div>
+                <p class="text-white font-semibold text-xs">Anjali Desai</p>
+                <p class="text-white/50 text-[10px]">Architect, Delhi</p>
+              </div>
+              <div class="ml-auto flex gap-0.5">
+                <span class="text-[#E297B3] text-xs">★★★★★</span>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="swiper-pagination testimonials-pagination !bottom-2"></div>
       </div>
     </section>
 
@@ -279,6 +315,33 @@
         <button onclick="openWA('Exa Emergency Service')" class="gold-badge text-[#4E0636] text-xs font-bold px-5 py-2.5 rounded-xl relative z-10">Call Now: +91 98765 43210</button>
       </div>
     </div>
+
+    <!-- ── Modern Footer ── -->
+    <footer class="mt-8 px-6 pb-24 pt-10 bg-[#4E0636] rounded-t-[40px] text-center flex flex-col items-center">
+      <h3 class="font-serif text-3xl text-[#E297B3] mb-2 tracking-wide">Exa</h3>
+      <p class="text-white/60 text-xs mb-8 max-w-[250px] leading-relaxed">Premium Home Services Delivered with Excellence.</p>
+      
+      <div class="flex gap-6 mb-8">
+        <a href="#hero" class="text-white/80 hover:text-[#E297B3] text-sm font-medium transition-colors">Home</a>
+        <a href="#services" class="text-white/80 hover:text-[#E297B3] text-sm font-medium transition-colors">Services</a>
+        <a href="#testimonials" class="text-white/80 hover:text-[#E297B3] text-sm font-medium transition-colors">Reviews</a>
+      </div>
+      
+      <div class="flex gap-4 mb-8">
+        <!-- Insta -->
+        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:bg-white/20 hover:text-white transition-all">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <!-- FB -->
+        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:bg-white/20 hover:text-white transition-all">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+      </div>
+      
+      <div class="w-full h-px bg-white/10 mb-6"></div>
+      
+      <p class="text-white/40 text-[11px] font-medium tracking-wide">© <span id="current-year"></span> Exa Home Services. All rights reserved.</p>
+    </footer>
 
   </main>
 
@@ -325,9 +388,52 @@
     </button>
   </div>
 
+  <!-- ── Mobile Menu Overlay ── -->
+  <div id="mobile-menu" class="fixed inset-0 bg-[#4E0636]/95 backdrop-blur-md z-[100] opacity-0 pointer-events-none transition-opacity duration-300 flex flex-col items-center pt-6 px-6">
+    <div class="w-full max-w-[420px] flex justify-end mb-10 relative z-[110]">
+      <button onclick="toggleMenu()" class="text-white/80 hover:text-white p-2" aria-label="Close Menu">
+        <svg class="w-8 h-8 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    
+    <div class="flex flex-col items-center gap-8 text-2xl font-serif text-white w-full max-w-[420px]">
+      <a href="#hero" onclick="toggleMenu()" class="hover:text-[#E297B3] transition-colors">Home</a>
+      <a href="#services" onclick="toggleMenu()" class="hover:text-[#E297B3] transition-colors">Top Services</a>
+      <a href="#trending" onclick="toggleMenu()" class="hover:text-[#E297B3] transition-colors">Trending</a>
+      <a href="#premium" onclick="toggleMenu()" class="hover:text-[#E297B3] transition-colors">Premium Picks</a>
+      <a href="#quickfix" onclick="toggleMenu()" class="hover:text-[#E297B3] transition-colors">Quick Fixes</a>
+      <a href="#testimonials" onclick="toggleMenu()" class="hover:text-[#E297B3] transition-colors">Reviews</a>
+    </div>
+    
+    <div class="mt-auto mb-12 w-full max-w-[420px] flex flex-col items-center">
+      <p class="text-[#E297B3] text-sm font-bold uppercase tracking-widest mb-4">Contact Us</p>
+      <a href="tel:+919876543210" class="flex items-center gap-3 text-white text-lg mb-4 hover:text-[#E297B3] transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        +91 98765 43210
+      </a>
+      <a href="https://wa.me/919876543210" target="_blank" class="flex items-center gap-3 text-white text-lg hover:text-[#E297B3] transition-colors">
+         <svg class="w-5 h-5 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+         WhatsApp
+      </a>
+    </div>
+  </div>
+
 </div>
 
 <script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const scrollContainer = document.getElementById('main-scroll');
+    if (menu.classList.contains('opacity-0')) {
+      menu.classList.remove('opacity-0', 'pointer-events-none');
+      menu.classList.add('opacity-100', 'pointer-events-auto');
+      if (scrollContainer) scrollContainer.style.overflow = 'hidden';
+    } else {
+      menu.classList.add('opacity-0', 'pointer-events-none');
+      menu.classList.remove('opacity-100', 'pointer-events-auto');
+      if (scrollContainer) scrollContainer.style.overflow = '';
+    }
+  }
   const PHONE = '919876543210';
   const openWA = (name) => {
     const msg = encodeURIComponent(`Hi, I want to book ${name}`);
@@ -351,35 +457,36 @@
 
   // ── Data ──
   const topServices = [
-    { name:'Aircon Service', sub:'Install & Repair', img:'assets/images/services/service-2.jpg', badge:'⭐ 4.8', time:'Same Day', offer:'20% OFF' },
-    { name:'Plumbing', sub:'Leaks & Pipes', img:'assets/images/services/plumbing.png', badge:'⭐ 4.7', time:'2 hrs', offer:'FREE Visit' },
-    { name:'Electrical', sub:'Wiring & Fixes', img:'assets/images/services/electrical.png', badge:'⭐ 4.9', time:'Today', offer:'30% OFF' },
-    { name:'Deep Cleaning', sub:'Full Home Clean', img:'assets/images/services/cleaning.png', badge:'⭐ 4.8', time:'3 hrs', offer:'FLAT ₹999' },
-    { name:'Pest Control', sub:'Safe & Effective', img:'', badge:'⭐ 4.6', time:'2 hrs', offer:'50% OFF' },
+    { name:'Aircon Service', sub:'Install & Repair', img:'assets/images/services/Category Aircon.jpg', badge:'⭐ 4.8', time:'Same Day', offer:'20% OFF' },
+    { name:'Deep Cleaning', sub:'Full Home Clean', img:'assets/images/services/Category Cleaning.jpg', badge:'⭐ 4.8', time:'3 hrs', offer:'FLAT ₹999' },
+    { name:'Pest Control', sub:'Safe & Effective', img:'assets/images/services/Category Pest control.jpg', badge:'⭐ 4.6', time:'2 hrs', offer:'50% OFF' },
+    { name:'Appliance Repair', sub:'All Brands', img:'assets/images/services/Category Appliance repair.jpg', badge:'⭐ 4.6', time:'3 hrs', offer:'Free Diag.' },
+    { name:'Handyman', sub:'General Fixes', img:'assets/images/services/Category Handyman.jpg', badge:'⭐ 4.7', time:'2 hrs', offer:'FREE Visit' },
   ];
 
   const trending = [
-    { name:'Painting Service', sub:'Interior & Exterior', img:'assets/images/services/painting.png', badge:'⭐ 4.7', time:'1 Day', offer:'25% OFF' },
-    { name:'Carpentry', sub:'Furniture & Doors', img:'assets/images/services/carpentry.png', badge:'⭐ 4.5', time:'Same Day', offer:'10% OFF' },
-    { name:'Appliance Repair', sub:'All Brands', img:'', badge:'⭐ 4.6', time:'3 hrs', offer:'Free Diag.' },
-    { name:'Gardening', sub:'Lawn & Landscape', img:'', badge:'⭐ 4.8', time:'2 hrs', offer:'₹499 Flat' },
-    { name:'Pool Maintenance', sub:'Cleaning & Repair', img:'', badge:'⭐ 4.4', time:'Same Day', offer:'15% OFF' },
+    { name:'Full Renovation', sub:'Interior Makeover', img:'assets/images/services/Category Interior renovation.jpg', badge:'⭐ 4.9', time:'Quote', offer:'25% OFF' },
+    { name:'Packers & Movers', sub:'Home Relocation', img:'assets/images/services/Category Packers & movers.jpg', badge:'⭐ 4.8', time:'Schedule', offer:'ASSURED' },
+    { name:'Pool Maintenance', sub:'Cleaning & Repair', img:'assets/images/services/Category Swimming pool maintenance .jpg', badge:'⭐ 4.4', time:'Same Day', offer:'15% OFF' },
+    { name:'Gardening', sub:'Lawn & Landscape', img:'assets/images/services/Category Gardening.jpg', badge:'⭐ 4.8', time:'2 hrs', offer:'₹499 Flat' },
+    { name:'Minor Construction', sub:'Repairs & Builds', img:'assets/images/services/Category Minor construction.jpg', badge:'⭐ 4.5', time:'Quote', offer:'10% OFF' },
   ];
 
   const premium = [
-    { name:'Full Renovation', sub:'Interior Makeover', img:'assets/images/services/renovation.png', badge:'⭐ 4.9', time:'Quote', offer:'PREMIUM' },
-    { name:'Packers & Movers', sub:'Home Relocation', img:'', badge:'⭐ 4.8', time:'Schedule', offer:'ASSURED' },
-    { name:'Smart Home Setup', sub:'IoT & Automation', img:'', badge:'⭐ 4.9', time:'Quote', offer:'ELITE' },
-    { name:'Dehumidifier', sub:'Moisture Control', img:'', badge:'⭐ 4.7', time:'Today', offer:'PREMIUM' },
+    { name:'Elder Care', sub:'Professional Support', img:'assets/images/services/Category Elder care.jpg', badge:'⭐ 4.9', time:'Schedule', offer:'PREMIUM' },
+    { name:'Babysitting', sub:'Safe & Caring', img:'assets/images/services/Category Baby sitter.jpg', badge:'⭐ 4.8', time:'Schedule', offer:'TRUSTED' },
+    { name:'Personal Care', sub:'At Home Service', img:'assets/images/services/Category Personal care.jpg', badge:'⭐ 4.8', time:'Schedule', offer:'ELITE' },
+    { name:'Pet Care', sub:'Walking & Grooming', img:'assets/images/services/Category Pet care.jpg', badge:'⭐ 4.7', time:'Today', offer:'LOVING' },
+    { name:'Dehumidifier', sub:'Moisture Control', img:'assets/images/services/Category Dehumidifier.jpg', badge:'⭐ 4.7', time:'Today', offer:'PREMIUM' },
   ];
 
   const quickFix = [
-    { name:'Handyman', sub:'General Fixes', img:'', offer:'₹199/hr', badge:'4.6' },
-    { name:'Cleaning', sub:'Quick Clean', img:'assets/images/services/cleaning.png', offer:'₹299', badge:'4.7' },
-    { name:'Plumbing Fix', sub:'Minor Repairs', img:'assets/images/services/plumbing.png', offer:'₹249', badge:'4.5' },
-    { name:'Carpentry', sub:'Small Fixes', img:'assets/images/services/carpentry.png', offer:'₹349/hr', badge:'4.4' },
-    { name:'Pest Spray', sub:'Quick Treatment', img:'', offer:'₹499', badge:'4.6' },
-    { name:'Garden Trim', sub:'Basic Trim', img:'', offer:'₹399', badge:'4.5' },
+    { name:'Handyman', sub:'General Fixes', img:'assets/images/services/Category Handyman.jpg', offer:'₹199/hr', badge:'4.6' },
+    { name:'Cleaning', sub:'Quick Clean', img:'assets/images/services/Category Cleaning.jpg', offer:'₹299', badge:'4.7' },
+    { name:'AC Fix', sub:'Minor Repairs', img:'assets/images/services/Category Aircon.jpg', offer:'₹249', badge:'4.5' },
+    { name:'Appliance', sub:'Small Fixes', img:'assets/images/services/Category Appliance repair.jpg', offer:'₹349/hr', badge:'4.4' },
+    { name:'Pest Spray', sub:'Quick Treatment', img:'assets/images/services/Category Pest control.jpg', offer:'₹499', badge:'4.6' },
+    { name:'Garden Trim', sub:'Basic Trim', img:'assets/images/services/Category Gardening.jpg', offer:'₹399', badge:'4.5' },
   ];
 
 
@@ -471,6 +578,21 @@
     slidesOffsetBefore: 16,
     slidesOffsetAfter: 16,
   });
+
+  const testimonialsSwiper = new Swiper('.testimonials-swiper', {
+    loop: true,
+    autoplay: {
+      delay: 4500,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: '.testimonials-pagination',
+      clickable: true,
+    },
+  });
+
+  // ── Dynamic Footer Year ──
+  document.getElementById('current-year').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>

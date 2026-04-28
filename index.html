@@ -208,7 +208,9 @@
       <div class="flex items-center justify-between px-4 mb-3">
         <h2 class="font-serif text-[17px] text-[#4E0636]">Top Services 🏆</h2>
       </div>
-      <div id="row1" class="row-scroll no-sb px-4"></div>
+      <div class="swiper services-swiper pb-4">
+        <div id="row1" class="swiper-wrapper"></div>
+      </div>
     </section>
 
 
@@ -219,7 +221,9 @@
       <div class="flex items-center justify-between px-4 mb-3">
         <h2 class="font-serif text-[17px] text-[#4E0636]">Trending Near You 🔥</h2>
       </div>
-      <div id="row2" class="row-scroll no-sb px-4"></div>
+      <div class="swiper services-swiper pb-4">
+        <div id="row2" class="swiper-wrapper"></div>
+      </div>
     </section>
 
     <!-- ════════════════════════════════════
@@ -229,7 +233,9 @@
       <div class="flex items-center justify-between px-4 mb-3">
         <h2 class="font-serif text-[17px] text-[#4E0636]">Premium Picks ✨</h2>
       </div>
-      <div id="row3" class="row-scroll no-sb px-4"></div>
+      <div class="swiper services-swiper pb-4">
+        <div id="row3" class="swiper-wrapper"></div>
+      </div>
     </section>
 
     <!-- ════════════════════════════════════
@@ -326,7 +332,7 @@
 
   // ── Data ──
   const topServices = [
-    { name:'Aircon Service', sub:'Install & Repair', img:'assets/images/services/aircon.png', badge:'⭐ 4.8', time:'Same Day', offer:'20% OFF' },
+    { name:'Aircon Service', sub:'Install & Repair', img:'assets/images/Category%20Artboard%203.avif', badge:'⭐ 4.8', time:'Same Day', offer:'20% OFF' },
     { name:'Plumbing', sub:'Leaks & Pipes', img:'assets/images/services/plumbing.png', badge:'⭐ 4.7', time:'2 hrs', offer:'FREE Visit' },
     { name:'Electrical', sub:'Wiring & Fixes', img:'assets/images/services/electrical.png', badge:'⭐ 4.9', time:'Today', offer:'30% OFF' },
     { name:'Deep Cleaning', sub:'Full Home Clean', img:'assets/images/services/cleaning.png', badge:'⭐ 4.8', time:'3 hrs', offer:'FLAT ₹999' },
@@ -361,14 +367,12 @@
   // ── Render horizontal service card ──
   function serviceCard(item, isPremium=false) {
     const div = document.createElement('div');
-    div.className = `flex-none w-[136px] lift cursor-pointer`;
+    div.className = `swiper-slide w-[136px] lift cursor-pointer`;
     const rating = item.badge.replace('⭐ ', '');
     
     div.innerHTML = `
       <div class="relative w-full h-44 rounded-2xl overflow-hidden shadow-sm">
-        <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover"/>
-        <!-- Gradient for text contrast -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
+        <img src="${item.img}" alt="${item.name}" class="w-full h-full object-contain"/>
         
         <!-- Top Right Heart -->
         <button class="absolute top-2 right-2 text-white/90 transition-transform">
@@ -399,10 +403,8 @@
     const rating = item.badge.replace('⭐ ', '');
     
     div.innerHTML = `
-      <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-sm">
-        <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
-        
+      <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-lg">
+        <img src="${item.img}" alt="${item.name}" class="w-full h-full object-contain"/>        
         <button class="absolute top-2 right-2 text-white/90 transition-transform">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
         </button>
@@ -441,6 +443,14 @@
       el: '.swiper-pagination',
       clickable: true,
     },
+  });
+
+  const servicesSwiper = new Swiper('.services-swiper', {
+    slidesPerView: 'auto',
+    spaceBetween: 14,
+    freeMode: true,
+    slidesOffsetBefore: 16,
+    slidesOffsetAfter: 16,
   });
 </script>
 </body>

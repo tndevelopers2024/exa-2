@@ -59,7 +59,6 @@
 
     /* Card hover */
     .lift { transition: transform .22s cubic-bezier(.34,1.56,.64,1), box-shadow .22s ease; cursor: pointer; }
-    .lift:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 16px 40px rgba(78,6,54,.14); }
     .lift:active { transform: scale(.97); }
 
     /* Gold shimmer badge */
@@ -189,13 +188,13 @@
       <div class="swiper hero-swiper h-44 bg-[#f8f6f2]">
         <div class="swiper-wrapper">
           <div class="swiper-slide cursor-pointer" onclick="openWA('Exa Home Services')">
-            <img src="assets/images/banner/Untitled-1Artboard%201.avif" alt="Banner 1" class="w-full h-full object-cover object-center"/>
+            <img src="assets/images/banner/Untitled-1Artboard%201.avif" alt="Banner 1" class="w-full h-full object-contain object-center"/>
           </div>
           <div class="swiper-slide cursor-pointer" onclick="openWA('Exa Premium Services')">
-            <img src="assets/images/banner/Untitled-1Artboard%202.avif" alt="Banner 2" class="w-full h-full object-cover object-center"/>
+            <img src="assets/images/banner/Untitled-1Artboard%202.avif" alt="Banner 2" class="w-full h-full object-contain object-center"/>
           </div>
           <div class="swiper-slide cursor-pointer" onclick="openWA('Exa Special Offers')">
-            <img src="assets/images/banner/Untitled-1Artboard%203.avif" alt="Banner 3" class="w-full h-full object-cover object-center"/>
+            <img src="assets/images/banner/Untitled-1Artboard%203.avif" alt="Banner 3" class="w-full h-full object-contain object-center"/>
           </div>
         </div>
         <div class="swiper-pagination"></div>
@@ -372,7 +371,7 @@
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
         
         <!-- Top Right Heart -->
-        <button class="absolute top-2 right-2 text-white/90 hover:text-white hover:scale-110 transition-transform">
+        <button class="absolute top-2 right-2 text-white/90 transition-transform">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
         </button>
 
@@ -404,7 +403,7 @@
         <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover"/>
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
         
-        <button class="absolute top-2 right-2 text-white/90 hover:text-white hover:scale-110 transition-transform">
+        <button class="absolute top-2 right-2 text-white/90 transition-transform">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
         </button>
         

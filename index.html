@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Exa - Professional Home Maintenance & Repair Services</title>
-    <link rel="icon" href="assets/images/logo/logo-by-exa.avif" type="image/svg+xml">
-    <meta name="description"
-        content="Exa provides premium home maintenance services including plumbing, electrical, painting, carpentry, cleaning, and more. Professional team, 24/7 support, affordable pricing. Serving Chennai, Bangalore, Mumbai, and Hyderabad.">
-    <meta name="keywords"
-        content="home maintenance, plumbing services, electrical repairs, painting services, carpentry, home cleaning, pest control, gardening, swimming pool maintenance, renovation">
-    <meta name="author" content="Exa">
+  <link rel="icon" href="assets/images/logo/logo-by-exa.avif" type="image/svg+xml">
+  <meta name="description"
+    content="Exa provides premium home maintenance services including plumbing, electrical, painting, carpentry, cleaning, and more. Professional team, 24/7 support, affordable pricing. Serving Chennai, Bangalore, Mumbai, and Hyderabad.">
+  <meta name="keywords"
+    content="home maintenance, plumbing services, electrical repairs, painting services, carpentry, home cleaning, pest control, gardening, swimming pool maintenance, renovation">
+  <meta name="author" content="Exa">
 
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Exa - Professional Home Maintenance & Repair Services">
-    <meta property="og:description"
-        content="Expert home maintenance services with professional team. From plumbing to electrical, painting to carpentry - we handle it all with quality assurance and affordable pricing.">
-    <meta property="og:image" content="https://exa-test.netlify.app/assets/images/logo/logo-by-exa.avif">
-    <meta property="og:url" content="https://exa.com">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Exa">
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Exa - Professional Home Maintenance & Repair Services">
+  <meta property="og:description"
+    content="Expert home maintenance services with professional team. From plumbing to electrical, painting to carpentry - we handle it all with quality assurance and affordable pricing.">
+  <meta property="og:image" content="https://exa-test.netlify.app/assets/images/logo/logo-by-exa.avif">
+  <meta property="og:url" content="https://exa.com">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Exa">
 
   <!-- Swiper JS & CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -37,7 +38,7 @@
       },
     }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
   <style>
     :root {
       --primary: #4E0636;
@@ -49,17 +50,42 @@
       --muted: #8a8a9a;
       --green: #2e7d5e;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif !important; }
-    body { background: var(--surface); overflow-x: hidden; }
-    .font-serif { font-family: 'Inter', sans-serif !important; }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif !important;
+    }
+
+    body {
+      background: var(--surface);
+      overflow-x: hidden;
+    }
+
+    .font-serif {
+      font-family: 'Inter', sans-serif !important;
+    }
 
     /* Scrollbar hide */
-    .no-sb::-webkit-scrollbar { display: none; }
-    .no-sb { -ms-overflow-style: none; scrollbar-width: none; }
+    .no-sb::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-sb {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
 
     /* Card hover */
-    .lift { transition: transform .22s cubic-bezier(.34,1.56,.64,1), box-shadow .22s ease; cursor: pointer; }
-    .lift:active { transform: scale(.97); }
+    .lift {
+      transition: transform .22s cubic-bezier(.34, 1.56, .64, 1), box-shadow .22s ease;
+      cursor: pointer;
+    }
+
+    .lift:active {
+      transform: scale(.97);
+    }
 
     /* Gold shimmer badge */
     .gold-badge {
@@ -67,41 +93,88 @@
       background-size: 200% 100%;
       animation: goldShimmer 2.5s ease infinite;
     }
-    @keyframes goldShimmer { 0%,100%{background-position:0%} 50%{background-position:100%} }
+
+    @keyframes goldShimmer {
+
+      0%,
+      100% {
+        background-position: 0%
+      }
+
+      50% {
+        background-position: 100%
+      }
+    }
 
     /* Bottom nav */
-    .bottom-nav { box-shadow: 0 -8px 30px rgba(78,6,54,.1); }
-    .nav-active { color: var(--accent); }
-    .nav-active .nav-dot { background: var(--accent); }
+    .bottom-nav {
+      box-shadow: 0 -8px 30px rgba(78, 6, 54, .1);
+    }
+
+    .nav-active {
+      color: var(--accent);
+    }
+
+    .nav-active .nav-dot {
+      background: var(--accent);
+    }
 
     /* Fade in stagger */
-    .fade-up { opacity: 0; transform: translateY(18px); animation: fadeUp .5s ease forwards; }
-    @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+    .fade-up {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: fadeUp .5s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
     /* Section row scroll */
-    .row-scroll { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 6px; }
+    .row-scroll {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
 
     /* Swiper custom */
-    .swiper-pagination-bullet { background: rgba(255,255,255,0.6) !important; opacity: 1 !important; transition: all 0.3s !important; }
-    .swiper-pagination-bullet-active { background: #BC6587 !important; width: 18px !important; border-radius: 4px !important; }
+    .swiper-pagination-bullet {
+      background: rgba(255, 255, 255, 0.6) !important;
+      opacity: 1 !important;
+      transition: all 0.3s !important;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #BC6587 !important;
+      width: 18px !important;
+      border-radius: 4px !important;
+    }
 
     /* Gradient overlays */
-    .img-overlay { background: linear-gradient(to top, rgba(78,6,54,.65) 0%, transparent 60%); }
+    .img-overlay {
+      background: linear-gradient(to top, rgba(78, 6, 54, .65) 0%, transparent 60%);
+    }
 
     /* Glass FAB */
-    .glass-btn { 
-      background: rgba(255, 255, 255, 0.6); 
-      backdrop-filter: blur(16px); 
+    .glass-btn {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.8); 
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); 
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     }
 
     /* Banner */
     .banner-bg {
       /* background: linear-gradient(135deg, #4E0636 0%, #620945 50%, #4E0636 100%); */
-      position: relative; overflow: hidden;
+      position: relative;
+      overflow: hidden;
     }
+
     /* .banner-bg::before {
       content:''; position:absolute; inset:0;
       background: var(--surface);
@@ -111,107 +184,348 @@
     } */
 
     /* Search bar */
-    .search-bar { background: rgba(255,255,255,.08); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.15); }
-    .search-bar:focus-within { border-color: var(--accent); background: rgba(255,255,255,.13); }
+    .search-bar {
+      background: rgba(255, 255, 255, .08);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, .15);
+    }
+
+    .search-bar:focus-within {
+      border-color: var(--accent);
+      background: rgba(255, 255, 255, .13);
+    }
 
     /* Tag pill */
-    .tag { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2); }
+    .tag {
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .2);
+    }
 
     /* Rating */
-    .rating-pill { background: linear-gradient(135deg, #2e7d5e, #3d9970); }
+    .rating-pill {
+      background: linear-gradient(135deg, #2e7d5e, #3d9970);
+    }
 
     /* Premium card */
-    .prem-card { background: #4E0636; }
+    .prem-card {
+      background: #4E0636;
+    }
 
     /* Promo strip */
-    .promo-strip { background: linear-gradient(90deg, #BC6587, #E297B3, #BC6587); }
+    .promo-strip {
+      background: linear-gradient(90deg, #BC6587, #E297B3, #BC6587);
+    }
 
 
     /* Notification dot */
-    .notif::after { content:''; position:absolute; top:2px; right:2px; width:8px; height:8px; background:#ef4444; border-radius:50%; border:1.5px solid white; }
+    .notif::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      width: 8px;
+      height: 8px;
+      background: #ef4444;
+      border-radius: 50%;
+      border: 1.5px solid white;
+    }
 
     /* Sticky header */
-    #main-header { position: sticky; top: 0; z-index: 50; }
+    #main-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
 
     /* Category grid */
     .cat-icon {
-      width: 68px; height: 68px; border-radius: 18px;
-      background: rgba(78,6,54,.08);
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden; transition: background .2s, transform .15s;
+      width: 68px;
+      height: 68px;
+      border-radius: 18px;
+      background: rgba(78, 6, 54, .08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: background .2s, transform .15s;
       border: 2px solid transparent;
     }
-    .cat-item:active .cat-icon { transform: scale(.91); }
-    .cat-item.active .cat-icon { background: #4E0636; border-color: #BC6587; }
-    .cat-item.active .cat-icon svg { color: #fff; }
-    .cat-icon svg { color: #4E0636; transition: color .2s; }
-    .cat-item.active .cat-label { color: #4E0636; font-weight: 700; }
-    .cat-label { font-size: 10.5px; color: #666; text-align: center; line-height: 1.3; margin-top: 5px; }
+
+    .cat-item:active .cat-icon {
+      transform: scale(.91);
+    }
+
+    .cat-item.active .cat-icon {
+      background: #4E0636;
+      border-color: #BC6587;
+    }
+
+    .cat-item.active .cat-icon svg {
+      color: #fff;
+    }
+
+    .cat-icon svg {
+      color: #4E0636;
+      transition: color .2s;
+    }
+
+    .cat-item.active .cat-label {
+      color: #4E0636;
+      font-weight: 700;
+    }
+
+    .cat-label {
+      font-size: 10.5px;
+      color: #666;
+      text-align: center;
+      line-height: 1.3;
+      margin-top: 5px;
+    }
 
     /* Bottom-sheet popup */
     #svc-popup-overlay {
-      position: fixed; inset: 0; background: rgba(0,0,0,.45);
-      z-index: 200; opacity: 0; pointer-events: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .45);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
       transition: opacity .3s ease;
     }
-    #svc-popup-overlay.open { opacity: 1; pointer-events: all; }
-    #svc-popup {
-      position: fixed; bottom: 0; left: 50%; transform: translateX(-50%) translateY(100%);
-      width: 100%; max-width: 420px;
-      background: #fff; border-radius: 28px 28px 0 0;
-      z-index: 201; transition: transform .38s cubic-bezier(.32,1.12,.68,1);
-      max-height: 82vh; display: flex; flex-direction: column;
+
+    #svc-popup-overlay.open {
+      opacity: 1;
+      pointer-events: all;
     }
-    #svc-popup.open { transform: translateX(-50%) translateY(0); }
-    .popup-handle { width: 40px; height: 4px; border-radius: 2px; background: #e0d7eb; margin: 12px auto 0; flex-shrink:0; }
-    .popup-header { display:flex; align-items:center; justify-content:space-between; padding: 14px 20px 10px; flex-shrink:0; border-bottom:1px solid #f0ece4; }
-    .popup-body { overflow-y: auto; padding: 12px 16px 24px; flex: 1; }
+
+    #svc-popup {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) translateY(100%);
+      width: 100%;
+      max-width: 420px;
+      background: #fff;
+      border-radius: 28px 28px 0 0;
+      z-index: 201;
+      transition: transform .38s cubic-bezier(.32, 1.12, .68, 1);
+      max-height: 82vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #svc-popup.open {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .popup-handle {
+      width: 40px;
+      height: 4px;
+      border-radius: 2px;
+      background: #e0d7eb;
+      margin: 12px auto 0;
+      flex-shrink: 0;
+    }
+
+    .popup-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px 10px;
+      flex-shrink: 0;
+      border-bottom: 1px solid #f0ece4;
+    }
+
+    .popup-body {
+      overflow-y: auto;
+      padding: 12px 16px 24px;
+      flex: 1;
+    }
+
     .svc-row {
-      display: flex; align-items: center; gap: 14px;
-      background: #faf8fc; border-radius: 16px; padding: 12px;
-      margin-bottom: 10px; cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #faf8fc;
+      border-radius: 16px;
+      padding: 12px;
+      margin-bottom: 10px;
+      cursor: pointer;
       transition: box-shadow .18s, transform .18s;
     }
-    .svc-row:active { transform: scale(.98); box-shadow: 0 2px 12px rgba(78,6,54,.12); }
-    .svc-row-img { width: 62px; height: 62px; border-radius: 12px; object-fit: contain; background: rgba(78,6,54,.07); flex-shrink:0; }
+
+    .svc-row:active {
+      transform: scale(.98);
+      box-shadow: 0 2px 12px rgba(78, 6, 54, .12);
+    }
+
+    .svc-row-img {
+      width: 62px;
+      height: 62px;
+      border-radius: 12px;
+      object-fit: contain;
+      background: rgba(78, 6, 54, .07);
+      flex-shrink: 0;
+    }
+
     .svc-row-book {
-      margin-left: auto; flex-shrink: 0;
-      background: #4E0636; color: #E297B3;
-      font-size: 11px; font-weight: 700; padding: 6px 14px;
-      border-radius: 10px; border: none; cursor: pointer;
+      margin-left: auto;
+      flex-shrink: 0;
+      background: #4E0636;
+      color: #E297B3;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
       transition: background .18s;
     }
-    .svc-row-book:active { background: #BC6587; }
+
+    .svc-row-book:active {
+      background: #BC6587;
+    }
+
+    /* ── Category Section Slides ── */
+    .cat-section-slide {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(78,6,54,.08);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cat-slide-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    .cat-slide-body {
+      padding: 10px 12px 12px;
+      flex: 1;
+    }
+
+    .cat-slide-offer {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 20px;
+      margin-bottom: 5px;
+      letter-spacing: 0.03em;
+    }
+
+    .cat-slide-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #1a1a2e;
+      line-height: 1.25;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .cat-slide-sub {
+      font-size: 11px;
+      color: #888;
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .cat-slide-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+    }
+
+    .cat-slide-rating {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+
+    .cat-slide-rating .star-dot {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #2e7d5e;
+      color: #fff;
+      font-size: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .cat-slide-book {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      color: #fff;
+      background: #4E0636;
+      transition: background 0.18s, transform 0.15s;
+    }
+
+    .cat-slide-book:active {
+      background: #BC6587;
+      transform: scale(0.95);
+    }
+
+    .see-all-link {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #BC6587;
+      cursor: pointer;
+      text-decoration: none;
+    }
   </style>
 </head>
+
 <body>
 
-<div class="mx-auto max-w-[420px] bg-[#f8f6f2] min-h-screen flex flex-col relative" style="font-family:'Inter',sans-serif">
+  <div class="mx-auto max-w-[420px] bg-[#f8f6f2] min-h-screen flex flex-col relative"
+    style="font-family:'Inter',sans-serif">
 
-  <!-- ═══════════ STICKY HEADER ═══════════ -->
-  <header id="main-header" class="banner-bg px-5 pt-5 pb-1 bg-white/40 backdrop-blur-sm">
-    <!-- Top row -->
-    <div class="flex items-center justify-between mb-5 relative z-10">
-      <div class="flex items-center gap-3">
-        <img src="assets/images/logo/logo-3.png" alt="Exa" class="h-9 object-contain drop-shadow-lg"/>
+    <!-- ═══════════ STICKY HEADER ═══════════ -->
+    <header id="main-header" class="banner-bg px-5 pt-5 pb-1 bg-white/40 backdrop-blur-sm">
+      <!-- Top row -->
+      <div class="flex items-center justify-between mb-5 relative z-10">
+        <div class="flex items-center gap-3">
+          <img src="assets/images/logo/logo-3.png" alt="Exa" class="h-9 object-contain drop-shadow-lg" />
+        </div>
+        <div class="flex items-center gap-2.5">
+          <button onclick="toggleMenu()" class="w-9 h-9 rounded-full flex items-center justify-center"
+            style="background:rgba(188,101,135,.25); border:1px solid rgba(188,101,135,.4)">
+            <svg class="w-5 h-5 text-[#4E0636]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
       </div>
-      <div class="flex items-center gap-2.5">
-        <button onclick="toggleMenu()" class="w-9 h-9 rounded-full flex items-center justify-center" style="background:rgba(188,101,135,.25); border:1px solid rgba(188,101,135,.4)">
-          <svg class="w-5 h-5 text-[#4E0636]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
-      </div>
-    </div>
 
-    <!-- Location -->
-    <!-- <div class="flex items-center gap-1.5 mb-4 relative z-10">
+      <!-- Location -->
+      <!-- <div class="flex items-center gap-1.5 mb-4 relative z-10">
       <svg class="w-4 h-4 flex-none" fill="#BC6587" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
       <span class="text-white/60 text-xs">Delivering to</span>
       <span class="text-white font-semibold text-xs">Chennai, India</span>
       <svg class="w-3.5 h-3.5 text-white/60" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
     </div> -->
 
-    <!-- Search bar -->
-    <!-- <div class="search-bar rounded-2xl flex items-center gap-3 px-4 py-3 relative z-10">
+      <!-- Search bar -->
+      <!-- <div class="search-bar rounded-2xl flex items-center gap-3 px-4 py-3 relative z-10">
       <svg class="w-4.5 h-4.5 text-white/50 flex-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width:18px;height:18px"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
       <span class="text-white/40 text-sm">Search for services…</span>
       <div class="ml-auto">
@@ -219,21 +533,21 @@
       </div>
     </div> -->
 
-    <!-- Quick tags -->
-    <!-- <div class="flex gap-2 mt-3 overflow-x-auto no-sb pb-0.5 relative z-10">
+      <!-- Quick tags -->
+      <!-- <div class="flex gap-2 mt-3 overflow-x-auto no-sb pb-0.5 relative z-10">
       <span class="tag text-white/70 text-[11px] font-medium px-3 py-1 rounded-full whitespace-nowrap">⚡ Electrical</span>
       <span class="tag text-white/70 text-[11px] font-medium px-3 py-1 rounded-full whitespace-nowrap">❄️ Aircon</span>
       <span class="tag text-white/70 text-[11px] font-medium px-3 py-1 rounded-full whitespace-nowrap">🔧 Plumbing</span>
       <span class="tag text-white/70 text-[11px] font-medium px-3 py-1 rounded-full whitespace-nowrap">🎨 Painting</span>
       <span class="tag text-white/70 text-[11px] font-medium px-3 py-1 rounded-full whitespace-nowrap">🐛 Pest Control</span>
     </div> -->
-  </header>
+    </header>
 
-  <!-- ═══════════ SCROLLABLE CONTENT ═══════════ -->
-  <main class="flex-1 overflow-y-auto" id="main-scroll">
+    <!-- ═══════════ SCROLLABLE CONTENT ═══════════ -->
+    <main class="flex-1 overflow-y-auto" id="main-scroll">
 
-    <!-- ── Promo Banner ── -->
-    <!-- <div class="promo-strip mx-4 mt-4 rounded-2xl px-4 py-2.5 flex items-center gap-3 fade-up">
+      <!-- ── Promo Banner ── -->
+      <!-- <div class="promo-strip mx-4 mt-4 rounded-2xl px-4 py-2.5 flex items-center gap-3 fade-up">
       <span class="text-2xl">🎉</span>
       <div class="flex-1 min-w-0">
         <p class="text-[#4E0636] font-bold text-xs leading-tight">50% OFF your first booking</p>
@@ -242,46 +556,96 @@
       <button onclick="openWA('Exa Home Services')" class="bg-[#4E0636] text-[#E297B3] text-[10px] font-bold px-3 py-1.5 rounded-xl whitespace-nowrap">Grab Deal</button>
     </div> -->
 
-    <!-- ── Hero Card ── -->
-    <div id="hero" class="mx-4 mt-4 rounded-3xl overflow-hidden relative lift fade-up" style="animation-delay:.05s">
-      <div class="swiper hero-swiper h-42 bg-[#f8f6f2]">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide cursor-pointer" onclick="openWA('Exa Featured Service')">
-            <img src="assets/images/banner/BannersArtboard 1.avif" alt="Banner 0" class="w-full h-full object-contain object-center"/>
+      <!-- ── Hero Card ── -->
+      <div id="hero" class=" mt-4 overflow-hidden relative lift fade-up" style="animation-delay:.05s">
+        <div class="swiper hero-swiper h-42 bg-[#f8f6f2]">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide cursor-pointer" onclick="openWA('Exa Featured Service')">
+              <img src="assets/images/banner/BannersArtboard 1.avif" alt="Banner 0"
+                class="w-full h-full object-contain object-center" />
+            </div>
+            <div class="swiper-slide cursor-pointer" onclick="openWA('Exa Featured Service')">
+              <img src="assets/images/banner/BannersArtboard 2.avif" alt="Banner 0"
+                class="w-full h-full object-contain object-center" />
+            </div>
+            <div class="swiper-slide cursor-pointer" onclick="openWA('Exa Featured Service')">
+              <img src="assets/images/banner/BannersArtboard 3.avif" alt="Banner 0"
+                class="w-full h-full object-contain object-center" />
+            </div>
           </div>
-           <div class="swiper-slide cursor-pointer" onclick="openWA('Exa Featured Service')">
-            <img src="assets/images/banner/BannersArtboard 2.avif" alt="Banner 0" class="w-full h-full object-contain object-center"/>
-          </div>
-           <div class="swiper-slide cursor-pointer" onclick="openWA('Exa Featured Service')">
-            <img src="assets/images/banner/BannersArtboard 3.avif" alt="Banner 0" class="w-full h-full object-contain object-center"/>
-          </div>
+          <div class="swiper-pagination"></div>
         </div>
-        <div class="swiper-pagination"></div>
       </div>
-    </div>
 
-    <!-- ── Category Grid ── -->
-    <section id="cat-section" class="mt-5 px-4 fade-up" style="animation-delay:.08s">
-      <div id="cat-grid" class="grid grid-cols-4 gap-x-2 gap-y-5"></div>
-    </section>
-
-    <!-- ════════════════════════════════════
+      <!-- ════════════════════════════════════‰
          ROW 1: Top Services 🏆
     ═══════════════════════════════════════ -->
-    <section id="services" class="mt-6 fade-up" style="animation-delay:.1s">
-      <div class="flex items-center justify-between px-4 mb-3">
-        <h2 class="font-serif text-[17px] text-[#4E0636]">Top Services 🏆</h2>
-      </div>
-      <div class="swiper services-swiper pb-4">
-        <div id="row1" class="swiper-wrapper"></div>
-      </div>
-    </section>
+      <section id="services" class="mt-6 fade-up" style="animation-delay:.1s">
+        <div class="flex items-center justify-between px-4 mb-3">
+          <h2 class="font-serif text-[17px] text-[#4E0636]">Top Services </h2>
+        </div>
+        <div class="swiper services-swiper pb-4">
+          <div id="row1" class="swiper-wrapper"></div>
+        </div>
+      </section>
+
+            <!-- ════════════════════════════════════
+         ❄️ Aircon
+    ═══════════════════════════════════════ -->
+      <section id="sec-aircon" class="mt-6 fade-up" style="animation-delay:.13s">
+        <div class="flex items-center justify-between px-4 mb-3">
+          <h2 class="font-serif text-[17px] text-[#4E0636]"> Aircon</h2>
+          <!-- <a class="see-all-link" onclick="openPopup('Aircon', getServicesByCat('aircon'))">See All</a> -->
+        </div>
+        <div class="swiper aircon-swiper pb-4">
+          <div id="row-aircon" class="swiper-wrapper"></div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════
+         🧹 Cleaning
+    ═══════════════════════════════════════ -->
+      <section id="sec-cleaning" class="mt-6 fade-up" style="animation-delay:.16s">
+        <div class="flex items-center justify-between px-4 mb-3">
+          <h2 class="font-serif text-[17px] text-[#4E0636]"> Cleaning</h2>
+          <!-- <a class="see-all-link" onclick="openPopup('Cleaning', getServicesByCat('cleaning'))">See All</a> -->
+        </div>
+        <div class="swiper cleaning-swiper pb-4">
+          <div id="row-cleaning" class="swiper-wrapper"></div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════
+         🔧 Handyman
+    ═══════════════════════════════════════ -->
+      <section id="sec-handyman" class="mt-6 fade-up" style="animation-delay:.19s">
+        <div class="flex items-center justify-between px-4 mb-3">
+          <h2 class="font-serif text-[17px] text-[#4E0636]"> Handyman</h2>
+          <!-- <a class="see-all-link" onclick="openPopup('Handyman', getServicesByCat('handyman'))">See All</a> -->
+        </div>
+        <div class="swiper handyman-swiper pb-4">
+          <div id="row-handyman" class="swiper-wrapper"></div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════
+         🐛 Pest Control
+    ═══════════════════════════════════════ -->
+      <section id="sec-pest" class="mt-6 fade-up" style="animation-delay:.22s">
+        <div class="flex items-center justify-between px-4 mb-3">
+          <h2 class="font-serif text-[17px] text-[#4E0636]"> Pest Control</h2>
+          <!-- <a class="see-all-link" onclick="openPopup('Pest Control', getServicesByCat('pest'))">See All</a> -->
+        </div>
+        <div class="swiper pest-swiper pb-4">
+          <div id="row-pest" class="swiper-wrapper"></div>
+        </div>
+      </section>
 
 
-    <!-- ════════════════════════════════════
+      <!-- ════════════════════════════════════
          ROW 2: Trending Near You 🔥
     ═══════════════════════════════════════ -->
-    <!-- <section id="trending" class="mt-6 fade-up" style="animation-delay:.2s">
+      <!-- <section id="trending" class="mt-6 fade-up" style="animation-delay:.2s">
       <div class="flex items-center justify-between px-4 mb-3">
         <h2 class="font-serif text-[17px] text-[#4E0636]">Trending Near You 🔥</h2>
       </div>
@@ -292,102 +656,124 @@
 
 
 
-    <!-- ── Testimonial Strip ── -->
-    <section id="testimonials" class="mt-4 mx-4 mb-2 rounded-3xl overflow-hidden fade-up relative" style="animation-delay:.35s; background: linear-gradient(135deg,#4E0636,#5c0740)">
-      <div class="swiper testimonials-swiper">
-        <div class="swiper-wrapper">
-          <!-- Slide 1 -->
-          <div class="swiper-slide pt-5 px-5 pb-8">
-            <p class="text-[#E297B3] text-[10px] font-bold uppercase tracking-widest mb-1">What Clients Say</p>
-            <p class="font-serif text-white text-sm italic leading-snug">"Exa provided excellent service for my apartment. Professional, punctual, and outstanding quality!"</p>
-            <div class="flex items-center gap-2 mt-3">
-              <img src="https://plus.unsplash.com/premium_photo-1682089846950-974c7c7d5e91?fm=jpg&q=60&w=200" alt="Testimonial Author" class="w-8 h-8 rounded-full object-cover border-2 border-[#BC6587]"/>
-              <div>
-                <p class="text-white font-semibold text-xs">Priya Sharma</p>
-                <p class="text-white/50 text-[10px]">Business Owner, Bangalore</p>
+      <!-- ── Testimonial Strip ── -->
+      <section id="testimonials" class="mt-4 mx-4 mb-2 rounded-3xl overflow-hidden fade-up relative"
+        style="animation-delay:.35s; background: linear-gradient(135deg,#4E0636,#5c0740)">
+        <div class="swiper testimonials-swiper">
+          <div class="swiper-wrapper">
+            <!-- Slide 1 -->
+            <div class="swiper-slide pt-5 px-5 pb-8">
+              <p class="text-[#E297B3] text-[10px] font-bold uppercase tracking-widest mb-1">What Clients Say</p>
+              <p class="font-serif text-white text-sm italic leading-snug">"Exa provided excellent service for my
+                apartment. Professional, punctual, and outstanding quality!"</p>
+              <div class="flex items-center gap-2 mt-3">
+                <img src="https://plus.unsplash.com/premium_photo-1682089846950-974c7c7d5e91?fm=jpg&q=60&w=200"
+                  alt="Testimonial Author" class="w-8 h-8 rounded-full object-cover border-2 border-[#BC6587]" />
+                <div>
+                  <p class="text-white font-semibold text-xs">Priya Sharma</p>
+                  <p class="text-white/50 text-[10px]">Business Owner, Bangalore</p>
+                </div>
+                <div class="ml-auto flex gap-0.5">
+                  <span class="text-[#E297B3] text-xs">★★★★★</span>
+                </div>
               </div>
-              <div class="ml-auto flex gap-0.5">
-                <span class="text-[#E297B3] text-xs">★★★★★</span>
+            </div>
+            <!-- Slide 2 -->
+            <div class="swiper-slide pt-5 px-5 pb-8">
+              <p class="text-[#E297B3] text-[10px] font-bold uppercase tracking-widest mb-1">What Clients Say</p>
+              <p class="font-serif text-white text-sm italic leading-snug">"The deep cleaning team was incredibly
+                thorough. My home feels brand new! Highly recommended."</p>
+              <div class="flex items-center gap-2 mt-3">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fm=jpg&q=60&w=200"
+                  alt="Testimonial Author" class="w-8 h-8 rounded-full object-cover border-2 border-[#BC6587]" />
+                <div>
+                  <p class="text-white font-semibold text-xs">Rahul Verma</p>
+                  <p class="text-white/50 text-[10px]">Homeowner, Mumbai</p>
+                </div>
+                <div class="ml-auto flex gap-0.5">
+                  <span class="text-[#E297B3] text-xs">★★★★★</span>
+                </div>
+              </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="swiper-slide pt-5 px-5 pb-8">
+              <p class="text-[#E297B3] text-[10px] font-bold uppercase tracking-widest mb-1">What Clients Say</p>
+              <p class="font-serif text-white text-sm italic leading-snug">"Fast, reliable, and very affordable plumbing
+                fix. They arrived within the hour!"</p>
+              <div class="flex items-center gap-2 mt-3">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?fm=jpg&q=60&w=200"
+                  alt="Testimonial Author" class="w-8 h-8 rounded-full object-cover border-2 border-[#BC6587]" />
+                <div>
+                  <p class="text-white font-semibold text-xs">Anjali Desai</p>
+                  <p class="text-white/50 text-[10px]">Architect, Delhi</p>
+                </div>
+                <div class="ml-auto flex gap-0.5">
+                  <span class="text-[#E297B3] text-xs">★★★★★</span>
+                </div>
               </div>
             </div>
           </div>
-          <!-- Slide 2 -->
-          <div class="swiper-slide pt-5 px-5 pb-8">
-            <p class="text-[#E297B3] text-[10px] font-bold uppercase tracking-widest mb-1">What Clients Say</p>
-            <p class="font-serif text-white text-sm italic leading-snug">"The deep cleaning team was incredibly thorough. My home feels brand new! Highly recommended."</p>
-            <div class="flex items-center gap-2 mt-3">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fm=jpg&q=60&w=200" alt="Testimonial Author" class="w-8 h-8 rounded-full object-cover border-2 border-[#BC6587]"/>
-              <div>
-                <p class="text-white font-semibold text-xs">Rahul Verma</p>
-                <p class="text-white/50 text-[10px]">Homeowner, Mumbai</p>
-              </div>
-              <div class="ml-auto flex gap-0.5">
-                <span class="text-[#E297B3] text-xs">★★★★★</span>
-              </div>
-            </div>
-          </div>
-          <!-- Slide 3 -->
-          <div class="swiper-slide pt-5 px-5 pb-8">
-            <p class="text-[#E297B3] text-[10px] font-bold uppercase tracking-widest mb-1">What Clients Say</p>
-            <p class="font-serif text-white text-sm italic leading-snug">"Fast, reliable, and very affordable plumbing fix. They arrived within the hour!"</p>
-            <div class="flex items-center gap-2 mt-3">
-              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?fm=jpg&q=60&w=200" alt="Testimonial Author" class="w-8 h-8 rounded-full object-cover border-2 border-[#BC6587]"/>
-              <div>
-                <p class="text-white font-semibold text-xs">Anjali Desai</p>
-                <p class="text-white/50 text-[10px]">Architect, Delhi</p>
-              </div>
-              <div class="ml-auto flex gap-0.5">
-                <span class="text-[#E297B3] text-xs">★★★★★</span>
-              </div>
-            </div>
-          </div>
+          <div class="swiper-pagination testimonials-pagination !bottom-2"></div>
         </div>
-        <div class="swiper-pagination testimonials-pagination !bottom-2"></div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ── CTA Banner ── -->
-    <div class="mx-4 mt-4 mb-6 fade-up" style="animation-delay:.4s">
-      <div class="banner-bg rounded-3xl p-5 relative overflow-hidden">
-        <div class="absolute -right-8 -top-8 w-36 h-36 rounded-full" style="background:rgba(188,101,135,.15)"></div>
-        <p class="text-[#E297B3] text-[10px] font-bold uppercase tracking-widest mb-1 relative z-10">24/7 Available</p>
-        <h3 class="font-serif text-black text-lg leading-tight relative z-10">Need Emergency<br/>Home Service?</h3>
-        <p class="text-white/60 text-xs mt-1 mb-3 relative z-10">Our experts are ready round the clock</p>
-        <button onclick="openWA('Exa Emergency Service')" class="gold-badge text-[#4E0636] text-xs font-bold px-5 py-2.5 rounded-xl relative z-10">Call Now: +91 98765 43210</button>
+      <!-- ── CTA Banner ── -->
+      <div class="mx-4 mt-4 mb-6 fade-up" style="animation-delay:.4s">
+        <div class="banner-bg rounded-3xl p-5 relative overflow-hidden">
+          <div class="absolute -right-8 -top-8 w-36 h-36 rounded-full" style="background:rgba(188,101,135,.15)"></div>
+          <p class="text-[#E297B3] text-[10px] font-bold uppercase tracking-widest mb-1 relative z-10">24/7 Available
+          </p>
+          <h3 class="font-serif text-black text-lg leading-tight relative z-10">Need Emergency<br />Home Service?</h3>
+          <p class="text-white/60 text-xs mt-1 mb-3 relative z-10">Our experts are ready round the clock</p>
+          <button onclick="openWA('Exa Emergency Service')"
+            class="gold-badge text-[#4E0636] text-xs font-bold px-5 py-2.5 rounded-xl relative z-10">Call Now: +91 98765
+            43210</button>
+        </div>
       </div>
-    </div>
 
-    <!-- ── Modern Footer ── -->
-    <footer class="mt-8 px-6 pb-24 pt-10 bg-[#4E0636] rounded-t-[40px] text-center flex flex-col items-center">
-      <h3 class="font-serif text-3xl text-[#E297B3] mb-2 tracking-wide">Exa</h3>
-      <p class="text-white/60 text-xs mb-8 max-w-[250px] leading-relaxed">Premium Home Services Delivered with Excellence.</p>
-      
-      <div class="flex gap-6 mb-8">
-        <a href="#hero" class="text-white/80 hover:text-[#E297B3] text-sm font-medium transition-colors">Home</a>
-        <a href="#services" class="text-white/80 hover:text-[#E297B3] text-sm font-medium transition-colors">Services</a>
-        <a href="#testimonials" class="text-white/80 hover:text-[#E297B3] text-sm font-medium transition-colors">Reviews</a>
-      </div>
-      
-      <div class="flex gap-4 mb-8">
-        <!-- Insta -->
-        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-white/80 hover:bg-white/20 hover:text-white transition-all">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        </a>
-        <!-- FB -->
-        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:bg-white/20 hover:text-white transition-all">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        </a>
-      </div>
-      
-      <div class="w-full h-px bg-white/10 mb-6"></div>
-      
-      <p class="text-white/40 text-[11px] font-medium tracking-wide">© <span id="current-year"></span> Exa Home Services. All rights reserved.</p>
-    </footer>
+      <!-- ── Modern Footer ── -->
+      <footer class="mt-8 px-6 pb-24 pt-10 bg-[#4E0636] rounded-t-[40px] text-center flex flex-col items-center">
+        <h3 class="font-serif text-3xl text-[#E297B3] mb-2 tracking-wide">Exa</h3>
+        <p class="text-white/60 text-xs mb-8 max-w-[250px] leading-relaxed">Premium Home Services Delivered with
+          Excellence.</p>
 
-  </main>
+        <div class="flex gap-6 mb-8">
+          <a href="#hero" class="text-white/80 hover:text-[#E297B3] text-sm font-medium transition-colors">Home</a>
+          <a href="#services"
+            class="text-white/80 hover:text-[#E297B3] text-sm font-medium transition-colors">Services</a>
+          <a href="#testimonials"
+            class="text-white/80 hover:text-[#E297B3] text-sm font-medium transition-colors">Reviews</a>
+        </div>
 
-  <!-- ═══════════ STICKY BOTTOM NAV ═══════════ -->
-  <!-- <nav class="bottom-nav fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[420px] bg-white flex items-center justify-around py-3 z-50" style="border-top:1px solid #f0ece4">
+        <div class="flex gap-4 mb-8">
+          <!-- Insta -->
+          <a href="#"
+            class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-white/80 hover:bg-white/20 hover:text-white transition-all">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+            </svg>
+          </a>
+          <!-- FB -->
+          <a href="#"
+            class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:bg-white/20 hover:text-white transition-all">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="w-full h-px bg-white/10 mb-6"></div>
+
+        <p class="text-white/40 text-[11px] font-medium tracking-wide">© <span id="current-year"></span> Exa Home
+          Services. All rights reserved.</p>
+      </footer>
+
+    </main>
+
+    <!-- ═══════════ STICKY BOTTOM NAV ═══════════ -->
+    <!-- <nav class="bottom-nav fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[420px] bg-white flex items-center justify-around py-3 z-50" style="border-top:1px solid #f0ece4">
     <button id="nav-home" class="flex flex-col items-center gap-1 nav-active" onclick="setNav('home')">
       <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
       <div class="nav-dot w-1 h-1 rounded-full"></div>
@@ -413,206 +799,231 @@
     </button>
   </nav> -->
 
-  <!-- ── Floating Actions (Glassmorphism) ── -->
-  <div class="fixed bottom-6 right-4 sm:right-[calc(50vw-200px)] z-[60] flex flex-col gap-3">
-    <!-- WhatsApp -->
-    <a href="https://wa.me/919876543210" target="_blank" class="w-12 h-12 rounded-full flex items-center justify-center glass-btn text-[#25D366] transition-transform active:scale-95">
-      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-    </a>
-    <!-- Instagram -->
-    <a href="https://instagram.com" target="_blank" class="w-12 h-12 rounded-full flex items-center justify-center glass-btn text-[#E1306C] transition-transform active:scale-95">
-      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-    </a>
-    <!-- Scroll to top -->
-    <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="w-12 h-12 rounded-full flex items-center justify-center glass-btn text-[#4E0636] transition-transform active:scale-95">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
-    </button>
-  </div>
-
-  <!-- ── Service Popup (Bottom Sheet) ── -->
-  <div id="svc-popup-overlay" onclick="closePopup()"></div>
-  <div id="svc-popup" role="dialog" aria-modal="true">
-    <div class="popup-handle"></div>
-    <div class="popup-header">
-      <h3 id="popup-title" class="font-serif text-[17px] text-[#4E0636] font-bold"></h3>
-      <button onclick="closePopup()" class="w-8 h-8 rounded-full flex items-center justify-center" style="background:rgba(78,6,54,.08)">
-        <svg class="w-4 h-4 text-[#4E0636]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    <!-- ── Floating Actions (Glassmorphism) ── -->
+    <div class="fixed bottom-6 right-4 sm:right-[calc(50vw-200px)] z-[60] flex flex-col gap-3">
+      <!-- WhatsApp -->
+      <a href="https://wa.me/919876543210" target="_blank"
+        class="w-12 h-12 rounded-full flex items-center justify-center glass-btn text-[#25D366] transition-transform active:scale-95">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+        </svg>
+      </a>
+      <!-- Instagram -->
+      <a href="https://instagram.com" target="_blank"
+        class="w-12 h-12 rounded-full flex items-center justify-center glass-btn text-[#E1306C] transition-transform active:scale-95">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+        </svg>
+      </a>
+      <!-- Scroll to top -->
+      <button onclick="window.scrollTo({top:0, behavior:'smooth'})"
+        class="w-12 h-12 rounded-full flex items-center justify-center glass-btn text-[#4E0636] transition-transform active:scale-95">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+        </svg>
       </button>
     </div>
-    <div class="popup-body" id="popup-body"></div>
+
+    <!-- ── Service Popup (Bottom Sheet) ── -->
+    <div id="svc-popup-overlay" onclick="closePopup()"></div>
+    <div id="svc-popup" role="dialog" aria-modal="true">
+      <div class="popup-handle"></div>
+      <div class="popup-header">
+        <h3 id="popup-title" class="font-serif text-[17px] text-[#4E0636] font-bold"></h3>
+        <button onclick="closePopup()" class="w-8 h-8 rounded-full flex items-center justify-center"
+          style="background:rgba(78,6,54,.08)">
+          <svg class="w-4 h-4 text-[#4E0636]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="popup-body" id="popup-body"></div>
+    </div>
+
+    <!-- ── Mobile Menu Overlay ── -->
+    <div id="mobile-menu"
+      class="fixed inset-0 bg-[#4E0636]/95 backdrop-blur-md z-[100] opacity-0 pointer-events-none transition-opacity duration-300 flex flex-col items-center pt-6 px-6">
+      <div class="w-full max-w-[420px] flex justify-end mb-10 relative z-[110]">
+        <button onclick="toggleMenu()" class="text-white/80 hover:text-white p-2" aria-label="Close Menu">
+          <svg class="w-8 h-8 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="flex flex-col items-center gap-8 text-2xl font-serif text-white w-full max-w-[420px]">
+        <a href="#hero" onclick="toggleMenu()" class="hover:text-[#E297B3] transition-colors">Home</a>
+        <a href="#services" onclick="toggleMenu()" class="hover:text-[#E297B3] transition-colors">Top Services</a>
+        <a href="#trending" onclick="toggleMenu()" class="hover:text-[#E297B3] transition-colors">Trending</a>
+        <a href="#premium" onclick="toggleMenu()" class="hover:text-[#E297B3] transition-colors">Premium Picks</a>
+        <a href="#quickfix" onclick="toggleMenu()" class="hover:text-[#E297B3] transition-colors">Quick Fixes</a>
+        <a href="#testimonials" onclick="toggleMenu()" class="hover:text-[#E297B3] transition-colors">Reviews</a>
+      </div>
+
+      <div class="mt-auto mb-12 w-full max-w-[420px] flex flex-col items-center">
+        <p class="text-[#E297B3] text-sm font-bold uppercase tracking-widest mb-4">Contact Us</p>
+        <a href="tel:+919876543210"
+          class="flex items-center gap-3 text-white text-lg mb-4 hover:text-[#E297B3] transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          +91 98765 43210
+        </a>
+        <a href="https://wa.me/919876543210" target="_blank"
+          class="flex items-center gap-3 text-white text-lg hover:text-[#E297B3] transition-colors">
+          <svg class="w-5 h-5 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+
   </div>
 
-  <!-- ── Mobile Menu Overlay ── -->
-  <div id="mobile-menu" class="fixed inset-0 bg-[#4E0636]/95 backdrop-blur-md z-[100] opacity-0 pointer-events-none transition-opacity duration-300 flex flex-col items-center pt-6 px-6">
-    <div class="w-full max-w-[420px] flex justify-end mb-10 relative z-[110]">
-      <button onclick="toggleMenu()" class="text-white/80 hover:text-white p-2" aria-label="Close Menu">
-        <svg class="w-8 h-8 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-      </button>
-    </div>
-    
-    <div class="flex flex-col items-center gap-8 text-2xl font-serif text-white w-full max-w-[420px]">
-      <a href="#hero" onclick="toggleMenu()" class="hover:text-[#E297B3] transition-colors">Home</a>
-      <a href="#services" onclick="toggleMenu()" class="hover:text-[#E297B3] transition-colors">Top Services</a>
-      <a href="#trending" onclick="toggleMenu()" class="hover:text-[#E297B3] transition-colors">Trending</a>
-      <a href="#premium" onclick="toggleMenu()" class="hover:text-[#E297B3] transition-colors">Premium Picks</a>
-      <a href="#quickfix" onclick="toggleMenu()" class="hover:text-[#E297B3] transition-colors">Quick Fixes</a>
-      <a href="#testimonials" onclick="toggleMenu()" class="hover:text-[#E297B3] transition-colors">Reviews</a>
-    </div>
-    
-    <div class="mt-auto mb-12 w-full max-w-[420px] flex flex-col items-center">
-      <p class="text-[#E297B3] text-sm font-bold uppercase tracking-widest mb-4">Contact Us</p>
-      <a href="tel:+919876543210" class="flex items-center gap-3 text-white text-lg mb-4 hover:text-[#E297B3] transition-colors">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-        +91 98765 43210
-      </a>
-      <a href="https://wa.me/919876543210" target="_blank" class="flex items-center gap-3 text-white text-lg hover:text-[#E297B3] transition-colors">
-         <svg class="w-5 h-5 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-         WhatsApp
-      </a>
-    </div>
-  </div>
-
-</div>
-
-<script>
-  function toggleMenu() {
-    const menu = document.getElementById('mobile-menu');
-    const scrollContainer = document.getElementById('main-scroll');
-    if (menu.classList.contains('opacity-0')) {
-      menu.classList.remove('opacity-0', 'pointer-events-none');
-      menu.classList.add('opacity-100', 'pointer-events-auto');
-      if (scrollContainer) scrollContainer.style.overflow = 'hidden';
-    } else {
-      menu.classList.add('opacity-0', 'pointer-events-none');
-      menu.classList.remove('opacity-100', 'pointer-events-auto');
-      if (scrollContainer) scrollContainer.style.overflow = '';
-    }
-  }
-  const PHONE = '919876543210';
-  const openWA = (name) => {
-    const msg = encodeURIComponent(`Hi, I want to book ${name}`);
-    window.open(`https://wa.me/${PHONE}?text=${msg}`, '_blank');
-  };
-
-  function setNav(id) {
-    ['home','search','orders','profile'].forEach(n => {
-      const el = document.getElementById('nav-'+n);
-      if (el) {
-        el.classList.remove('nav-active');
-        el.classList.add('text-gray-400');
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const scrollContainer = document.getElementById('main-scroll');
+      if (menu.classList.contains('opacity-0')) {
+        menu.classList.remove('opacity-0', 'pointer-events-none');
+        menu.classList.add('opacity-100', 'pointer-events-auto');
+        if (scrollContainer) scrollContainer.style.overflow = 'hidden';
+      } else {
+        menu.classList.add('opacity-0', 'pointer-events-none');
+        menu.classList.remove('opacity-100', 'pointer-events-auto');
+        if (scrollContainer) scrollContainer.style.overflow = '';
       }
-    });
-    const active = document.getElementById('nav-'+id);
-    if (active) {
-      active.classList.add('nav-active');
-      active.classList.remove('text-gray-400');
     }
-  }
+    const PHONE = '919876543210';
+    const openWA = (name) => {
+      const msg = encodeURIComponent(`Hi, I want to book ${name}`);
+      window.open(`https://wa.me/${PHONE}?text=${msg}`, '_blank');
+    };
 
-  // ── Data ──
-  // ── Categories ──
-  const ICONS = {
-    aircon:       `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="9" rx="2"/><path d="M6 16v3M12 16v3M18 16v3M6 11h12M10 11V9M12 11V8M14 11V9"/></svg>`,
-    cleaning:     `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l7-7m6-11l5 5-9.5 9.5-5-5L17 3z"/><path d="M10 14l-4 4"/><path d="M18 8l-2-2"/></svg>`,
-    handyman:     `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>`,
-    packers:      `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>`,
-    dehumidifier: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/><path d="M9.5 14.5h5M9.5 17.5h3"/></svg>`,
-    pest:         `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20c-3.3 0-6-2.7-6-6v-3a6 6 0 0112 0v3c0 3.3-2.7 6-6 6z"/><path d="M6 13H2M22 13h-4M6 17l-2 2M18 17l2 2M6 9l-2-2M18 9l2-2M10 7a2 2 0 004 0"/></svg>`,
-    appliance:    `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="2" width="18" height="20" rx="2"/><circle cx="12" cy="13" r="4"/><path d="M7 6h.01M11 6h3"/></svg>`,
-    construction: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20V10M20 20V10M4 10l8-8 8 8M10 20v-5h4v5"/></svg>`,
-    gardening:    `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12M12 12C12 7 7 4 3 5c1 4 4 7 9 7zM12 12c0-5 5-8 9-7-1 4-4 7-9 7z"/></svg>`,
-    renovation:   `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17h20M6 17V9M18 17V9M10 17v-4h4v4M6 9l6-6 6 6"/><circle cx="19" cy="5" r="2"/><path d="M19 7v10"/></svg>`,
-    pool:         `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c1.5 2 3.5 2 5 0s3.5-2 5 0 3.5 2 5 0M2 17c1.5 2 3.5 2 5 0s3.5-2 5 0 3.5 2 5 0"/><circle cx="12" cy="4" r="2"/><path d="M12 6v5M9 8l3 3 3-3"/></svg>`,
-    petcare:      `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="4.5" cy="7" r="2"/><circle cx="9" cy="4" r="2"/><circle cx="15" cy="4" r="2"/><circle cx="19.5" cy="7" r="2"/><path d="M12 22c-3.9 0-7-3.1-7-7 0-1.5 1.1-3 2.8-3.5L12 10l4.2 1.5C17.9 12 19 13.5 19 15c0 3.9-3.1 7-7 7z"/></svg>`,
-    personalcare: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l2 7H4L6 3zM4 10c0 4.4 3.6 8 8 8s8-3.6 8-8"/><path d="M10 15l2 2 2-2"/></svg>`,
-    babysitter:   `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6" r="3"/><path d="M9 12H8a2 2 0 00-2 2v6h12v-6a2 2 0 00-2-2h-1M9 12v8M15 12v8"/><path d="M12 9v3"/></svg>`,
-    eldercare:    `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><path d="M9 10h6M12 10v5M10 22l-1-7M14 22l1-7"/><path d="M8 14l-1 3M16 14l1 3M14 16l3 6M10 16l-3 6"/></svg>`,
-  };
+    function setNav(id) {
+      ['home', 'search', 'orders', 'profile'].forEach(n => {
+        const el = document.getElementById('nav-' + n);
+        if (el) {
+          el.classList.remove('nav-active');
+          el.classList.add('text-gray-400');
+        }
+      });
+      const active = document.getElementById('nav-' + id);
+      if (active) {
+        active.classList.add('nav-active');
+        active.classList.remove('text-gray-400');
+      }
+    }
 
-  // ── Categories ──
-  const categories = [
-    { id:'aircon',       name:'Aircon' },
-    { id:'cleaning',     name:'Cleaning' },
-    { id:'handyman',     name:'Handyman' },
-    { id:'packers',      name:'Packers &\nMovers' },
-    { id:'dehumidifier', name:'Dehumidifier' },
-    { id:'pest',         name:'Pest Control' },
-    { id:'appliance',    name:'Appliance &\nRepairs' },
-    { id:'construction', name:'Minor\nConstructions' },
-    { id:'gardening',    name:'Gardening' },
-    { id:'renovation',   name:'Interior\nRenovation' },
-    { id:'pool',         name:'Swimming Pool\nMaint.' },
-    { id:'petcare',      name:'Pet Care' },
-    { id:'personalcare', name:'Personal Care' },
-    { id:'babysitter',   name:'Baby Sitter' },
-    { id:'eldercare',    name:'Elder Care' },
-  ];
+    // ── Data ──
+    // ── Categories ──
+    const ICONS = {
+      aircon: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="9" rx="2"/><path d="M6 16v3M12 16v3M18 16v3M6 11h12M10 11V9M12 11V8M14 11V9"/></svg>`,
+      cleaning: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l7-7m6-11l5 5-9.5 9.5-5-5L17 3z"/><path d="M10 14l-4 4"/><path d="M18 8l-2-2"/></svg>`,
+      handyman: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>`,
+      packers: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>`,
+      dehumidifier: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/><path d="M9.5 14.5h5M9.5 17.5h3"/></svg>`,
+      pest: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20c-3.3 0-6-2.7-6-6v-3a6 6 0 0112 0v3c0 3.3-2.7 6-6 6z"/><path d="M6 13H2M22 13h-4M6 17l-2 2M18 17l2 2M6 9l-2-2M18 9l2-2M10 7a2 2 0 004 0"/></svg>`,
+      appliance: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="2" width="18" height="20" rx="2"/><circle cx="12" cy="13" r="4"/><path d="M7 6h.01M11 6h3"/></svg>`,
+      construction: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20V10M20 20V10M4 10l8-8 8 8M10 20v-5h4v5"/></svg>`,
+      gardening: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12M12 12C12 7 7 4 3 5c1 4 4 7 9 7zM12 12c0-5 5-8 9-7-1 4-4 7-9 7z"/></svg>`,
+      renovation: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17h20M6 17V9M18 17V9M10 17v-4h4v4M6 9l6-6 6 6"/><circle cx="19" cy="5" r="2"/><path d="M19 7v10"/></svg>`,
+      pool: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c1.5 2 3.5 2 5 0s3.5-2 5 0 3.5 2 5 0M2 17c1.5 2 3.5 2 5 0s3.5-2 5 0 3.5 2 5 0"/><circle cx="12" cy="4" r="2"/><path d="M12 6v5M9 8l3 3 3-3"/></svg>`,
+      petcare: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="4.5" cy="7" r="2"/><circle cx="9" cy="4" r="2"/><circle cx="15" cy="4" r="2"/><circle cx="19.5" cy="7" r="2"/><path d="M12 22c-3.9 0-7-3.1-7-7 0-1.5 1.1-3 2.8-3.5L12 10l4.2 1.5C17.9 12 19 13.5 19 15c0 3.9-3.1 7-7 7z"/></svg>`,
+      personalcare: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l2 7H4L6 3zM4 10c0 4.4 3.6 8 8 8s8-3.6 8-8"/><path d="M10 15l2 2 2-2"/></svg>`,
+      babysitter: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6" r="3"/><path d="M9 12H8a2 2 0 00-2 2v6h12v-6a2 2 0 00-2-2h-1M9 12v8M15 12v8"/><path d="M12 9v3"/></svg>`,
+      eldercare: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><path d="M9 10h6M12 10v5M10 22l-1-7M14 22l1-7"/><path d="M8 14l-1 3M16 14l1 3M14 16l3 6M10 16l-3 6"/></svg>`,
+    };
 
-  // ── All Services (categorised) ──
-  const allServices = [
-    { cat:'aircon',       name:'Aircon Service',      sub:'Install & Repair',    img:'assets/images/services/Category Aircon.jpg',                              badge:'⭐ 4.8', time:'Same Day', offer:'20% OFF' },
-    { cat:'aircon',       name:'AC Deep Clean',        sub:'Full Servicing',      img:'assets/images/services/Category Aircon.jpg',                              badge:'⭐ 4.7', time:'2 hrs',    offer:'15% OFF' },
-    { cat:'aircon',       name:'AC Gas Refill',        sub:'All Brands',          img:'assets/images/services/Category Aircon.jpg',                              badge:'⭐ 4.6', time:'1 hr',     offer:'₹799' },
-    { cat:'cleaning',     name:'Deep Cleaning',        sub:'Full Home Clean',     img:'assets/images/services/Category Cleaning.jpg',                           badge:'⭐ 4.8', time:'3 hrs',    offer:'FLAT ₹999' },
-    { cat:'cleaning',     name:'Kitchen Cleaning',     sub:'Degreasing & Scrub',  img:'assets/images/services/Category Cleaning.jpg',                           badge:'⭐ 4.7', time:'2 hrs',    offer:'₹499' },
-    { cat:'cleaning',     name:'Bathroom Clean',       sub:'Deep Sanitisation',   img:'assets/images/services/Category Cleaning.jpg',                           badge:'⭐ 4.8', time:'1 hr',     offer:'₹299' },
-    { cat:'cleaning',     name:'Sofa Cleaning',        sub:'Dry & Wet Cleaning',  img:'assets/images/services/Category Cleaning.jpg',                           badge:'⭐ 4.6', time:'2 hrs',    offer:'20% OFF' },
-    { cat:'handyman',     name:'Handyman',             sub:'General Fixes',       img:'assets/images/services/Category Handyman.jpg',                           badge:'⭐ 4.7', time:'2 hrs',    offer:'FREE Visit' },
-    { cat:'handyman',     name:'Wall Drilling',        sub:'Mounting & Fixing',   img:'assets/images/services/Category Handyman.jpg',                           badge:'⭐ 4.6', time:'1 hr',     offer:'₹199' },
-    { cat:'handyman',     name:'Furniture Assem.',     sub:'Assembly & Setup',    img:'assets/images/services/Category Handyman.jpg',                           badge:'⭐ 4.7', time:'2 hrs',    offer:'₹399' },
-    { cat:'packers',      name:'Home Relocation',      sub:'Full Shifting',       img:'assets/images/services/Category Packers & movers.jpg',                   badge:'⭐ 4.8', time:'Schedule', offer:'ASSURED' },
-    { cat:'packers',      name:'Office Shifting',      sub:'Corporate Move',      img:'assets/images/services/Category Packers & movers.jpg',                   badge:'⭐ 4.7', time:'Schedule', offer:'25% OFF' },
-    { cat:'packers',      name:'Loading & Unloading',  sub:'Labour Support',      img:'assets/images/services/Category Packers & movers.jpg',                   badge:'⭐ 4.6', time:'Schedule', offer:'₹999' },
-    { cat:'dehumidifier', name:'Dehumidifier Install', sub:'Moisture Control',    img:'assets/images/services/Category Dehumidifier.jpg',                       badge:'⭐ 4.7', time:'Today',    offer:'PREMIUM' },
-    { cat:'dehumidifier', name:'Dehumidifier Service', sub:'Maintenance & Repair',img:'assets/images/services/Category Dehumidifier.jpg',                       badge:'⭐ 4.6', time:'Today',    offer:'10% OFF' },
-    { cat:'pest',         name:'Pest Control',         sub:'Safe & Effective',    img:'assets/images/services/Category Pest control.jpg',                       badge:'⭐ 4.6', time:'2 hrs',    offer:'50% OFF' },
-    { cat:'pest',         name:'Termite Treatment',    sub:'Deep Protection',     img:'assets/images/services/Category Pest control.jpg',                       badge:'⭐ 4.7', time:'3 hrs',    offer:'₹1299' },
-    { cat:'pest',         name:'Cockroach Control',    sub:'Kitchen & Bathroom',  img:'assets/images/services/Category Pest control.jpg',                       badge:'⭐ 4.5', time:'1 hr',     offer:'₹499' },
-    { cat:'pest',         name:'Bed Bug Control',      sub:'Full Room Treatment',  img:'assets/images/services/Category Pest control.jpg',                       badge:'⭐ 4.6', time:'2 hrs',    offer:'₹799' },
-    { cat:'appliance',    name:'Appliance Repair',     sub:'All Brands',          img:'assets/images/services/Category Appliance repair.jpg',                   badge:'⭐ 4.6', time:'3 hrs',    offer:'Free Diag.' },
-    { cat:'appliance',    name:'Washing Machine',      sub:'Repair & Service',    img:'assets/images/services/Category Appliance repair.jpg',                   badge:'⭐ 4.7', time:'2 hrs',    offer:'₹299 Fix' },
-    { cat:'appliance',    name:'Refrigerator Fix',     sub:'Repair & Gas Fill',   img:'assets/images/services/Category Appliance repair.jpg',                   badge:'⭐ 4.5', time:'2 hrs',    offer:'₹349' },
-    { cat:'appliance',    name:'Microwave Repair',     sub:'All Models',          img:'assets/images/services/Category Appliance repair.jpg',                   badge:'⭐ 4.6', time:'1 hr',     offer:'₹199' },
-    { cat:'construction', name:'Minor Construction',   sub:'Repairs & Builds',    img:'assets/images/services/Category Minor construction.jpg',                 badge:'⭐ 4.5', time:'Quote',    offer:'10% OFF' },
-    { cat:'construction', name:'Wall Repair',          sub:'Cracks & Patchwork',  img:'assets/images/services/Category Minor construction.jpg',                 badge:'⭐ 4.6', time:'2 hrs',    offer:'₹499' },
-    { cat:'construction', name:'Tile Fixing',          sub:'Floor & Wall Tiles',  img:'assets/images/services/Category Minor construction.jpg',                 badge:'⭐ 4.5', time:'3 hrs',    offer:'₹699' },
-    { cat:'gardening',    name:'Gardening',            sub:'Lawn & Landscape',    img:'assets/images/services/Category Gardening.jpg',                          badge:'⭐ 4.8', time:'2 hrs',    offer:'₹499 Flat' },
-    { cat:'gardening',    name:'Lawn Mowing',          sub:'Regular Trim',        img:'assets/images/services/Category Gardening.jpg',                          badge:'⭐ 4.7', time:'1 hr',     offer:'₹299' },
-    { cat:'gardening',    name:'Tree Trimming',        sub:'Branch Cutting',      img:'assets/images/services/Category Gardening.jpg',                          badge:'⭐ 4.6', time:'2 hrs',    offer:'₹599' },
-    { cat:'renovation',   name:'Full Renovation',      sub:'Interior Makeover',   img:'assets/images/services/Category Interior renovation.jpg',                badge:'⭐ 4.9', time:'Quote',    offer:'25% OFF' },
-    { cat:'renovation',   name:'Interior Painting',    sub:'Walls & Ceiling',     img:'assets/images/services/Category Interior renovation.jpg',                badge:'⭐ 4.8', time:'Quote',    offer:'₹8/sqft' },
-    { cat:'renovation',   name:'Carpentry Works',      sub:'Custom Woodwork',     img:'assets/images/services/Category Interior renovation.jpg',                badge:'⭐ 4.7', time:'Quote',    offer:'10% OFF' },
-    { cat:'pool',         name:'Pool Maintenance',     sub:'Cleaning & Repair',   img:'assets/images/services/Category Swimming pool maintenance .jpg',         badge:'⭐ 4.4', time:'Same Day', offer:'15% OFF' },
-    { cat:'pool',         name:'Pool Construction',    sub:'New Build',           img:'assets/images/services/Category Swimming pool maintenance .jpg',         badge:'⭐ 4.5', time:'Quote',    offer:'Get Quote' },
-    { cat:'pool',         name:'Pool Chemical Care',   sub:'Water Treatment',     img:'assets/images/services/Category Swimming pool maintenance .jpg',         badge:'⭐ 4.6', time:'1 hr',     offer:'₹999' },
-    { cat:'petcare',      name:'Pet Care',             sub:'Walking & Grooming',  img:'assets/images/services/Category Pet care.jpg',                           badge:'⭐ 4.7', time:'Today',    offer:'LOVING' },
-    { cat:'petcare',      name:'Pet Grooming',         sub:'Bath & Trim',         img:'assets/images/services/Category Pet care.jpg',                           badge:'⭐ 4.8', time:'2 hrs',    offer:'₹499' },
-    { cat:'petcare',      name:'Dog Walking',          sub:'Daily Walks',         img:'assets/images/services/Category Pet care.jpg',                           badge:'⭐ 4.7', time:'1 hr',     offer:'₹199' },
-    { cat:'personalcare', name:'Personal Care',        sub:'At Home Service',     img:'assets/images/services/Category Personal care.jpg',                     badge:'⭐ 4.8', time:'Schedule', offer:'ELITE' },
-    { cat:'personalcare', name:'Home Salon',           sub:'Beauty at Home',      img:'assets/images/services/Category Personal care.jpg',                     badge:'⭐ 4.8', time:'2 hrs',    offer:'20% OFF' },
-    { cat:'personalcare', name:'Massage Therapy',      sub:'Relaxation at Home',  img:'assets/images/services/Category Personal care.jpg',                     badge:'⭐ 4.7', time:'1 hr',     offer:'₹699' },
-    { cat:'babysitter',   name:'Babysitting',          sub:'Safe & Caring',       img:'assets/images/services/Category Baby sitter.jpg',                       badge:'⭐ 4.8', time:'Schedule', offer:'TRUSTED' },
-    { cat:'babysitter',   name:'Day Care',             sub:'Full Day Support',    img:'assets/images/services/Category Baby sitter.jpg',                       badge:'⭐ 4.7', time:'Schedule', offer:'₹999/day' },
-    { cat:'eldercare',    name:'Elder Care',           sub:'Professional Support', img:'assets/images/services/Category Elder care.jpg',                        badge:'⭐ 4.9', time:'Schedule', offer:'PREMIUM' },
-    { cat:'eldercare',    name:'Medical Escort',       sub:'Hospital Visits',     img:'assets/images/services/Category Elder care.jpg',                        badge:'⭐ 4.8', time:'Schedule', offer:'₹499' },
-    { cat:'eldercare',    name:'Daily Assistance',     sub:'Home Care',           img:'assets/images/services/Category Elder care.jpg',                        badge:'⭐ 4.7', time:'Schedule', offer:'₹799/day' },
-  ];
+    // ── Categories ──
+    const categories = [
+      { id: 'aircon', name: 'Aircon' },
+      { id: 'cleaning', name: 'Cleaning' },
+      { id: 'handyman', name: 'Handyman' },
+      { id: 'packers', name: 'Packers &\nMovers' },
+      { id: 'dehumidifier', name: 'Dehumidifier' },
+      { id: 'pest', name: 'Pest Control' },
+      { id: 'appliance', name: 'Appliance &\nRepairs' },
+      { id: 'construction', name: 'Minor\nConstructions' },
+      { id: 'gardening', name: 'Gardening' },
+      { id: 'renovation', name: 'Interior\nRenovation' },
+      { id: 'pool', name: 'Swimming Pool\nMaint.' },
+      { id: 'petcare', name: 'Pet Care' },
+      { id: 'personalcare', name: 'Personal Care' },
+      { id: 'babysitter', name: 'Baby Sitter' },
+      { id: 'eldercare', name: 'Elder Care' },
+    ];
 
-  // Default top picks (one from each major category)
-  const defaultServices = allServices.filter(s =>
-    ['aircon','cleaning','handyman','pest','appliance','gardening','renovation','pool'].includes(s.cat)
-  ).filter((s,i,arr) => arr.findIndex(x => x.cat === s.cat) === i);
+    // ── All Services (categorised) ──
+    const allServices = [
+      { cat: 'aircon', name: 'Aircon Service', sub: 'Install & Repair', img: 'assets/images/services/Category Aircon.jpg', badge: '⭐ 4.8', time: 'Same Day', offer: '20% OFF' },
+      { cat: 'aircon', name: 'AC Deep Clean', sub: 'Full Servicing', img: 'assets/images/services/Category Aircon.jpg', badge: '⭐ 4.7', time: '2 hrs', offer: '15% OFF' },
+      { cat: 'aircon', name: 'AC Gas Refill', sub: 'All Brands', img: 'assets/images/services/Category Aircon.jpg', badge: '⭐ 4.6', time: '1 hr', offer: '₹799' },
+      { cat: 'cleaning', name: 'Deep Cleaning', sub: 'Full Home Clean', img: 'assets/images/services/Category Cleaning.jpg', badge: '⭐ 4.8', time: '3 hrs', offer: 'FLAT ₹999' },
+      { cat: 'cleaning', name: 'Kitchen Cleaning', sub: 'Degreasing & Scrub', img: 'assets/images/services/Category Cleaning.jpg', badge: '⭐ 4.7', time: '2 hrs', offer: '₹499' },
+      { cat: 'cleaning', name: 'Bathroom Clean', sub: 'Deep Sanitisation', img: 'assets/images/services/Category Cleaning.jpg', badge: '⭐ 4.8', time: '1 hr', offer: '₹299' },
+      { cat: 'cleaning', name: 'Sofa Cleaning', sub: 'Dry & Wet Cleaning', img: 'assets/images/services/Category Cleaning.jpg', badge: '⭐ 4.6', time: '2 hrs', offer: '20% OFF' },
+      { cat: 'handyman', name: 'Handyman', sub: 'General Fixes', img: 'assets/images/services/Category Handyman.jpg', badge: '⭐ 4.7', time: '2 hrs', offer: 'FREE Visit' },
+      { cat: 'handyman', name: 'Wall Drilling', sub: 'Mounting & Fixing', img: 'assets/images/services/Category Handyman.jpg', badge: '⭐ 4.6', time: '1 hr', offer: '₹199' },
+      { cat: 'handyman', name: 'Furniture Assem.', sub: 'Assembly & Setup', img: 'assets/images/services/Category Handyman.jpg', badge: '⭐ 4.7', time: '2 hrs', offer: '₹399' },
+      { cat: 'packers', name: 'Home Relocation', sub: 'Full Shifting', img: 'assets/images/services/Category Packers & movers.jpg', badge: '⭐ 4.8', time: 'Schedule', offer: 'ASSURED' },
+      { cat: 'packers', name: 'Office Shifting', sub: 'Corporate Move', img: 'assets/images/services/Category Packers & movers.jpg', badge: '⭐ 4.7', time: 'Schedule', offer: '25% OFF' },
+      { cat: 'packers', name: 'Loading & Unloading', sub: 'Labour Support', img: 'assets/images/services/Category Packers & movers.jpg', badge: '⭐ 4.6', time: 'Schedule', offer: '₹999' },
+      { cat: 'dehumidifier', name: 'Dehumidifier Install', sub: 'Moisture Control', img: 'assets/images/services/Category Dehumidifier.jpg', badge: '⭐ 4.7', time: 'Today', offer: 'PREMIUM' },
+      { cat: 'dehumidifier', name: 'Dehumidifier Service', sub: 'Maintenance & Repair', img: 'assets/images/services/Category Dehumidifier.jpg', badge: '⭐ 4.6', time: 'Today', offer: '10% OFF' },
+      { cat: 'pest', name: 'Pest Control', sub: 'Safe & Effective', img: 'assets/images/services/Category Pest control.jpg', badge: '⭐ 4.6', time: '2 hrs', offer: '50% OFF' },
+      { cat: 'pest', name: 'Termite Treatment', sub: 'Deep Protection', img: 'assets/images/services/Category Pest control.jpg', badge: '⭐ 4.7', time: '3 hrs', offer: '₹1299' },
+      { cat: 'pest', name: 'Cockroach Control', sub: 'Kitchen & Bathroom', img: 'assets/images/services/Category Pest control.jpg', badge: '⭐ 4.5', time: '1 hr', offer: '₹499' },
+      { cat: 'pest', name: 'Bed Bug Control', sub: 'Full Room Treatment', img: 'assets/images/services/Category Pest control.jpg', badge: '⭐ 4.6', time: '2 hrs', offer: '₹799' },
+      { cat: 'appliance', name: 'Appliance Repair', sub: 'All Brands', img: 'assets/images/services/Category Appliance repair.jpg', badge: '⭐ 4.6', time: '3 hrs', offer: 'Free Diag.' },
+      { cat: 'appliance', name: 'Washing Machine', sub: 'Repair & Service', img: 'assets/images/services/Category Appliance repair.jpg', badge: '⭐ 4.7', time: '2 hrs', offer: '₹299 Fix' },
+      { cat: 'appliance', name: 'Refrigerator Fix', sub: 'Repair & Gas Fill', img: 'assets/images/services/Category Appliance repair.jpg', badge: '⭐ 4.5', time: '2 hrs', offer: '₹349' },
+      { cat: 'appliance', name: 'Microwave Repair', sub: 'All Models', img: 'assets/images/services/Category Appliance repair.jpg', badge: '⭐ 4.6', time: '1 hr', offer: '₹199' },
+      { cat: 'construction', name: 'Minor Construction', sub: 'Repairs & Builds', img: 'assets/images/services/Category Minor construction.jpg', badge: '⭐ 4.5', time: 'Quote', offer: '10% OFF' },
+      { cat: 'construction', name: 'Wall Repair', sub: 'Cracks & Patchwork', img: 'assets/images/services/Category Minor construction.jpg', badge: '⭐ 4.6', time: '2 hrs', offer: '₹499' },
+      { cat: 'construction', name: 'Tile Fixing', sub: 'Floor & Wall Tiles', img: 'assets/images/services/Category Minor construction.jpg', badge: '⭐ 4.5', time: '3 hrs', offer: '₹699' },
+      { cat: 'gardening', name: 'Gardening', sub: 'Lawn & Landscape', img: 'assets/images/services/Category Gardening.jpg', badge: '⭐ 4.8', time: '2 hrs', offer: '₹499 Flat' },
+      { cat: 'gardening', name: 'Lawn Mowing', sub: 'Regular Trim', img: 'assets/images/services/Category Gardening.jpg', badge: '⭐ 4.7', time: '1 hr', offer: '₹299' },
+      { cat: 'gardening', name: 'Tree Trimming', sub: 'Branch Cutting', img: 'assets/images/services/Category Gardening.jpg', badge: '⭐ 4.6', time: '2 hrs', offer: '₹599' },
+      { cat: 'renovation', name: 'Full Renovation', sub: 'Interior Makeover', img: 'assets/images/services/Category Interior renovation.jpg', badge: '⭐ 4.9', time: 'Quote', offer: '25% OFF' },
+      { cat: 'renovation', name: 'Interior Painting', sub: 'Walls & Ceiling', img: 'assets/images/services/Category Interior renovation.jpg', badge: '⭐ 4.8', time: 'Quote', offer: '₹8/sqft' },
+      { cat: 'renovation', name: 'Carpentry Works', sub: 'Custom Woodwork', img: 'assets/images/services/Category Interior renovation.jpg', badge: '⭐ 4.7', time: 'Quote', offer: '10% OFF' },
+      { cat: 'pool', name: 'Pool Maintenance', sub: 'Cleaning & Repair', img: 'assets/images/services/Category Swimming pool maintenance .jpg', badge: '⭐ 4.4', time: 'Same Day', offer: '15% OFF' },
+      { cat: 'pool', name: 'Pool Construction', sub: 'New Build', img: 'assets/images/services/Category Swimming pool maintenance .jpg', badge: '⭐ 4.5', time: 'Quote', offer: 'Get Quote' },
+      { cat: 'pool', name: 'Pool Chemical Care', sub: 'Water Treatment', img: 'assets/images/services/Category Swimming pool maintenance .jpg', badge: '⭐ 4.6', time: '1 hr', offer: '₹999' },
+      { cat: 'petcare', name: 'Pet Care', sub: 'Walking & Grooming', img: 'assets/images/services/Category Pet care.jpg', badge: '⭐ 4.7', time: 'Today', offer: 'LOVING' },
+      { cat: 'petcare', name: 'Pet Grooming', sub: 'Bath & Trim', img: 'assets/images/services/Category Pet care.jpg', badge: '⭐ 4.8', time: '2 hrs', offer: '₹499' },
+      { cat: 'petcare', name: 'Dog Walking', sub: 'Daily Walks', img: 'assets/images/services/Category Pet care.jpg', badge: '⭐ 4.7', time: '1 hr', offer: '₹199' },
+      { cat: 'personalcare', name: 'Personal Care', sub: 'At Home Service', img: 'assets/images/services/Category Personal care.jpg', badge: '⭐ 4.8', time: 'Schedule', offer: 'ELITE' },
+      { cat: 'personalcare', name: 'Home Salon', sub: 'Beauty at Home', img: 'assets/images/services/Category Personal care.jpg', badge: '⭐ 4.8', time: '2 hrs', offer: '20% OFF' },
+      { cat: 'personalcare', name: 'Massage Therapy', sub: 'Relaxation at Home', img: 'assets/images/services/Category Personal care.jpg', badge: '⭐ 4.7', time: '1 hr', offer: '₹699' },
+      { cat: 'babysitter', name: 'Babysitting', sub: 'Safe & Caring', img: 'assets/images/services/Category Baby sitter.jpg', badge: '⭐ 4.8', time: 'Schedule', offer: 'TRUSTED' },
+      { cat: 'babysitter', name: 'Day Care', sub: 'Full Day Support', img: 'assets/images/services/Category Baby sitter.jpg', badge: '⭐ 4.7', time: 'Schedule', offer: '₹999/day' },
+      { cat: 'eldercare', name: 'Elder Care', sub: 'Professional Support', img: 'assets/images/services/Category Elder care.jpg', badge: '⭐ 4.9', time: 'Schedule', offer: 'PREMIUM' },
+      { cat: 'eldercare', name: 'Medical Escort', sub: 'Hospital Visits', img: 'assets/images/services/Category Elder care.jpg', badge: '⭐ 4.8', time: 'Schedule', offer: '₹499' },
+      { cat: 'eldercare', name: 'Daily Assistance', sub: 'Home Care', img: 'assets/images/services/Category Elder care.jpg', badge: '⭐ 4.7', time: 'Schedule', offer: '₹799/day' },
+    ];
+
+    // Default top picks (one from each major category)
+    const defaultServices = allServices.filter(s =>
+      ['aircon', 'cleaning', 'handyman', 'pest', 'appliance', 'gardening', 'renovation', 'pool'].includes(s.cat)
+    ).filter((s, i, arr) => arr.findIndex(x => x.cat === s.cat) === i);
 
 
 
 
-  // ── Render horizontal service card ──
-  function serviceCard(item, isPremium=false) {
-    const div = document.createElement('div');
-    div.className = `swiper-slide w-[136px] lift cursor-pointer`;
-    const rating = item.badge.replace('⭐ ', '');
-    
-    div.innerHTML = `
+    // ── Render horizontal service card ──
+    function serviceCard(item, isPremium = false) {
+      const div = document.createElement('div');
+      div.className = `swiper-slide w-[136px] lift cursor-pointer`;
+      const rating = item.badge.replace('⭐ ', '');
+
+      div.innerHTML = `
       <div class="relative w-full h-43 rounded-2xl overflow-hidden shadow-sm">
         <img src="${item.img}" alt="${item.name}" class="w-full h-full object-contain"/>
         
@@ -634,47 +1045,24 @@
         </div>
         <p class="text-[12px] text-gray-500 truncate mt-0.5">${item.sub}</p>
       </div>`;
-    div.addEventListener('click', () => openWA(item.name));
-    return div;
-  }
+      div.addEventListener('click', () => openWA(item.name));
+      return div;
+    }
 
 
 
 
-  // ── Category Grid ──
-  let activeSwiper = null;
 
-  function renderCategories() {
-    const grid = document.getElementById('cat-grid');
-    categories.forEach(cat => {
-      const el = document.createElement('div');
-      el.className = 'cat-item flex flex-col items-center cursor-pointer';
-      el.dataset.id = cat.id;
-      el.innerHTML = `
-        <div class="cat-icon">${ICONS[cat.id] || ''}</div>
-        <span class="cat-label">${cat.name.replace(/\n/g,'<br>')}</span>`;
-      el.addEventListener('click', () => filterServices(cat.id, cat.name, el));
-      grid.appendChild(el);
-    });
-  }
 
-  function filterServices(catId, catName, clickedEl) {
-    document.querySelectorAll('.cat-item').forEach(i => i.classList.remove('active'));
-    clickedEl.classList.add('active');
-    const services = allServices.filter(s => s.cat === catId);
-    const title = catName.replace(/\n/g, ' ');
-    openPopup(title, services);
-  }
-
-  function openPopup(title, services) {
-    document.getElementById('popup-title').textContent = title;
-    const body = document.getElementById('popup-body');
-    body.innerHTML = '';
-    services.forEach(s => {
-      const rating = s.badge.replace('\u2b50 ', '');
-      const row = document.createElement('div');
-      row.className = 'svc-row';
-      row.innerHTML = `
+    function openPopup(title, services) {
+      document.getElementById('popup-title').textContent = title;
+      const body = document.getElementById('popup-body');
+      body.innerHTML = '';
+      services.forEach(s => {
+        const rating = s.badge.replace('\u2b50 ', '');
+        const row = document.createElement('div');
+        row.className = 'svc-row';
+        row.innerHTML = `
         <img class="svc-row-img" src="${s.img}" alt="${s.name}"/>
         <div style="flex:1;min-width:0">
           <p style="font-weight:700;font-size:14px;color:#1a1a2e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${s.name}</p>
@@ -686,58 +1074,104 @@
           </div>
         </div>
         <button class="svc-row-book" onclick="event.stopPropagation();openWA('${s.name}')">Book</button>`;
-      row.addEventListener('click', () => openWA(s.name));
-      body.appendChild(row);
-    });
-    document.getElementById('svc-popup-overlay').classList.add('open');
-    document.getElementById('svc-popup').classList.add('open');
-    document.getElementById('main-scroll').style.overflow = 'hidden';
-  }
+        row.addEventListener('click', () => openWA(s.name));
+        body.appendChild(row);
+      });
+      document.getElementById('svc-popup-overlay').classList.add('open');
+      document.getElementById('svc-popup').classList.add('open');
+      document.getElementById('main-scroll').style.overflow = 'hidden';
+    }
 
-  function closePopup() {
-    document.getElementById('svc-popup-overlay').classList.remove('open');
-    document.getElementById('svc-popup').classList.remove('open');
-    document.querySelectorAll('.cat-item').forEach(i => i.classList.remove('active'));
-    document.getElementById('main-scroll').style.overflow = '';
-  }
+    function closePopup() {
+      document.getElementById('svc-popup-overlay').classList.remove('open');
+      document.getElementById('svc-popup').classList.remove('open');
+      document.querySelectorAll('.cat-item').forEach(i => i.classList.remove('active'));
+      document.getElementById('main-scroll').style.overflow = '';
+    }
 
-  function loadServiceSwiper(services) {
-    const wrapper = document.getElementById('row1');
-    wrapper.innerHTML = '';
-    services.forEach(s => wrapper.appendChild(serviceCard(s)));
-    new Swiper('.services-swiper', {
+    // ── Swiper config helper ──
+    const swiperOpts = {
       slidesPerView: 'auto',
       spaceBetween: 14,
       freeMode: true,
       slidesOffsetBefore: 16,
       slidesOffsetAfter: 16,
+    };
+
+    // ── Category card renderer (for per-category sections) ──
+    function catServiceCard(item, accentColor) {
+      const rating = item.badge.replace('⭐ ', '');
+      const div = document.createElement('div');
+      div.className = 'swiper-slide cat-section-slide lift';
+      div.style.width = '150px';
+      div.innerHTML = `
+        <div style="overflow:hidden">
+          <img class="cat-slide-img" src="${item.img}" alt="${item.name}" />
+        </div>
+        <div class="cat-slide-body">
+          <p class="cat-slide-title">${item.name}</p>
+          <p class="cat-slide-sub">${item.sub}</p>
+          <div class="cat-slide-rating" style="margin-top:6px">
+            <span class="star-dot">★</span>
+            <span>${rating} · ${item.time}</span>
+          </div>
+        </div>`;
+      div.addEventListener('click', () => openWA(item.name));
+      return div;
+    }
+
+    // ── Helper: get services by category ──
+    function getServicesByCat(catId) {
+      return allServices.filter(s => s.cat === catId);
+    }
+
+    // ── Top Services row (default picks) ──
+    function loadServiceSwiper(services) {
+      const wrapper = document.getElementById('row1');
+      wrapper.innerHTML = '';
+      services.forEach(s => wrapper.appendChild(serviceCard(s)));
+      new Swiper('.services-swiper', swiperOpts);
+    }
+
+    // ── Load each category section ──
+    function loadCatSection(rowId, swiperClass, catId, accentColor) {
+      const wrapper = document.getElementById(rowId);
+      if (!wrapper) return;
+      wrapper.innerHTML = '';
+      getServicesByCat(catId).forEach(s => wrapper.appendChild(catServiceCard(s, accentColor)));
+      new Swiper('.' + swiperClass, swiperOpts);
+    }
+
+    loadServiceSwiper(defaultServices);
+
+    // ── Init per-category sections ──
+    loadCatSection('row-aircon',   'aircon-swiper',   'aircon',   '#0284c7');
+    loadCatSection('row-cleaning', 'cleaning-swiper', 'cleaning', '#059669');
+    loadCatSection('row-handyman', 'handyman-swiper', 'handyman', '#d97706');
+    loadCatSection('row-pest',     'pest-swiper',     'pest',     '#7c3aed');
+
+    // ── Init Hero Swiper ──
+    const swiper = new Swiper('.hero-swiper', {
+      loop: true,
+      autoplay: { delay: 3500, disableOnInteraction: false },
+      pagination: { el: '.swiper-pagination', clickable: true },
     });
-  }
 
-  renderCategories();
-  loadServiceSwiper(defaultServices);
+    const testimonialsSwiper = new Swiper('.testimonials-swiper', {
+      loop: true,
+      autoplay: {
+        delay: 4500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.testimonials-pagination',
+        clickable: true,
+      },
+    });
 
-  // ── Init Hero Swiper ──
-  const swiper = new Swiper('.hero-swiper', {
-    loop: true,
-    autoplay: { delay: 3500, disableOnInteraction: false },
-    pagination: { el: '.swiper-pagination', clickable: true },
-  });
-
-  const testimonialsSwiper = new Swiper('.testimonials-swiper', {
-    loop: true,
-    autoplay: {
-      delay: 4500,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.testimonials-pagination',
-      clickable: true,
-    },
-  });
-
-  // ── Dynamic Footer Year ──
-  document.getElementById('current-year').textContent = new Date().getFullYear();
-</script>
+    // ── Dynamic Footer Year ──
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
 </body>
+
 </html>

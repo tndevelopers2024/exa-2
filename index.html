@@ -132,6 +132,56 @@
 
     /* Sticky header */
     #main-header { position: sticky; top: 0; z-index: 50; }
+
+    /* Category grid */
+    .cat-icon {
+      width: 68px; height: 68px; border-radius: 18px;
+      background: rgba(78,6,54,.08);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; transition: background .2s, transform .15s;
+      border: 2px solid transparent;
+    }
+    .cat-item:active .cat-icon { transform: scale(.91); }
+    .cat-item.active .cat-icon { background: #4E0636; border-color: #BC6587; }
+    .cat-item.active .cat-icon svg { color: #fff; }
+    .cat-icon svg { color: #4E0636; transition: color .2s; }
+    .cat-item.active .cat-label { color: #4E0636; font-weight: 700; }
+    .cat-label { font-size: 10.5px; color: #666; text-align: center; line-height: 1.3; margin-top: 5px; }
+
+    /* Bottom-sheet popup */
+    #svc-popup-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,.45);
+      z-index: 200; opacity: 0; pointer-events: none;
+      transition: opacity .3s ease;
+    }
+    #svc-popup-overlay.open { opacity: 1; pointer-events: all; }
+    #svc-popup {
+      position: fixed; bottom: 0; left: 50%; transform: translateX(-50%) translateY(100%);
+      width: 100%; max-width: 420px;
+      background: #fff; border-radius: 28px 28px 0 0;
+      z-index: 201; transition: transform .38s cubic-bezier(.32,1.12,.68,1);
+      max-height: 82vh; display: flex; flex-direction: column;
+    }
+    #svc-popup.open { transform: translateX(-50%) translateY(0); }
+    .popup-handle { width: 40px; height: 4px; border-radius: 2px; background: #e0d7eb; margin: 12px auto 0; flex-shrink:0; }
+    .popup-header { display:flex; align-items:center; justify-content:space-between; padding: 14px 20px 10px; flex-shrink:0; border-bottom:1px solid #f0ece4; }
+    .popup-body { overflow-y: auto; padding: 12px 16px 24px; flex: 1; }
+    .svc-row {
+      display: flex; align-items: center; gap: 14px;
+      background: #faf8fc; border-radius: 16px; padding: 12px;
+      margin-bottom: 10px; cursor: pointer;
+      transition: box-shadow .18s, transform .18s;
+    }
+    .svc-row:active { transform: scale(.98); box-shadow: 0 2px 12px rgba(78,6,54,.12); }
+    .svc-row-img { width: 62px; height: 62px; border-radius: 12px; object-fit: contain; background: rgba(78,6,54,.07); flex-shrink:0; }
+    .svc-row-book {
+      margin-left: auto; flex-shrink: 0;
+      background: #4E0636; color: #E297B3;
+      font-size: 11px; font-weight: 700; padding: 6px 14px;
+      border-radius: 10px; border: none; cursor: pointer;
+      transition: background .18s;
+    }
+    .svc-row-book:active { background: #BC6587; }
   </style>
 </head>
 <body>
@@ -210,6 +260,11 @@
       </div>
     </div>
 
+    <!-- ── Category Grid ── -->
+    <section id="cat-section" class="mt-5 px-4 fade-up" style="animation-delay:.08s">
+      <div id="cat-grid" class="grid grid-cols-4 gap-x-2 gap-y-5"></div>
+    </section>
+
     <!-- ════════════════════════════════════
          ROW 1: Top Services 🏆
     ═══════════════════════════════════════ -->
@@ -235,27 +290,7 @@
       </div>
     </section> -->
 
-    <!-- ════════════════════════════════════
-         ROW 3: Premium Picks ✨ (dark cards)
-    ═══════════════════════════════════════ -->
-    <section id="premium" class="mt-6 fade-up" style="animation-delay:.25s">
-      <div class="flex items-center justify-between px-4 mb-3">
-        <h2 class="font-serif text-[17px] text-[#4E0636]">Premium Picks ✨</h2>
-      </div>
-      <div class="swiper services-swiper pb-4">
-        <div id="row3" class="swiper-wrapper"></div>
-      </div>
-    </section>
 
-    <!-- ════════════════════════════════════
-         ROW 4: Quick Fix & Affordable 💡 (grid)
-    ═══════════════════════════════════════ -->
-    <section id="quickfix" class="mt-6 px-4 pb-4 fade-up" style="animation-delay:.3s">
-      <div class="flex items-center justify-between mb-3">
-        <h2 class="font-serif text-[17px] text-[#4E0636]">Quick Fix & Affordable 💡</h2>
-      </div>
-      <div id="row4" class="grid grid-cols-2 gap-3"></div>
-    </section>
 
     <!-- ── Testimonial Strip ── -->
     <section id="testimonials" class="mt-4 mx-4 mb-2 rounded-3xl overflow-hidden fade-up relative" style="animation-delay:.35s; background: linear-gradient(135deg,#4E0636,#5c0740)">
@@ -394,6 +429,19 @@
     </button>
   </div>
 
+  <!-- ── Service Popup (Bottom Sheet) ── -->
+  <div id="svc-popup-overlay" onclick="closePopup()"></div>
+  <div id="svc-popup" role="dialog" aria-modal="true">
+    <div class="popup-handle"></div>
+    <div class="popup-header">
+      <h3 id="popup-title" class="font-serif text-[17px] text-[#4E0636] font-bold"></h3>
+      <button onclick="closePopup()" class="w-8 h-8 rounded-full flex items-center justify-center" style="background:rgba(78,6,54,.08)">
+        <svg class="w-4 h-4 text-[#4E0636]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="popup-body" id="popup-body"></div>
+  </div>
+
   <!-- ── Mobile Menu Overlay ── -->
   <div id="mobile-menu" class="fixed inset-0 bg-[#4E0636]/95 backdrop-blur-md z-[100] opacity-0 pointer-events-none transition-opacity duration-300 flex flex-col items-center pt-6 px-6">
     <div class="w-full max-w-[420px] flex justify-end mb-10 relative z-[110]">
@@ -462,38 +510,100 @@
   }
 
   // ── Data ──
-  const topServices = [
-    { name:'Aircon Service', sub:'Install & Repair', img:'assets/images/services/Category Aircon.jpg', badge:'⭐ 4.8', time:'Same Day', offer:'20% OFF' },
-    { name:'Deep Cleaning', sub:'Full Home Clean', img:'assets/images/services/Category Cleaning.jpg', badge:'⭐ 4.8', time:'3 hrs', offer:'FLAT ₹999' },
-    { name:'Pest Control', sub:'Safe & Effective', img:'assets/images/services/Category Pest control.jpg', badge:'⭐ 4.6', time:'2 hrs', offer:'50% OFF' },
-    { name:'Appliance Repair', sub:'All Brands', img:'assets/images/services/Category Appliance repair.jpg', badge:'⭐ 4.6', time:'3 hrs', offer:'Free Diag.' },
-    { name:'Handyman', sub:'General Fixes', img:'assets/images/services/Category Handyman.jpg', badge:'⭐ 4.7', time:'2 hrs', offer:'FREE Visit' },
+  // ── Categories ──
+  const ICONS = {
+    aircon:       `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="9" rx="2"/><path d="M6 16v3M12 16v3M18 16v3M6 11h12M10 11V9M12 11V8M14 11V9"/></svg>`,
+    cleaning:     `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l7-7m6-11l5 5-9.5 9.5-5-5L17 3z"/><path d="M10 14l-4 4"/><path d="M18 8l-2-2"/></svg>`,
+    handyman:     `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>`,
+    packers:      `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>`,
+    dehumidifier: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/><path d="M9.5 14.5h5M9.5 17.5h3"/></svg>`,
+    pest:         `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20c-3.3 0-6-2.7-6-6v-3a6 6 0 0112 0v3c0 3.3-2.7 6-6 6z"/><path d="M6 13H2M22 13h-4M6 17l-2 2M18 17l2 2M6 9l-2-2M18 9l2-2M10 7a2 2 0 004 0"/></svg>`,
+    appliance:    `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="2" width="18" height="20" rx="2"/><circle cx="12" cy="13" r="4"/><path d="M7 6h.01M11 6h3"/></svg>`,
+    construction: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20V10M20 20V10M4 10l8-8 8 8M10 20v-5h4v5"/></svg>`,
+    gardening:    `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12M12 12C12 7 7 4 3 5c1 4 4 7 9 7zM12 12c0-5 5-8 9-7-1 4-4 7-9 7z"/></svg>`,
+    renovation:   `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17h20M6 17V9M18 17V9M10 17v-4h4v4M6 9l6-6 6 6"/><circle cx="19" cy="5" r="2"/><path d="M19 7v10"/></svg>`,
+    pool:         `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c1.5 2 3.5 2 5 0s3.5-2 5 0 3.5 2 5 0M2 17c1.5 2 3.5 2 5 0s3.5-2 5 0 3.5 2 5 0"/><circle cx="12" cy="4" r="2"/><path d="M12 6v5M9 8l3 3 3-3"/></svg>`,
+    petcare:      `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="4.5" cy="7" r="2"/><circle cx="9" cy="4" r="2"/><circle cx="15" cy="4" r="2"/><circle cx="19.5" cy="7" r="2"/><path d="M12 22c-3.9 0-7-3.1-7-7 0-1.5 1.1-3 2.8-3.5L12 10l4.2 1.5C17.9 12 19 13.5 19 15c0 3.9-3.1 7-7 7z"/></svg>`,
+    personalcare: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l2 7H4L6 3zM4 10c0 4.4 3.6 8 8 8s8-3.6 8-8"/><path d="M10 15l2 2 2-2"/></svg>`,
+    babysitter:   `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6" r="3"/><path d="M9 12H8a2 2 0 00-2 2v6h12v-6a2 2 0 00-2-2h-1M9 12v8M15 12v8"/><path d="M12 9v3"/></svg>`,
+    eldercare:    `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><path d="M9 10h6M12 10v5M10 22l-1-7M14 22l1-7"/><path d="M8 14l-1 3M16 14l1 3M14 16l3 6M10 16l-3 6"/></svg>`,
+  };
+
+  // ── Categories ──
+  const categories = [
+    { id:'aircon',       name:'Aircon' },
+    { id:'cleaning',     name:'Cleaning' },
+    { id:'handyman',     name:'Handyman' },
+    { id:'packers',      name:'Packers &\nMovers' },
+    { id:'dehumidifier', name:'Dehumidifier' },
+    { id:'pest',         name:'Pest Control' },
+    { id:'appliance',    name:'Appliance &\nRepairs' },
+    { id:'construction', name:'Minor\nConstructions' },
+    { id:'gardening',    name:'Gardening' },
+    { id:'renovation',   name:'Interior\nRenovation' },
+    { id:'pool',         name:'Swimming Pool\nMaint.' },
+    { id:'petcare',      name:'Pet Care' },
+    { id:'personalcare', name:'Personal Care' },
+    { id:'babysitter',   name:'Baby Sitter' },
+    { id:'eldercare',    name:'Elder Care' },
   ];
 
-  const trending = [
-    { name:'Full Renovation', sub:'Interior Makeover', img:'assets/images/services/Category Interior renovation.jpg', badge:'⭐ 4.9', time:'Quote', offer:'25% OFF' },
-    { name:'Packers & Movers', sub:'Home Relocation', img:'assets/images/services/Category Packers & movers.jpg', badge:'⭐ 4.8', time:'Schedule', offer:'ASSURED' },
-    { name:'Pool Maintenance', sub:'Cleaning & Repair', img:'assets/images/services/Category Swimming pool maintenance .jpg', badge:'⭐ 4.4', time:'Same Day', offer:'15% OFF' },
-    { name:'Gardening', sub:'Lawn & Landscape', img:'assets/images/services/Category Gardening.jpg', badge:'⭐ 4.8', time:'2 hrs', offer:'₹499 Flat' },
-    { name:'Minor Construction', sub:'Repairs & Builds', img:'assets/images/services/Category Minor construction.jpg', badge:'⭐ 4.5', time:'Quote', offer:'10% OFF' },
+  // ── All Services (categorised) ──
+  const allServices = [
+    { cat:'aircon',       name:'Aircon Service',      sub:'Install & Repair',    img:'assets/images/services/Category Aircon.jpg',                              badge:'⭐ 4.8', time:'Same Day', offer:'20% OFF' },
+    { cat:'aircon',       name:'AC Deep Clean',        sub:'Full Servicing',      img:'assets/images/services/Category Aircon.jpg',                              badge:'⭐ 4.7', time:'2 hrs',    offer:'15% OFF' },
+    { cat:'aircon',       name:'AC Gas Refill',        sub:'All Brands',          img:'assets/images/services/Category Aircon.jpg',                              badge:'⭐ 4.6', time:'1 hr',     offer:'₹799' },
+    { cat:'cleaning',     name:'Deep Cleaning',        sub:'Full Home Clean',     img:'assets/images/services/Category Cleaning.jpg',                           badge:'⭐ 4.8', time:'3 hrs',    offer:'FLAT ₹999' },
+    { cat:'cleaning',     name:'Kitchen Cleaning',     sub:'Degreasing & Scrub',  img:'assets/images/services/Category Cleaning.jpg',                           badge:'⭐ 4.7', time:'2 hrs',    offer:'₹499' },
+    { cat:'cleaning',     name:'Bathroom Clean',       sub:'Deep Sanitisation',   img:'assets/images/services/Category Cleaning.jpg',                           badge:'⭐ 4.8', time:'1 hr',     offer:'₹299' },
+    { cat:'cleaning',     name:'Sofa Cleaning',        sub:'Dry & Wet Cleaning',  img:'assets/images/services/Category Cleaning.jpg',                           badge:'⭐ 4.6', time:'2 hrs',    offer:'20% OFF' },
+    { cat:'handyman',     name:'Handyman',             sub:'General Fixes',       img:'assets/images/services/Category Handyman.jpg',                           badge:'⭐ 4.7', time:'2 hrs',    offer:'FREE Visit' },
+    { cat:'handyman',     name:'Wall Drilling',        sub:'Mounting & Fixing',   img:'assets/images/services/Category Handyman.jpg',                           badge:'⭐ 4.6', time:'1 hr',     offer:'₹199' },
+    { cat:'handyman',     name:'Furniture Assem.',     sub:'Assembly & Setup',    img:'assets/images/services/Category Handyman.jpg',                           badge:'⭐ 4.7', time:'2 hrs',    offer:'₹399' },
+    { cat:'packers',      name:'Home Relocation',      sub:'Full Shifting',       img:'assets/images/services/Category Packers & movers.jpg',                   badge:'⭐ 4.8', time:'Schedule', offer:'ASSURED' },
+    { cat:'packers',      name:'Office Shifting',      sub:'Corporate Move',      img:'assets/images/services/Category Packers & movers.jpg',                   badge:'⭐ 4.7', time:'Schedule', offer:'25% OFF' },
+    { cat:'packers',      name:'Loading & Unloading',  sub:'Labour Support',      img:'assets/images/services/Category Packers & movers.jpg',                   badge:'⭐ 4.6', time:'Schedule', offer:'₹999' },
+    { cat:'dehumidifier', name:'Dehumidifier Install', sub:'Moisture Control',    img:'assets/images/services/Category Dehumidifier.jpg',                       badge:'⭐ 4.7', time:'Today',    offer:'PREMIUM' },
+    { cat:'dehumidifier', name:'Dehumidifier Service', sub:'Maintenance & Repair',img:'assets/images/services/Category Dehumidifier.jpg',                       badge:'⭐ 4.6', time:'Today',    offer:'10% OFF' },
+    { cat:'pest',         name:'Pest Control',         sub:'Safe & Effective',    img:'assets/images/services/Category Pest control.jpg',                       badge:'⭐ 4.6', time:'2 hrs',    offer:'50% OFF' },
+    { cat:'pest',         name:'Termite Treatment',    sub:'Deep Protection',     img:'assets/images/services/Category Pest control.jpg',                       badge:'⭐ 4.7', time:'3 hrs',    offer:'₹1299' },
+    { cat:'pest',         name:'Cockroach Control',    sub:'Kitchen & Bathroom',  img:'assets/images/services/Category Pest control.jpg',                       badge:'⭐ 4.5', time:'1 hr',     offer:'₹499' },
+    { cat:'pest',         name:'Bed Bug Control',      sub:'Full Room Treatment',  img:'assets/images/services/Category Pest control.jpg',                       badge:'⭐ 4.6', time:'2 hrs',    offer:'₹799' },
+    { cat:'appliance',    name:'Appliance Repair',     sub:'All Brands',          img:'assets/images/services/Category Appliance repair.jpg',                   badge:'⭐ 4.6', time:'3 hrs',    offer:'Free Diag.' },
+    { cat:'appliance',    name:'Washing Machine',      sub:'Repair & Service',    img:'assets/images/services/Category Appliance repair.jpg',                   badge:'⭐ 4.7', time:'2 hrs',    offer:'₹299 Fix' },
+    { cat:'appliance',    name:'Refrigerator Fix',     sub:'Repair & Gas Fill',   img:'assets/images/services/Category Appliance repair.jpg',                   badge:'⭐ 4.5', time:'2 hrs',    offer:'₹349' },
+    { cat:'appliance',    name:'Microwave Repair',     sub:'All Models',          img:'assets/images/services/Category Appliance repair.jpg',                   badge:'⭐ 4.6', time:'1 hr',     offer:'₹199' },
+    { cat:'construction', name:'Minor Construction',   sub:'Repairs & Builds',    img:'assets/images/services/Category Minor construction.jpg',                 badge:'⭐ 4.5', time:'Quote',    offer:'10% OFF' },
+    { cat:'construction', name:'Wall Repair',          sub:'Cracks & Patchwork',  img:'assets/images/services/Category Minor construction.jpg',                 badge:'⭐ 4.6', time:'2 hrs',    offer:'₹499' },
+    { cat:'construction', name:'Tile Fixing',          sub:'Floor & Wall Tiles',  img:'assets/images/services/Category Minor construction.jpg',                 badge:'⭐ 4.5', time:'3 hrs',    offer:'₹699' },
+    { cat:'gardening',    name:'Gardening',            sub:'Lawn & Landscape',    img:'assets/images/services/Category Gardening.jpg',                          badge:'⭐ 4.8', time:'2 hrs',    offer:'₹499 Flat' },
+    { cat:'gardening',    name:'Lawn Mowing',          sub:'Regular Trim',        img:'assets/images/services/Category Gardening.jpg',                          badge:'⭐ 4.7', time:'1 hr',     offer:'₹299' },
+    { cat:'gardening',    name:'Tree Trimming',        sub:'Branch Cutting',      img:'assets/images/services/Category Gardening.jpg',                          badge:'⭐ 4.6', time:'2 hrs',    offer:'₹599' },
+    { cat:'renovation',   name:'Full Renovation',      sub:'Interior Makeover',   img:'assets/images/services/Category Interior renovation.jpg',                badge:'⭐ 4.9', time:'Quote',    offer:'25% OFF' },
+    { cat:'renovation',   name:'Interior Painting',    sub:'Walls & Ceiling',     img:'assets/images/services/Category Interior renovation.jpg',                badge:'⭐ 4.8', time:'Quote',    offer:'₹8/sqft' },
+    { cat:'renovation',   name:'Carpentry Works',      sub:'Custom Woodwork',     img:'assets/images/services/Category Interior renovation.jpg',                badge:'⭐ 4.7', time:'Quote',    offer:'10% OFF' },
+    { cat:'pool',         name:'Pool Maintenance',     sub:'Cleaning & Repair',   img:'assets/images/services/Category Swimming pool maintenance .jpg',         badge:'⭐ 4.4', time:'Same Day', offer:'15% OFF' },
+    { cat:'pool',         name:'Pool Construction',    sub:'New Build',           img:'assets/images/services/Category Swimming pool maintenance .jpg',         badge:'⭐ 4.5', time:'Quote',    offer:'Get Quote' },
+    { cat:'pool',         name:'Pool Chemical Care',   sub:'Water Treatment',     img:'assets/images/services/Category Swimming pool maintenance .jpg',         badge:'⭐ 4.6', time:'1 hr',     offer:'₹999' },
+    { cat:'petcare',      name:'Pet Care',             sub:'Walking & Grooming',  img:'assets/images/services/Category Pet care.jpg',                           badge:'⭐ 4.7', time:'Today',    offer:'LOVING' },
+    { cat:'petcare',      name:'Pet Grooming',         sub:'Bath & Trim',         img:'assets/images/services/Category Pet care.jpg',                           badge:'⭐ 4.8', time:'2 hrs',    offer:'₹499' },
+    { cat:'petcare',      name:'Dog Walking',          sub:'Daily Walks',         img:'assets/images/services/Category Pet care.jpg',                           badge:'⭐ 4.7', time:'1 hr',     offer:'₹199' },
+    { cat:'personalcare', name:'Personal Care',        sub:'At Home Service',     img:'assets/images/services/Category Personal care.jpg',                     badge:'⭐ 4.8', time:'Schedule', offer:'ELITE' },
+    { cat:'personalcare', name:'Home Salon',           sub:'Beauty at Home',      img:'assets/images/services/Category Personal care.jpg',                     badge:'⭐ 4.8', time:'2 hrs',    offer:'20% OFF' },
+    { cat:'personalcare', name:'Massage Therapy',      sub:'Relaxation at Home',  img:'assets/images/services/Category Personal care.jpg',                     badge:'⭐ 4.7', time:'1 hr',     offer:'₹699' },
+    { cat:'babysitter',   name:'Babysitting',          sub:'Safe & Caring',       img:'assets/images/services/Category Baby sitter.jpg',                       badge:'⭐ 4.8', time:'Schedule', offer:'TRUSTED' },
+    { cat:'babysitter',   name:'Day Care',             sub:'Full Day Support',    img:'assets/images/services/Category Baby sitter.jpg',                       badge:'⭐ 4.7', time:'Schedule', offer:'₹999/day' },
+    { cat:'eldercare',    name:'Elder Care',           sub:'Professional Support', img:'assets/images/services/Category Elder care.jpg',                        badge:'⭐ 4.9', time:'Schedule', offer:'PREMIUM' },
+    { cat:'eldercare',    name:'Medical Escort',       sub:'Hospital Visits',     img:'assets/images/services/Category Elder care.jpg',                        badge:'⭐ 4.8', time:'Schedule', offer:'₹499' },
+    { cat:'eldercare',    name:'Daily Assistance',     sub:'Home Care',           img:'assets/images/services/Category Elder care.jpg',                        badge:'⭐ 4.7', time:'Schedule', offer:'₹799/day' },
   ];
 
-  const premium = [
-    { name:'Elder Care', sub:'Professional Support', img:'assets/images/services/Category Elder care.jpg', badge:'⭐ 4.9', time:'Schedule', offer:'PREMIUM' },
-    { name:'Babysitting', sub:'Safe & Caring', img:'assets/images/services/Category Baby sitter.jpg', badge:'⭐ 4.8', time:'Schedule', offer:'TRUSTED' },
-    { name:'Personal Care', sub:'At Home Service', img:'assets/images/services/Category Personal care.jpg', badge:'⭐ 4.8', time:'Schedule', offer:'ELITE' },
-    { name:'Pet Care', sub:'Walking & Grooming', img:'assets/images/services/Category Pet care.jpg', badge:'⭐ 4.7', time:'Today', offer:'LOVING' },
-    { name:'Dehumidifier', sub:'Moisture Control', img:'assets/images/services/Category Dehumidifier.jpg', badge:'⭐ 4.7', time:'Today', offer:'PREMIUM' },
-  ];
+  // Default top picks (one from each major category)
+  const defaultServices = allServices.filter(s =>
+    ['aircon','cleaning','handyman','pest','appliance','gardening','renovation','pool'].includes(s.cat)
+  ).filter((s,i,arr) => arr.findIndex(x => x.cat === s.cat) === i);
 
-  const quickFix = [
-    { name:'Handyman', sub:'General Fixes', img:'assets/images/services/Category Handyman.jpg', offer:'₹199/hr', badge:'4.6' },
-    { name:'Cleaning', sub:'Quick Clean', img:'assets/images/services/Category Cleaning.jpg', offer:'₹299', badge:'4.7' },
-    { name:'AC Fix', sub:'Minor Repairs', img:'assets/images/services/Category Aircon.jpg', offer:'₹249', badge:'4.5' },
-    { name:'Appliance', sub:'Small Fixes', img:'assets/images/services/Category Appliance repair.jpg', offer:'₹349/hr', badge:'4.4' },
-    { name:'Pest Spray', sub:'Quick Treatment', img:'assets/images/services/Category Pest control.jpg', offer:'₹499', badge:'4.6' },
-    { name:'Garden Trim', sub:'Basic Trim', img:'assets/images/services/Category Gardening.jpg', offer:'₹399', badge:'4.5' },
-  ];
+
 
 
   // ── Render horizontal service card ──
@@ -528,61 +638,90 @@
     return div;
   }
 
-  // ── Render grid card ──
-  function gridCard(item) {
-    const div = document.createElement('div');
-    div.className = 'lift cursor-pointer w-full';
-    const rating = item.badge.replace('⭐ ', '');
-    
-    div.innerHTML = `
-      <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-lg">
-        <img src="${item.img}" alt="${item.name}" class="w-full h-full object-contain"/>        
-        <button class="absolute top-2 right-2 text-white/90 transition-transform">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-        </button>
-        
-        <div class="absolute bottom-2 left-2 right-2">
-          <p class="text-white text-xs font-bold leading-tight" style="text-shadow: 0 1px 2px rgba(0,0,0,0.5)">${item.offer}</p>
-        </div>
-      </div>
-      <div class="pt-2 px-0.5">
-        <h3 class="font-serif text-[14px] font-bold text-[#1a1a2e] leading-tight truncate">${item.name}</h3>
-        <div class="flex items-center gap-1 mt-1">
-          <div class="w-3.5 h-3.5 rounded-full bg-green-700 flex items-center justify-center text-white text-[8px]">★</div>
-          <span class="text-[11px] font-bold text-[#1a1a2e]">${rating}</span>
-        </div>
-        <p class="text-[11px] text-gray-500 truncate mt-0.5">${item.sub}</p>
-      </div>`;
-    div.addEventListener('click', () => openWA(item.name));
-    return div;
+
+
+
+  // ── Category Grid ──
+  let activeSwiper = null;
+
+  function renderCategories() {
+    const grid = document.getElementById('cat-grid');
+    categories.forEach(cat => {
+      const el = document.createElement('div');
+      el.className = 'cat-item flex flex-col items-center cursor-pointer';
+      el.dataset.id = cat.id;
+      el.innerHTML = `
+        <div class="cat-icon">${ICONS[cat.id] || ''}</div>
+        <span class="cat-label">${cat.name.replace(/\n/g,'<br>')}</span>`;
+      el.addEventListener('click', () => filterServices(cat.id, cat.name, el));
+      grid.appendChild(el);
+    });
   }
 
+  function filterServices(catId, catName, clickedEl) {
+    document.querySelectorAll('.cat-item').forEach(i => i.classList.remove('active'));
+    clickedEl.classList.add('active');
+    const services = allServices.filter(s => s.cat === catId);
+    const title = catName.replace(/\n/g, ' ');
+    openPopup(title, services);
+  }
 
-  // ── Populate rows ──
-  topServices.forEach(s => document.getElementById('row1').appendChild(serviceCard(s)));
-  trending.forEach(s => document.getElementById('row2').appendChild(serviceCard(s)));
-  premium.forEach(s => document.getElementById('row3').appendChild(serviceCard(s, true)));
-  quickFix.forEach(s => document.getElementById('row4').appendChild(gridCard(s)));
+  function openPopup(title, services) {
+    document.getElementById('popup-title').textContent = title;
+    const body = document.getElementById('popup-body');
+    body.innerHTML = '';
+    services.forEach(s => {
+      const rating = s.badge.replace('\u2b50 ', '');
+      const row = document.createElement('div');
+      row.className = 'svc-row';
+      row.innerHTML = `
+        <img class="svc-row-img" src="${s.img}" alt="${s.name}"/>
+        <div style="flex:1;min-width:0">
+          <p style="font-weight:700;font-size:14px;color:#1a1a2e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${s.name}</p>
+          <p style="font-size:11.5px;color:#888;margin-top:2px">${s.sub}</p>
+          <div style="display:flex;align-items:center;gap:4px;margin-top:4px">
+            <span style="background:#2e7d5e;color:#fff;font-size:9px;font-weight:700;padding:2px 5px;border-radius:20px">&#9733; ${rating}</span>
+            <span style="font-size:11px;color:#BC6587;font-weight:700">${s.offer}</span>
+            <span style="font-size:10px;color:#aaa;margin-left:2px">&bull; ${s.time}</span>
+          </div>
+        </div>
+        <button class="svc-row-book" onclick="event.stopPropagation();openWA('${s.name}')">Book</button>`;
+      row.addEventListener('click', () => openWA(s.name));
+      body.appendChild(row);
+    });
+    document.getElementById('svc-popup-overlay').classList.add('open');
+    document.getElementById('svc-popup').classList.add('open');
+    document.getElementById('main-scroll').style.overflow = 'hidden';
+  }
 
-  // ── Init Swiper ──
+  function closePopup() {
+    document.getElementById('svc-popup-overlay').classList.remove('open');
+    document.getElementById('svc-popup').classList.remove('open');
+    document.querySelectorAll('.cat-item').forEach(i => i.classList.remove('active'));
+    document.getElementById('main-scroll').style.overflow = '';
+  }
+
+  function loadServiceSwiper(services) {
+    const wrapper = document.getElementById('row1');
+    wrapper.innerHTML = '';
+    services.forEach(s => wrapper.appendChild(serviceCard(s)));
+    new Swiper('.services-swiper', {
+      slidesPerView: 'auto',
+      spaceBetween: 14,
+      freeMode: true,
+      slidesOffsetBefore: 16,
+      slidesOffsetAfter: 16,
+    });
+  }
+
+  renderCategories();
+  loadServiceSwiper(defaultServices);
+
+  // ── Init Hero Swiper ──
   const swiper = new Swiper('.hero-swiper', {
     loop: true,
-    autoplay: {
-      delay: 3500,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-  });
-
-  const servicesSwiper = new Swiper('.services-swiper', {
-    slidesPerView: 'auto',
-    spaceBetween: 14,
-    freeMode: true,
-    slidesOffsetBefore: 16,
-    slidesOffsetAfter: 16,
+    autoplay: { delay: 3500, disableOnInteraction: false },
+    pagination: { el: '.swiper-pagination', clickable: true },
   });
 
   const testimonialsSwiper = new Swiper('.testimonials-swiper', {

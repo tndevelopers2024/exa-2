@@ -1,0 +1,395 @@
+[
+  {
+    "id": "aircon",
+    "name": "Aircon",
+    "services": [
+      {
+        "name": "Aircon General Service",
+        "section": "",
+        "prices": [
+          50,
+          60,
+          70,
+          80,
+          90
+        ]
+      },
+      {
+        "name": "Aircon Installation",
+        "section": "",
+        "prices": [
+          400,
+          750,
+          1100,
+          1450,
+          1800
+        ]
+      },
+      {
+        "name": "Aircon Chemical Overhaul",
+        "section": "",
+        "prices": [
+          100,
+          180,
+          240,
+          300,
+          350
+        ]
+      },
+      {
+        "name": "Gas Top-Up",
+        "section": "",
+        "prices": [
+          80,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "name": "CU Cleaning",
+        "section": "",
+        "prices": [
+          50,
+          80,
+          105,
+          120,
+          135
+        ]
+      }
+    ]
+  },
+  {
+    "id": "handyman",
+    "name": "Handyman",
+    "services": [
+      {
+        "name": "General Handyman Package (Half Day)",
+        "section": "Installation & Dismantle",
+        "prices": [
+          350
+        ]
+      },
+      {
+        "name": "General Handyman Package (Full Day)",
+        "section": "Installation & Dismantle",
+        "prices": [
+          600
+        ]
+      },
+      {
+        "name": "Water Heater",
+        "section": "Installation & Dismantle",
+        "prices": [
+          60
+        ]
+      },
+      {
+        "name": "TV Brackets (wall mount)",
+        "section": "Installation & Dismantle",
+        "prices": [
+          50
+        ]
+      },
+      {
+        "name": "CCTV Installation",
+        "section": "Installation & Dismantle",
+        "prices": [
+          25
+        ]
+      },
+      {
+        "name": "Brackets, Shelves, Mirrors & Artwork",
+        "section": "Installation & Dismantle",
+        "prices": [
+          20
+        ]
+      },
+      {
+        "name": "furniture assembly (IKEA)",
+        "section": "Installation & Dismantle",
+        "prices": [
+          100
+        ]
+      },
+      {
+        "name": "Bathroom accessories",
+        "section": "Installation & Dismantle",
+        "prices": [
+          null
+        ]
+      },
+      {
+        "name": "Lighting fixtures",
+        "section": "Installation & Dismantle",
+        "prices": [
+          20
+        ]
+      },
+      {
+        "name": "Plumbing fixes",
+        "section": "General Repairs",
+        "prices": [
+          null
+        ]
+      },
+      {
+        "name": "Door and window repairs",
+        "section": "General Repairs",
+        "prices": [
+          50
+        ]
+      },
+      {
+        "name": "Door hinge repair",
+        "section": "General Repairs",
+        "prices": [
+          50
+        ]
+      },
+      {
+        "name": "Door lock replacement",
+        "section": "General Repairs",
+        "prices": [
+          30
+        ]
+      },
+      {
+        "name": "Curtain rod installation",
+        "section": "General Repairs",
+        "prices": [
+          50
+        ]
+      },
+      {
+        "name": "Tile and grout repair",
+        "section": "General Repairs",
+        "prices": [
+          80
+        ]
+      },
+      {
+        "name": "Electrical services",
+        "section": "General Repairs",
+        "prices": [
+          null
+        ]
+      },
+      {
+        "name": "Wall patching and painting",
+        "section": "General Repairs",
+        "prices": [
+          60
+        ]
+      },
+      {
+        "name": "Bathroom sealant repairs",
+        "section": "General Repairs",
+        "prices": [
+          40
+        ]
+      },
+      {
+        "name": "Ceiling fan replacement",
+        "section": "General Repairs",
+        "prices": [
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "id": "plumbing",
+    "name": "Plumbing",
+    "services": [
+      {
+        "name": "Leaky tap repair",
+        "section": "",
+        "prices": [
+          50
+        ]
+      },
+      {
+        "name": "Shower head replacement",
+        "section": "",
+        "prices": [
+          50
+        ]
+      },
+      {
+        "name": "Toilet flush repair",
+        "section": "",
+        "prices": [
+          25
+        ]
+      },
+      {
+        "name": "Pipe joint sealing",
+        "section": "",
+        "prices": [
+          30
+        ]
+      },
+      {
+        "name": "Tap replacement",
+        "section": "",
+        "prices": [
+          25
+        ]
+      },
+      {
+        "name": "Wash Basin Install",
+        "section": "",
+        "prices": [
+          40
+        ]
+      },
+      {
+        "name": "Kitchen Sink",
+        "section": "",
+        "prices": [
+          50
+        ]
+      },
+      {
+        "name": "Toilet Bowl / Cover / Choke",
+        "section": "",
+        "prices": [
+          50
+        ]
+      },
+      {
+        "name": "Fixing Leaks",
+        "section": "",
+        "prices": [
+          30
+        ]
+      },
+      {
+        "name": "Shower Set Install",
+        "section": "",
+        "prices": [
+          50
+        ]
+      },
+      {
+        "name": "Unclogging Drains",
+        "section": "",
+        "prices": [
+          40
+        ]
+      },
+      {
+        "name": "Installing Faucets",
+        "section": "",
+        "prices": [
+          30
+        ]
+      },
+      {
+        "name": "Replacing Pipes",
+        "section": "",
+        "prices": [
+          40
+        ]
+      },
+      {
+        "name": "General Plumbing Services",
+        "section": "",
+        "prices": [
+          80
+        ]
+      }
+    ]
+  },
+  {
+    "id": "electrical",
+    "name": "Electrical",
+    "services": [
+      {
+        "name": "General Electrical Services",
+        "section": "",
+        "prices": [
+          30
+        ]
+      },
+      {
+        "name": "Light Installation",
+        "section": "",
+        "prices": [
+          20
+        ]
+      },
+      {
+        "name": "Fan Installation",
+        "section": "",
+        "prices": [
+          30
+        ]
+      },
+      {
+        "name": "Socket & Switches Installation",
+        "section": "",
+        "prices": [
+          25
+        ]
+      },
+      {
+        "name": "Troubleshooting",
+        "section": "",
+        "prices": [
+          50
+        ]
+      },
+      {
+        "name": "PowerPoint Extension",
+        "section": "",
+        "prices": [
+          50
+        ]
+      }
+    ]
+  },
+  {
+    "id": "painting",
+    "name": "Painting",
+    "services": [
+      {
+        "name": "HDB - 2 Room Flat (500 Sq.ft.)",
+        "section": "",
+        "prices": [
+          600
+        ]
+      },
+      {
+        "name": "HDB - 3 Room Flat (750 Sq.ft.)",
+        "section": "",
+        "prices": [
+          650
+        ]
+      },
+      {
+        "name": "HDB - 4 Room Flat (950 Sq.ft.)",
+        "section": "",
+        "prices": [
+          750
+        ]
+      },
+      {
+        "name": "HDB - 5 Room Flat (1200 Sq.ft.)",
+        "section": "",
+        "prices": [
+          1000
+        ]
+      },
+      {
+        "name": "Executive Flat (1400 Sq.ft.)",
+        "section": "",
+        "prices": [
+          1250
+        ]
+      }
+    ]
+  }
+]

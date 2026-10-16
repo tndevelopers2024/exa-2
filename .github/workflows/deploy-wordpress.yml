@@ -1,0 +1,38 @@
+name: Deploy WordPress theme to Hostinger
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'wordpress/exa-home-services/**'
+      - 'scripts/deploy-wordpress.sh'
+      - '.github/workflows/deploy-wordpress.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hostinger-wordpress
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: vars.HOSTINGER_DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check theme PHP and JavaScript
+        run: |
+          find wordpress/exa-home-services -name '*.php' -print0 | xargs -0 -n1 php -l
+          node --check wordpress/exa-home-services/assets/app.js
+      - name: Deploy theme
+        env:
+          HOSTINGER_HOST: ${{ secrets.HOSTINGER_HOST }}
+          HOSTINGER_PORT: ${{ secrets.HOSTINGER_PORT }}
+          HOSTINGER_USER: ${{ secrets.HOSTINGER_USER }}
+          HOSTINGER_SSH_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+          HOSTINGER_KNOWN_HOSTS: ${{ secrets.HOSTINGER_KNOWN_HOSTS }}
+          HOSTINGER_THEME_PATH: ${{ secrets.HOSTINGER_THEME_PATH }}
+        run: bash scripts/deploy-wordpress.sh

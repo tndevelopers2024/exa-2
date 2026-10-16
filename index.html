@@ -511,7 +511,7 @@
     }
     @media (min-width: 900px) {
       body > .site-shell { width:calc(100% - 96px); max-width:1480px; padding:0; }
-      #main-header { padding:26px 0; border-bottom:1px solid #e8dfe3; background:transparent; }
+      #main-header { padding:20px 0; border-bottom:1px solid #e8dfe3; background:#f8f6f2; backdrop-filter:none; -webkit-backdrop-filter:none; }
       #main-header > div:first-child { margin-bottom:0; }
       #main-header img { height:48px; }
       #main-header button[onclick="toggleMenu()"] { display:none; }
@@ -555,13 +555,31 @@
       .price-table th, .price-table td { padding:14px 18px; }
       #testimonials { margin:48px 0; }
       #svc-popup { max-width:680px; }
-      .floating-actions { right:24px; bottom:24px; }
+      .site-shell .floating-actions { right:24px; bottom:24px; }
     }
     @media (min-width:1200px) {
       .services-swiper .swiper-wrapper { grid-template-columns:repeat(4,minmax(0,1fr)); }
       .handyman-swiper .swiper-wrapper { grid-template-columns:repeat(5,minmax(0,1fr)); }
     }
     @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .fade-up { animation:none; opacity:1; transform:none; } }
+    /* Keep navigation and fixed controls legible over every section. */
+    #main-header { background:#f8f6f2; backdrop-filter:none; -webkit-backdrop-filter:none; }
+    [id^="sec-"], #services, #pricing, #testimonials, #hero { scroll-margin-top:110px; }
+    .site-shell .floating-actions { position:fixed; right:20px; bottom:20px; gap:10px; }
+    .floating-actions .glass-btn { background:#fff; border:1px solid #eadce4; box-shadow:0 3px 14px #4e063618; backdrop-filter:none; -webkit-backdrop-filter:none; }
+    .emergency-panel { background:#f0e6ec; border:1px solid #e5d3dd; border-radius:24px; padding:28px; }
+    .emergency-panel h3 { color:#4e0636; }
+    .emergency-panel .emergency-description { color:#6e5363; }
+    .emergency-panel .emergency-eyebrow { color:#92506f; }
+    @media (min-width:900px) {
+      .emergency-section { margin:40px 0; }
+      .emergency-panel { padding:36px 40px; }
+      .emergency-panel h3 { font-size:28px; line-height:1.25; }
+      #testimonials .swiper-slide { padding:32px 40px 48px; }
+      #testimonials .swiper-slide > div { max-width:560px; }
+      #testimonials .swiper-slide > p { max-width:800px; }
+      .site-shell footer { padding-bottom:40px; border-radius:28px 28px 0 0; }
+    }
   </style>
 </head>
 
@@ -810,16 +828,16 @@
       </section>
 
       <!-- ── CTA Banner ── -->
-      <div class="mx-4 mt-4 mb-6 fade-up" style="animation-delay:.4s">
-        <div class="banner-bg rounded-3xl p-5 relative overflow-hidden">
+      <div class="emergency-section mx-4 mt-4 mb-6 fade-up" style="animation-delay:.4s">
+        <div class="emergency-panel rounded-3xl p-5 relative overflow-hidden">
           <div class="absolute -right-8 -top-8 w-36 h-36 rounded-full" style="background:rgba(188,101,135,.15)"></div>
-          <p class="text-[#E297B3] text-[10px] font-bold uppercase tracking-widest mb-1 relative z-10">24/7 Available
+          <p class="emergency-eyebrow text-[10px] font-bold uppercase tracking-widest mb-1 relative z-10">24/7 Available
           </p>
           <h3 class="font-serif text-black text-lg leading-tight relative z-10">Need Emergency<br />Home Service?</h3>
-          <p class="text-white/60 text-xs mt-1 mb-3 relative z-10">Our experts are ready round the clock</p>
-          <button onclick="openWA('Exa Emergency Service')"
+          <p class="emergency-description text-xs mt-1 mb-3 relative z-10">Our experts are ready round the clock</p>
+          <a href="tel:+919876543210"
             class="gold-badge text-[#4E0636] text-xs font-bold px-5 py-2.5 rounded-xl relative z-10">Call Now: +91 98765
-            43210</button>
+            43210</a>
         </div>
       </div>
 
@@ -892,9 +910,9 @@
   </nav> -->
 
     <!-- ── Floating Actions (Glassmorphism) ── -->
-    <div class="floating-actions fixed bottom-6 right-4 sm:right-[calc(50vw-200px)] z-[60] flex flex-col gap-3">
+    <div class="floating-actions fixed z-[60] flex flex-col gap-3">
       <!-- WhatsApp -->
-      <a href="https://wa.me/919876543210" target="_blank"
+      <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"
         class="w-12 h-12 rounded-full flex items-center justify-center glass-btn text-[#25D366] transition-transform active:scale-95">
         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
           <path
@@ -902,7 +920,7 @@
         </svg>
       </a>
       <!-- Instagram -->
-      <a href="https://instagram.com" target="_blank"
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
         class="w-12 h-12 rounded-full flex items-center justify-center glass-btn text-[#E1306C] transition-transform active:scale-95">
         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
           <path
@@ -910,7 +928,7 @@
         </svg>
       </a>
       <!-- Scroll to top -->
-      <button onclick="window.scrollTo({top:0, behavior:'smooth'})"
+      <button aria-label="Back to top" onclick="window.scrollTo({top:0, behavior:'smooth'})"
         class="w-12 h-12 rounded-full flex items-center justify-center glass-btn text-[#4E0636] transition-transform active:scale-95">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />

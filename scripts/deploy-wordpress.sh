@@ -34,4 +34,6 @@ ssh "${ssh_options[@]}" "$remote" "test -f '$theme_path/style.css' && test -f '$
 rsync -az --delay-updates --exclude='.DS_Store' \
   -e "ssh -i $ssh_dir/key -p $HOSTINGER_PORT -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$ssh_dir/known_hosts" \
   wordpress/exa-home-services/ "$remote:$theme_path/"
-echo 'Theme deployed. Purge LiteSpeed cache if cached pages still show the previous version.'
+wordpress_path="${theme_path%/wp-content/themes/exa-home-services}"
+ssh "${ssh_options[@]}" "$remote" "cd '$wordpress_path' && if command -v wp >/dev/null && wp cli has-command litespeed-purge; then wp litespeed-purge all; fi"
+echo 'Theme deployed and available LiteSpeed page cache cleared.'

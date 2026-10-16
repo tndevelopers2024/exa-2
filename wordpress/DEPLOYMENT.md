@@ -28,6 +28,6 @@ Edit the files inside `wordpress/exa-home-services/`, commit, and push to `main`
 
 Hostinger must have `rsync` available over SSH. Each deployment saves a compressed copy of the installed theme under `~/.exa-theme-backups/` before upload. Backups accumulate; periodically archive or remove old ones. Deployment uses delayed file replacement but is not an atomic release across the whole theme.
 
-If LiteSpeed page caching is enabled, use **LiteSpeed Cache → Toolbox → Purge All** after deployment if the old design remains visible. For immediate automatic visibility, configure cache purging as a separate step after confirming WP-CLI access on the host.
+The deployment clears LiteSpeed page cache automatically when its WP-CLI command is available. Theme CSS/JavaScript URLs also include file modification versions. If another CDN or cache is configured separately, clear that cache if necessary.
 
 To roll back, restore the desired backup to the theme folder or revert the Git commit and push again. Saved admin price overrides continue to take precedence over the bundled default price list.

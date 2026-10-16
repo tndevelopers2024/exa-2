@@ -27,6 +27,7 @@ jobs:
         run: |
           find wordpress/exa-home-services -name '*.php' -print0 | xargs -0 -n1 php -l
           node --check wordpress/exa-home-services/assets/app.js
+          node scripts/check-service-assets.mjs
       - name: Deploy theme
         env:
           HOSTINGER_HOST: ${{ secrets.HOSTINGER_HOST }}

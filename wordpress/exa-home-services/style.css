@@ -502,7 +502,7 @@ Text Domain: exa-home-services
       #main-scroll > section { margin-top:46px; }
       #main-scroll > section > div:first-child { padding-left:0; padding-right:0; margin-bottom:22px; }
       #main-scroll section h2 { font-size:26px; font-weight:600; letter-spacing:-.7px; }
-      .services-swiper .swiper-wrapper, .aircon-swiper .swiper-wrapper, .cleaning-swiper .swiper-wrapper, .handyman-swiper .swiper-wrapper, .pest-swiper .swiper-wrapper { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:22px; transform:none !important; }
+      .services-swiper .swiper-wrapper, .catalogue-swiper .swiper-wrapper, .aircon-swiper .swiper-wrapper, .cleaning-swiper .swiper-wrapper, .handyman-swiper .swiper-wrapper, .pest-swiper .swiper-wrapper { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:22px; transform:none !important; }
       .services-swiper .swiper-slide, .cat-section-slide { width:100% !important; margin:0 !important; min-width:0; }
       .services-swiper .swiper-slide > div:first-child { height:210px; background:#fff; }
       .services-swiper img { object-fit:cover; }

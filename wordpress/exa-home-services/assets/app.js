@@ -124,12 +124,28 @@ const formatPrice = price => [exaSettings.currency, price.toLocaleString('en')].
       { cat: 'eldercare', name: 'Daily Assistance', sub: 'Home Care', img: `${exaSettings.assets}images/services/Category Elder care.jpg`, badge: '⭐ 4.7', time: 'Schedule', offer: '₹799/day' },
     ];
 
+    function servicePhoto(name, category) {
+      if (category === 'aircon') {
+        if (/Installation/i.test(name)) return 'aircon-installation';
+        if (/Overhaul/i.test(name)) return 'aircon-overhaul';
+        if (/Gas/i.test(name)) return 'aircon-gas';
+        if (/CU Cleaning/i.test(name)) return 'aircon-condenser';
+      }
+      if (/furniture/i.test(name)) return 'furniture-assembly';
+      if (/TV Brackets|Shelves|Mirrors|Curtain rod/i.test(name)) return 'wall-mounting';
+      if (category === 'plumbing' || /Plumbing|Water Heater|Bathroom|sealant/i.test(name)) return 'plumbing';
+      if (category === 'electrical' || /Electrical|Lighting|fan|CCTV/i.test(name)) return 'electrical';
+      if (category === 'painting' || /painting|Tile and grout/i.test(name)) return 'painting';
+      return null;
+    }
+
     // Replace the sample cards with the supplied service catalogue.
     allServices.splice(0, allServices.length, ...allServices.filter(s => !['aircon', 'handyman'].includes(s.cat)));
     servicePricing.forEach(group => group.services.forEach(service => {
       const price = service.prices[0];
+      const photo = servicePhoto(service.name, group.id);
       allServices.push({ cat: group.id, name: service.name, sub: service.section || group.name,
-        img: `assets/images/services/Category ${group.id === 'aircon' ? 'Aircon' : 'Handyman'}.jpg`,
+        img: photo ? `${exaSettings.assets}images/services/generated/${photo}.webp` : `${exaSettings.assets}images/services/Category ${group.id === 'aircon' ? 'Aircon' : 'Handyman'}.jpg`,
         badge: '', time: 'Request booking', offer: price === null ? 'Request quote' : `Price: ${formatPrice(price)}`,
         pricing: service });
     }));
@@ -150,7 +166,7 @@ const formatPrice = price => [exaSettings.currency, price.toLocaleString('en')].
 
       div.innerHTML = `
       <div class="relative w-full h-43 rounded-2xl overflow-hidden shadow-sm">
-        <img src="${item.img}" alt="${item.name}" class="w-full h-full object-contain"/>
+        <img loading="lazy" decoding="async" src="${item.img}" alt="${item.name}" class="w-full h-full object-contain"/>
         
         <!-- Top Right Heart -->
         <button class="absolute top-2 right-2 text-white/90 transition-transform">
@@ -238,7 +254,7 @@ const formatPrice = price => [exaSettings.currency, price.toLocaleString('en')].
       div.style.width = '150px';
       div.innerHTML = `
         <div style="overflow:hidden">
-          <img class="cat-slide-img" src="${item.img}" alt="${item.name}" />
+          <img loading="lazy" decoding="async" class="cat-slide-img" src="${item.img}" alt="${item.name}" />
         </div>
         <div class="cat-slide-body">
           <p class="cat-slide-title">${item.name}</p>
@@ -323,6 +339,9 @@ const formatPrice = price => [exaSettings.currency, price.toLocaleString('en')].
     loadCatSection('row-cleaning', 'cleaning-swiper', 'cleaning', '#059669');
     loadCatSection('row-handyman', 'handyman-swiper', 'handyman', '#d97706');
     loadCatSection('row-pest',     'pest-swiper',     'pest',     '#7c3aed');
+    loadCatSection('row-plumbing', 'plumbing-swiper', 'plumbing', '#0284c7');
+    loadCatSection('row-electrical', 'electrical-swiper', 'electrical', '#d97706');
+    loadCatSection('row-painting', 'painting-swiper', 'painting', '#BC6587');
 
     // ── Init Hero Swiper ──
     const swiper = new Swiper('.hero-swiper', {

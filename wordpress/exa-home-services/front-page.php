@@ -75,7 +75,7 @@ get_header();
 
       
       <nav class="desktop-categories" aria-label="Browse services">
-        <a href="#sec-aircon">Aircon</a><a href="#sec-cleaning">Cleaning</a><a href="#sec-handyman">Handyman</a><a href="#pricing">Plumbing</a><a href="#pricing">Electrical</a><a href="#pricing">Painting</a>
+        <a href="#sec-aircon">Aircon</a><a href="#sec-cleaning">Cleaning</a><a href="#sec-handyman">Handyman</a><a href="#sec-plumbing">Plumbing</a><a href="#sec-electrical">Electrical</a><a href="#sec-painting">Painting</a>
       </nav>
       <section id="services" class="mt-6 fade-up" style="animation-delay:.1s">
         <div class="flex items-center justify-between px-4 mb-3">
@@ -120,6 +120,18 @@ get_header();
       </section>
 
       
+      <section id="sec-plumbing" class="mt-6 fade-up">
+        <div class="flex items-center justify-between px-4 mb-3"><h2 class="font-serif text-[17px] text-[#4E0636]">Plumbing</h2></div>
+        <div class="swiper catalogue-swiper plumbing-swiper pb-4"><div id="row-plumbing" class="swiper-wrapper"></div></div>
+      </section>
+      <section id="sec-electrical" class="mt-6 fade-up">
+        <div class="flex items-center justify-between px-4 mb-3"><h2 class="font-serif text-[17px] text-[#4E0636]">Electrical</h2></div>
+        <div class="swiper catalogue-swiper electrical-swiper pb-4"><div id="row-electrical" class="swiper-wrapper"></div></div>
+      </section>
+      <section id="sec-painting" class="mt-6 fade-up">
+        <div class="flex items-center justify-between px-4 mb-3"><h2 class="font-serif text-[17px] text-[#4E0636]">Painting</h2></div>
+        <div class="swiper catalogue-swiper painting-swiper pb-4"><div id="row-painting" class="swiper-wrapper"></div></div>
+      </section>
       <section id="sec-pest" class="mt-6 fade-up" style="animation-delay:.22s">
         <div class="flex items-center justify-between px-4 mb-3">
           <h2 class="font-serif text-[17px] text-[#4E0636]"> Pest Control</h2>

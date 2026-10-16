@@ -535,7 +535,7 @@
       #main-scroll > section { margin-top:46px; }
       #main-scroll > section > div:first-child { padding-left:0; padding-right:0; margin-bottom:22px; }
       #main-scroll section h2 { font-size:26px; font-weight:600; letter-spacing:-.7px; }
-      .services-swiper .swiper-wrapper, .aircon-swiper .swiper-wrapper, .cleaning-swiper .swiper-wrapper, .handyman-swiper .swiper-wrapper, .pest-swiper .swiper-wrapper { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:22px; transform:none !important; }
+      .services-swiper .swiper-wrapper, .catalogue-swiper .swiper-wrapper, .aircon-swiper .swiper-wrapper, .cleaning-swiper .swiper-wrapper, .handyman-swiper .swiper-wrapper, .pest-swiper .swiper-wrapper { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:22px; transform:none !important; }
       .services-swiper .swiper-slide, .cat-section-slide { width:100% !important; margin:0 !important; min-width:0; }
       .services-swiper .swiper-slide > div:first-child { height:210px; background:#fff; }
       .services-swiper img { object-fit:cover; }
@@ -682,7 +682,7 @@
          ROW 1: Top Services 🏆
     ═══════════════════════════════════════ -->
       <nav class="desktop-categories" aria-label="Browse services">
-        <a href="#sec-aircon">Aircon</a><a href="#sec-cleaning">Cleaning</a><a href="#sec-handyman">Handyman</a><a href="#pricing">Plumbing</a><a href="#pricing">Electrical</a><a href="#pricing">Painting</a>
+        <a href="#sec-aircon">Aircon</a><a href="#sec-cleaning">Cleaning</a><a href="#sec-handyman">Handyman</a><a href="#sec-plumbing">Plumbing</a><a href="#sec-electrical">Electrical</a><a href="#sec-painting">Painting</a>
       </nav>
       <section id="services" class="mt-6 fade-up" style="animation-delay:.1s">
         <div class="flex items-center justify-between px-4 mb-3">
@@ -735,6 +735,18 @@
       <!-- ════════════════════════════════════
          🐛 Pest Control
     ═══════════════════════════════════════ -->
+      <section id="sec-plumbing" class="mt-6 fade-up">
+        <div class="flex items-center justify-between px-4 mb-3"><h2 class="font-serif text-[17px] text-[#4E0636]">Plumbing</h2></div>
+        <div class="swiper catalogue-swiper plumbing-swiper pb-4"><div id="row-plumbing" class="swiper-wrapper"></div></div>
+      </section>
+      <section id="sec-electrical" class="mt-6 fade-up">
+        <div class="flex items-center justify-between px-4 mb-3"><h2 class="font-serif text-[17px] text-[#4E0636]">Electrical</h2></div>
+        <div class="swiper catalogue-swiper electrical-swiper pb-4"><div id="row-electrical" class="swiper-wrapper"></div></div>
+      </section>
+      <section id="sec-painting" class="mt-6 fade-up">
+        <div class="flex items-center justify-between px-4 mb-3"><h2 class="font-serif text-[17px] text-[#4E0636]">Painting</h2></div>
+        <div class="swiper catalogue-swiper painting-swiper pb-4"><div id="row-painting" class="swiper-wrapper"></div></div>
+      </section>
       <section id="sec-pest" class="mt-6 fade-up" style="animation-delay:.22s">
         <div class="flex items-center justify-between px-4 mb-3">
           <h2 class="font-serif text-[17px] text-[#4E0636]"> Pest Control</h2>
@@ -1121,12 +1133,28 @@
       { cat: 'eldercare', name: 'Daily Assistance', sub: 'Home Care', img: 'assets/images/services/Category Elder care.jpg', badge: '⭐ 4.7', time: 'Schedule', offer: '₹799/day' },
     ];
 
+    function servicePhoto(name, category) {
+      if (category === 'aircon') {
+        if (/Installation/i.test(name)) return 'aircon-installation';
+        if (/Overhaul/i.test(name)) return 'aircon-overhaul';
+        if (/Gas/i.test(name)) return 'aircon-gas';
+        if (/CU Cleaning/i.test(name)) return 'aircon-condenser';
+      }
+      if (/furniture/i.test(name)) return 'furniture-assembly';
+      if (/TV Brackets|Shelves|Mirrors|Curtain rod/i.test(name)) return 'wall-mounting';
+      if (category === 'plumbing' || /Plumbing|Water Heater|Bathroom|sealant/i.test(name)) return 'plumbing';
+      if (category === 'electrical' || /Electrical|Lighting|fan|CCTV/i.test(name)) return 'electrical';
+      if (category === 'painting' || /painting|Tile and grout/i.test(name)) return 'painting';
+      return null;
+    }
+
     // Replace the sample cards with the supplied service catalogue.
     allServices.splice(0, allServices.length, ...allServices.filter(s => !['aircon', 'handyman'].includes(s.cat)));
     servicePricing.forEach(group => group.services.forEach(service => {
       const price = service.prices[0];
+      const photo = servicePhoto(service.name, group.id);
       allServices.push({ cat: group.id, name: service.name, sub: service.section || group.name,
-        img: `assets/images/services/Category ${group.id === 'aircon' ? 'Aircon' : 'Handyman'}.jpg`,
+        img: photo ? `assets/images/services/generated/${photo}.webp` : `assets/images/services/Category ${group.id === 'aircon' ? 'Aircon' : 'Handyman'}.jpg`,
         badge: '', time: 'Request booking', offer: price === null ? 'Request quote' : `Price: ${price.toLocaleString('en')}`,
         pricing: service });
     }));
@@ -1147,7 +1175,7 @@
 
       div.innerHTML = `
       <div class="relative w-full h-43 rounded-2xl overflow-hidden shadow-sm">
-        <img src="${item.img}" alt="${item.name}" class="w-full h-full object-contain"/>
+        <img loading="lazy" decoding="async" src="${item.img}" alt="${item.name}" class="w-full h-full object-contain"/>
         
         <!-- Top Right Heart -->
         <button class="absolute top-2 right-2 text-white/90 transition-transform">
@@ -1235,7 +1263,7 @@
       div.style.width = '150px';
       div.innerHTML = `
         <div style="overflow:hidden">
-          <img class="cat-slide-img" src="${item.img}" alt="${item.name}" />
+          <img loading="lazy" decoding="async" class="cat-slide-img" src="${item.img}" alt="${item.name}" />
         </div>
         <div class="cat-slide-body">
           <p class="cat-slide-title">${item.name}</p>
@@ -1320,6 +1348,9 @@
     loadCatSection('row-cleaning', 'cleaning-swiper', 'cleaning', '#059669');
     loadCatSection('row-handyman', 'handyman-swiper', 'handyman', '#d97706');
     loadCatSection('row-pest',     'pest-swiper',     'pest',     '#7c3aed');
+    loadCatSection('row-plumbing', 'plumbing-swiper', 'plumbing', '#0284c7');
+    loadCatSection('row-electrical', 'electrical-swiper', 'electrical', '#d97706');
+    loadCatSection('row-painting', 'painting-swiper', 'painting', '#BC6587');
 
     // ── Init Hero Swiper ──
     const swiper = new Swiper('.hero-swiper', {

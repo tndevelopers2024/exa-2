@@ -22,6 +22,7 @@ Text Domain: exa-home-services
 scripts = re.findall(r'<script>(.*?)</script>', html, re.S)
 app = scripts[-1]
 app = app.replace("const PHONE = '919876543210';", "const PHONE = exaSettings.phone;")
+app = app.replace('`assets/', '`${exaSettings.assets}')
 app = re.sub(r"(['\"])assets/", r"\1__EXA_ASSETS__/", app)
 app = app.replace('__EXA_ASSETS__/', '${exaSettings.assets}')
 # Asset paths in ordinary JS string literals need template literals.

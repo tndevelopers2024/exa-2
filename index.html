@@ -401,6 +401,8 @@
       width: 100%;
       aspect-ratio: 1 / 1;
       object-fit: cover;
+      object-position: center top;
+      background: #f0ece8;
       display: block;
     }
 
@@ -537,8 +539,9 @@
       #main-scroll section h2 { font-size:26px; font-weight:600; letter-spacing:-.7px; }
       .services-swiper .swiper-wrapper, .catalogue-swiper .swiper-wrapper, .aircon-swiper .swiper-wrapper, .cleaning-swiper .swiper-wrapper, .handyman-swiper .swiper-wrapper, .pest-swiper .swiper-wrapper { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:22px; transform:none !important; }
       .services-swiper .swiper-slide, .cat-section-slide { width:100% !important; margin:0 !important; min-width:0; }
-      .services-swiper .swiper-slide > div:first-child { height:210px; background:#fff; }
-      .services-swiper img { object-fit:cover; }
+      .services-swiper .swiper-slide > div:first-child { height:auto; aspect-ratio:4 / 5; background:#f0ece8; isolation:isolate; }
+      .services-swiper .service-photo-frame::before { content:""; position:absolute; inset:-20px; background-image:var(--service-photo); background-size:cover; background-position:center; filter:blur(18px); opacity:.35; z-index:-1; }
+      .services-swiper img { width:100%; height:100%; display:block; object-fit:contain; background:transparent; }
       .cat-slide-img { aspect-ratio:1.35; }
       .cat-slide-body { padding:18px; }
       .cat-slide-title { font-size:15px; white-space:normal; line-height:1.5; }
@@ -580,6 +583,141 @@
       #testimonials .swiper-slide > p { max-width:800px; }
       .site-shell footer { padding-bottom:40px; border-radius:28px 28px 0 0; }
     }
+
+    /* Closing sections: customer stories, contact and footer. */
+    #main-scroll #testimonials.reviews-section { margin:64px 0 52px; padding:0; background:none; overflow:visible; }
+    .reviews-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:40px; margin-bottom:28px; }
+    .section-kicker { font-size:10px; letter-spacing:2px; font-weight:750; color:#9b526f; margin-bottom:14px; }
+    #main-scroll .reviews-heading h2 { font-size:clamp(28px,3vw,42px); line-height:1.12; letter-spacing:-1.4px; color:#4e0636; font-weight:600; }
+    .reviews-heading > p { max-width:330px; color:#776771; font-size:13px; line-height:1.8; }
+    .reviews-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
+    .review-card { padding:30px; background:#fff; border:1px solid #eadfe5; border-radius:20px; display:flex; flex-direction:column; }
+    .review-stars { color:#a45175; letter-spacing:3px; font-size:12px; }
+    .review-card blockquote { color:#402a37; font-size:15px; line-height:1.85; margin:20px 0 26px; flex:1; }
+    .review-person { display:flex; gap:12px; align-items:center; border-top:1px solid #f0e8ed; padding-top:20px; }
+    .review-avatar { display:grid; place-items:center; width:40px; height:40px; flex:none; border-radius:50%; background:#f3e6ed; color:#773754; font-size:12px; font-weight:700; }
+    .review-person p { color:#4e0636; font-size:12px; font-weight:700; }
+    .review-person div > span { display:block; margin-top:4px; font-size:10px; color:#857680; }
+    .contact-feature { margin:0 0 36px; border-radius:24px; overflow:hidden; display:grid; grid-template-columns:1.15fr 1fr; background:#eadce4; }
+    .contact-feature-copy { padding:48px; }
+    #main-scroll > .contact-feature { margin-top:0; }
+    #main-scroll > .contact-feature > .contact-feature-copy { padding:48px; margin-bottom:0; }
+    .contact-availability { display:flex; align-items:center; gap:8px; color:#78435d; font-size:10px; letter-spacing:1.5px; font-weight:700; }
+    .contact-availability span { height:7px; width:7px; border-radius:50%; background:#52745a; box-shadow:0 0 0 4px #52745a12; }
+    #main-scroll .contact-feature h2 { margin:20px 0 16px; color:#4e0636; font-size:clamp(30px,3.4vw,48px); font-weight:600; line-height:1.1; letter-spacing:-1.7px; }
+    .contact-feature-copy > p:not(.contact-availability) { color:#735967; font-size:13px; line-height:1.85; max-width:380px; }
+    .contact-feature-actions { display:flex; flex-wrap:wrap; align-items:center; gap:20px; margin-top:26px; }
+    .contact-call { display:inline-flex; align-items:center; gap:10px; background:#4e0636; color:#fff; border-radius:10px; padding:15px 20px; font-size:12px; font-weight:650; }
+    .contact-call:hover { background:#70254f; }
+    .contact-message { color:#4e0636; font-size:12px; font-weight:600; border-bottom:1px solid #b397a6; padding:6px 0; }
+    .contact-phone { display:inline-block; margin-top:18px; color:#795c6b; font-size:11px; }
+    .contact-feature-image { position:relative; min-height:340px; }
+    .contact-feature-image img { width:100%; height:100%; object-fit:cover; position:absolute; inset:0; }
+    .contact-feature-image::after { content:''; position:absolute; inset:55% 0 0; background:linear-gradient(transparent,#2c132a99); }
+    .contact-feature-image > span { position:absolute; bottom:28px; left:28px; z-index:1; color:#fff; font-size:13px; letter-spacing:.2px; }
+    .site-shell footer.site-footer { background:#3d092d; color:#fff; border-radius:24px 24px 0 0; padding:48px 44px 24px; margin-top:0; }
+    .footer-main { display:grid; grid-template-columns:1.6fr 1fr 1fr 1.3fr; gap:36px; padding-bottom:40px; }
+    .footer-logo { display:inline-block; background:#fffaf7; padding:12px 16px; border-radius:10px; }
+    .footer-logo img { width:100px; height:auto; display:block; }
+    .footer-brand > p { font-size:19px; line-height:1.45; letter-spacing:-.3px; color:#f2dce7; margin:20px 0 10px; }
+    .footer-brand > span { font-size:11px; line-height:1.8; color:#c4a7b9; }
+    .footer-main h3 { font-size:11px; letter-spacing:.8px; color:#e9bbd1; margin:6px 0 21px; font-weight:650; }
+    .footer-main nav a { display:block; color:#d4bdca; font-size:12px; margin:0 0 13px; }
+    .footer-main a:hover, .footer-bottom a:hover { color:#fff; }
+    .footer-contact > p { font-size:11px; color:#c4a7b9; line-height:1.7; }
+    .footer-phone { display:block; color:#fff; font-size:14px; font-weight:600; margin:12px 0 20px; }
+    .footer-chat { display:flex; justify-content:space-between; gap:20px; font-size:11px; color:#f3d6e5; border:1px solid #88516f; border-radius:8px; padding:12px 14px; }
+    .footer-bottom { border-top:1px solid #ffffff20; padding-top:22px; display:flex; justify-content:space-between; gap:24px; color:#b99aae; font-size:10px; line-height:1.8; }
+    .footer-bottom a { white-space:nowrap; }
+    @media (max-width:899px) {
+      #main-scroll #testimonials.reviews-section { margin:40px 16px 28px; }
+      .reviews-heading { display:block; margin-bottom:22px; }
+      .reviews-heading > p { margin-top:16px; }
+      .reviews-grid { grid-template-columns:1fr; gap:12px; }
+      .review-card { padding:24px; }
+      .review-card blockquote { font-size:14px; margin:14px 0 20px; }
+      .contact-feature { margin:0 16px 28px; grid-template-columns:1fr; border-radius:20px; }
+      .contact-feature-copy { padding:30px 24px; }
+      #main-scroll > .contact-feature > .contact-feature-copy { padding:30px 24px; }
+      .contact-feature-actions { gap:16px; }
+      .contact-feature-image { min-height:220px; }
+      .site-shell footer.site-footer { border-radius:22px 22px 0 0; padding:32px 24px 28px; }
+      .footer-main { grid-template-columns:1fr 1fr; gap:30px 20px; padding-bottom:28px; }
+      .footer-brand, .footer-contact { grid-column:1/-1; }
+      .footer-contact { max-width:320px; }
+      .footer-bottom { flex-direction:column; gap:10px; padding-right:44px; }
+    }
+
+
+    /* Friendly service picker: one category and one unit count at a time. */
+    #main-scroll #pricing { margin:64px 0; padding:40px; border:1px solid #e9dfe5; border-radius:24px; background:#f1e9ee; }
+    #pricing .pricing-heading { padding:0; margin:0 0 26px; }
+    #pricing .pricing-heading h2 { color:#4e0636; font-size:clamp(28px,3vw,40px); font-weight:600; line-height:1.12; letter-spacing:-1.3px; }
+    .pricing-heading > p:last-child { font-size:13px; color:#7b6875; line-height:1.8; margin-top:16px; }
+    .pricing-categories { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:26px; }
+    .pricing-categories button { padding:12px 22px; border:1px solid #deced8; border-radius:50px; background:transparent; color:#70455e; font-size:12px; font-weight:600; cursor:pointer; transition:background .2s,color .2s; }
+    .pricing-categories button[aria-pressed="true"] { color:white; background:#4e0636; border-color:#4e0636; }
+    .pricing-categories button:hover { border-color:#4e0636; }
+    .pricing-workspace { display:grid; grid-template-columns:minmax(0,1fr) 260px; align-items:start; gap:24px; }
+    .pricing-catalogue { min-width:0; border:1px solid #e8dfe4; background:#fff; border-radius:18px; overflow:hidden; }
+    .pricing-toolbar { padding:24px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .pricing-toolbar h3 { color:#4e0636; font-size:20px; font-weight:650; letter-spacing:-.5px; }
+    .pricing-toolbar p { font-size:11px; color:#8c7b85; margin-top:4px; }
+    .pricing-search { display:flex; align-items:center; gap:8px; border:1px solid #e9e1e6; border-radius:9px; padding:10px 12px; color:#8a7482; min-width:0; max-width:200px; }
+    .pricing-search input { width:100%; min-width:0; font-size:11px; outline:none; background:transparent; color:#4e0636; }
+    .pricing-search:focus-within { border-color:#a35f80; box-shadow:0 0 0 3px #a35f8012; }
+    .pricing-unit-control { margin:0 24px 6px; padding:18px; border-radius:12px; background:#faf5f8; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    #pricing-unit-control[hidden] { display:none; }
+    .pricing-unit-control .pricing-unit-label { color:#634053; font-size:12px; font-weight:600; }
+    .pricing-unit-control p { font-size:10px; color:#927e8a; margin-top:5px; line-height:1.6; }
+    .pricing-units { display:flex; gap:5px; flex:none; }
+    .pricing-units button { width:34px; height:34px; border-radius:8px; background:#fff; border:1px solid #e7d9e1; font-size:12px; font-weight:600; color:#75435e; cursor:pointer; }
+    .pricing-units button[aria-pressed="true"] { background:#4e0636; border-color:#4e0636; color:white; }
+    .pricing-list { padding:4px 24px; }
+    .pricing-service { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:20px 0; border-bottom:1px solid #f0e9ed; }
+    .pricing-service:last-child { border-bottom:0; }
+    .pricing-service > div:first-child { min-width:0; }
+    .pricing-service h4 { font-size:13px; font-weight:600; line-height:1.6; color:#4e3041; }
+    .pricing-service p { font-size:10px; color:#9a8994; margin-top:4px; }
+    .pricing-service-action { display:flex; align-items:center; gap:20px; flex:none; }
+    .pricing-amount { color:#4e0636; font-size:19px; font-weight:650; letter-spacing:-.4px; font-variant-numeric:tabular-nums; }
+    .pricing-quote { font-size:11px; color:#8e7b86; }
+    .pricing-service-action button { font-size:10px; font-weight:600; color:#4e0636; background:#f5edf2; padding:10px 13px; border-radius:8px; border:1px solid #eadde5; cursor:pointer; white-space:nowrap; }
+    .pricing-service-action button:hover { background:#4e0636; color:#fff; }
+    .pricing-subheading { font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#a16a86; padding-top:22px; }
+    .pricing-currency-note { margin:0 24px; border-top:1px solid #f0e9ed; padding:14px 0; color:#9a8994; font-size:10px; }
+    .pricing-help { padding:26px; border-radius:18px; background:#4e0636; color:#fff; }
+    .pricing-help-icon { display:grid; place-items:center; height:38px; width:38px; border:1px solid #a26989; border-radius:50%; color:#e8bfd4; font-size:20px; margin-bottom:24px; }
+    .pricing-help .section-kicker { color:#d2a3bd; font-size:9px; margin-bottom:12px; }
+    .pricing-help h3 { font-size:26px; font-weight:550; line-height:1.2; letter-spacing:-.6px; }
+    .pricing-help > p:not(.section-kicker) { color:#d8bdcd; font-size:11px; line-height:1.9; margin-top:16px; }
+    .pricing-help > a { display:flex; justify-content:space-between; gap:12px; background:#f3e2ec; color:#4e0636; padding:13px; border-radius:8px; font-size:10px; font-weight:650; margin-top:24px; }
+    .pricing-help-note { display:flex; gap:10px; margin-top:26px; padding-top:20px; border-top:1px solid #ffffff26; color:#cfb0c2; font-size:10px; line-height:1.8; }
+    .pricing-help-note > span { color:#e6bbd1; }
+    .pricing-empty { font-size:13px; line-height:1.8; color:#8b7482; padding:28px 0; }
+    #pricing button:focus-visible { outline:2px solid #a35f80; outline-offset:3px; }
+    @media (min-width:900px) and (max-width:1150px) { .pricing-workspace { grid-template-columns:minmax(0,1fr); } .pricing-help { display:none; } }
+    @media (max-width:899px) {
+      #main-scroll #pricing { padding:24px 16px; margin:40px 16px; border-radius:20px; }
+      .pricing-categories { gap:8px; margin-bottom:20px; }
+      .pricing-categories button { padding:10px 14px; font-size:11px; }
+      .pricing-workspace { grid-template-columns:minmax(0,1fr); gap:16px; }
+      .pricing-toolbar { align-items:flex-start; flex-direction:column; gap:14px; padding:20px 16px; }
+      .pricing-search { max-width:none; width:100%; }
+      .pricing-unit-control { margin:0 12px 4px; padding:14px; flex-direction:column; align-items:flex-start; gap:12px; }
+      .pricing-units { gap:8px; }
+      .pricing-units button { width:36px; height:36px; }
+      .pricing-list { padding:4px 16px; }
+      .pricing-service { align-items:flex-start; flex-direction:column; gap:12px; padding:18px 0; }
+      .pricing-service-action { justify-content:space-between; width:100%; gap:12px; }
+      .pricing-service h4 { font-size:13px; }
+      .pricing-service-action button { padding:11px 14px; }
+      .pricing-currency-note { margin:0 16px; }
+      .pricing-help { padding:24px; }
+      .pricing-help h3 br { display:none; }
+      .pricing-help-icon { display:none; }
+    }
+
   </style>
 </head>
 
@@ -772,125 +910,43 @@
 
 
 
-      <section id="pricing" class="mt-6 mx-4 mb-6">
-        <h2 class="font-serif text-[20px] text-[#4E0636]">Service prices</h2>
-        <p class="pricing-note">Browse services and select a price to request a booking. Currency is to be confirmed.</p>
-        <div id="price-groups"></div>
-      </section>
 
-      <!-- ── Testimonial Strip ── -->
-      <section id="testimonials" class="mt-4 mx-4 mb-2 rounded-3xl overflow-hidden fade-up relative"
-        style="animation-delay:.35s; background: linear-gradient(135deg,#4E0636,#5c0740)">
-        <div class="swiper testimonials-swiper">
-          <div class="swiper-wrapper">
-            <!-- Slide 1 -->
-            <div class="swiper-slide pt-5 px-5 pb-8">
-              <p class="text-[#E297B3] text-[10px] font-bold uppercase tracking-widest mb-1">What Clients Say</p>
-              <p class="font-serif text-white text-sm italic leading-snug">"Exa provided excellent service for my
-                apartment. Professional, punctual, and outstanding quality!"</p>
-              <div class="flex items-center gap-2 mt-3">
-                <img src="https://plus.unsplash.com/premium_photo-1682089846950-974c7c7d5e91?fm=jpg&q=60&w=200"
-                  alt="Testimonial Author" class="w-8 h-8 rounded-full object-cover border-2 border-[#BC6587]" />
-                <div>
-                  <p class="text-white font-semibold text-xs">Priya Sharma</p>
-                  <p class="text-white/50 text-[10px]">Business Owner, Bangalore</p>
-                </div>
-                <div class="ml-auto flex gap-0.5">
-                  <span class="text-[#E297B3] text-xs">★★★★★</span>
-                </div>
-              </div>
-            </div>
-            <!-- Slide 2 -->
-            <div class="swiper-slide pt-5 px-5 pb-8">
-              <p class="text-[#E297B3] text-[10px] font-bold uppercase tracking-widest mb-1">What Clients Say</p>
-              <p class="font-serif text-white text-sm italic leading-snug">"The deep cleaning team was incredibly
-                thorough. My home feels brand new! Highly recommended."</p>
-              <div class="flex items-center gap-2 mt-3">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fm=jpg&q=60&w=200"
-                  alt="Testimonial Author" class="w-8 h-8 rounded-full object-cover border-2 border-[#BC6587]" />
-                <div>
-                  <p class="text-white font-semibold text-xs">Rahul Verma</p>
-                  <p class="text-white/50 text-[10px]">Homeowner, Mumbai</p>
-                </div>
-                <div class="ml-auto flex gap-0.5">
-                  <span class="text-[#E297B3] text-xs">★★★★★</span>
-                </div>
-              </div>
-            </div>
-            <!-- Slide 3 -->
-            <div class="swiper-slide pt-5 px-5 pb-8">
-              <p class="text-[#E297B3] text-[10px] font-bold uppercase tracking-widest mb-1">What Clients Say</p>
-              <p class="font-serif text-white text-sm italic leading-snug">"Fast, reliable, and very affordable plumbing
-                fix. They arrived within the hour!"</p>
-              <div class="flex items-center gap-2 mt-3">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?fm=jpg&q=60&w=200"
-                  alt="Testimonial Author" class="w-8 h-8 rounded-full object-cover border-2 border-[#BC6587]" />
-                <div>
-                  <p class="text-white font-semibold text-xs">Anjali Desai</p>
-                  <p class="text-white/50 text-[10px]">Architect, Delhi</p>
-                </div>
-                <div class="ml-auto flex gap-0.5">
-                  <span class="text-[#E297B3] text-xs">★★★★★</span>
-                </div>
-              </div>
-            </div>
+      <section id="pricing" aria-labelledby="pricing-title">
+        <div class="pricing-heading"><p class="section-kicker">A SIMPLE PRICE GUIDE</p><h2 id="pricing-title">Choose a service.<br>Find your price.</h2><p>Pick a category, explore the services, and book when you’re ready.</p></div>
+        <div id="pricing-categories" class="pricing-categories" role="group" aria-label="Service category"></div>
+        <div class="pricing-workspace">
+          <div class="pricing-catalogue">
+            <div class="pricing-toolbar"><div><h3 id="pricing-category-title">Aircon</h3><p id="pricing-result-count" aria-live="polite"></p></div><label class="pricing-search"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="pricing-search" type="search" aria-label="Search services in the selected category" placeholder="Find a service"></label></div>
+            <div id="pricing-unit-control" class="pricing-unit-control"><div><p class="pricing-unit-label">How many aircon units?</p><p>Prices below are for your selected number of units.</p></div><div id="pricing-units" class="pricing-units" role="group" aria-label="Number of aircon units"></div></div>
+            <div id="pricing-list" class="pricing-list" aria-label="Available services"></div>
+            <p class="pricing-currency-note">Currency is to be confirmed.</p>
           </div>
-          <div class="swiper-pagination testimonials-pagination !bottom-2"></div>
+          <aside class="pricing-help"><span class="pricing-help-icon" aria-hidden="true">↗</span><p class="section-kicker">HERE TO HELP</p><h3>Not sure what<br>you need?</h3><p>Tell us what’s happening at home. Our team can help you choose the right service.</p><a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">Chat with our team <span aria-hidden="true">↗</span></a><div class="pricing-help-note"><span aria-hidden="true">✓</span><p>Choose your service.<br>Confirm the details with our team.</p></div></aside>
         </div>
       </section>
 
-      <!-- ── CTA Banner ── -->
-      <div class="emergency-section mx-4 mt-4 mb-6 fade-up" style="animation-delay:.4s">
-        <div class="emergency-panel rounded-3xl p-5 relative overflow-hidden">
-          <div class="absolute -right-8 -top-8 w-36 h-36 rounded-full" style="background:rgba(188,101,135,.15)"></div>
-          <p class="emergency-eyebrow text-[10px] font-bold uppercase tracking-widest mb-1 relative z-10">24/7 Available
-          </p>
-          <h3 class="font-serif text-black text-lg leading-tight relative z-10">Need Emergency<br />Home Service?</h3>
-          <p class="emergency-description text-xs mt-1 mb-3 relative z-10">Our experts are ready round the clock</p>
-          <a href="tel:+919876543210"
-            class="gold-badge text-[#4E0636] text-xs font-bold px-5 py-2.5 rounded-xl relative z-10">Call Now: +91 98765
-            43210</a>
+
+
+      <section id="testimonials" class="reviews-section">
+        <div class="reviews-heading"><div><p class="section-kicker">CUSTOMER STORIES</p><h2>A little care.<br>A lasting difference.</h2></div><p>From everyday repairs to a home that feels new again. Here’s what our customers have to say.</p></div>
+        <div class="reviews-grid"><article class="review-card"><div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“Exa provided excellent service for my apartment. Professional, punctual, and outstanding quality!”</blockquote><div class="review-person"><span class="review-avatar" aria-hidden="true">PS</span><div><p>Priya Sharma</p><span>Business Owner, Bangalore</span></div></div></article><article class="review-card"><div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“The deep cleaning team was incredibly thorough. My home feels brand new! Highly recommended.”</blockquote><div class="review-person"><span class="review-avatar" aria-hidden="true">RV</span><div><p>Rahul Verma</p><span>Homeowner, Mumbai</span></div></div></article><article class="review-card"><div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“Fast, reliable, and very affordable plumbing fix. They arrived within the hour!”</blockquote><div class="review-person"><span class="review-avatar" aria-hidden="true">AD</span><div><p>Anjali Desai</p><span>Architect, Delhi</span></div></div></article></div>
+      </section>
+
+      <section class="contact-feature" id="contact" aria-labelledby="contact-heading">
+        <div class="contact-feature-copy"><p class="contact-availability"><span></span>24/7 AVAILABLE</p><h2 id="contact-heading">Home needs help?<br>We’re a call away.</h2><p>For urgent fixes and everyday maintenance, talk to our team and find the right service for your home.</p><div class="contact-feature-actions"><a class="contact-call" href="tel:+919876543210"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-2 2a14 14 0 0 1-7-7l2-2-2-5Z"/></svg>Call our team ↗</a><a class="contact-message" href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">Chat on WhatsApp ↗</a></div><a class="contact-phone" href="tel:+919876543210">+91 98765 43210</a></div>
+        <div class="contact-feature-image"><img loading="lazy" src="assets/images/services/generated/handyman-full-day.webp" alt="Home maintenance professional preparing his tools"><span>Small fixes. Better living.</span></div>
+      </section>
+
+      <footer class="site-footer">
+        <div class="footer-main">
+          <div class="footer-brand"><a href="#hero" class="footer-logo" aria-label="Exa home"><img src="assets/images/logo/logo-3.png" alt="Exa M&E Pte Ltd"></a><p>Thoughtful care for<br>the place you call home.</p><span>Repairs, maintenance, and a fresh start.<br>All in one place.</span></div>
+          <nav aria-label="Footer services"><h3>Our services</h3><a href="#sec-aircon">Aircon care</a><a href="#sec-cleaning">Home cleaning</a><a href="#sec-handyman">Handyman</a><a href="#sec-plumbing">Plumbing</a><a href="#sec-electrical">Electrical</a><a href="#sec-painting">Painting</a></nav>
+          <nav aria-label="Footer navigation"><h3>Explore Exa</h3><a href="#hero">Home</a><a href="#services">Browse services</a><a href="#pricing">Service prices</a><a href="#testimonials">Customer stories</a></nav>
+          <div class="footer-contact"><h3>Let’s talk</h3><p>Tell us what your home needs.</p><a href="tel:+919876543210" class="footer-phone">+91 98765 43210</a><a href="https://wa.me/919876543210" class="footer-chat" target="_blank" rel="noopener noreferrer">Message our team <span aria-hidden="true">↗</span></a></div>
         </div>
-      </div>
-
-      <!-- ── Modern Footer ── -->
-      <footer class="mt-8 px-6 pb-24 pt-10 bg-[#4E0636] rounded-t-[40px] text-center flex flex-col items-center">
-        <h3 class="font-serif text-3xl text-[#E297B3] mb-2 tracking-wide">Exa</h3>
-        <p class="text-white/60 text-xs mb-8 max-w-[250px] leading-relaxed">Premium Home Services Delivered with
-          Excellence.</p>
-
-        <div class="flex gap-6 mb-8">
-          <a href="#hero" class="text-white/80 hover:text-[#E297B3] text-sm font-medium transition-colors">Home</a>
-          <a href="#services"
-            class="text-white/80 hover:text-[#E297B3] text-sm font-medium transition-colors">Services</a>
-          <a href="#testimonials"
-            class="text-white/80 hover:text-[#E297B3] text-sm font-medium transition-colors">Reviews</a>
-        </div>
-
-        <div class="flex gap-4 mb-8">
-          <!-- Insta -->
-          <a href="#"
-            class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-white/80 hover:bg-white/20 hover:text-white transition-all">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-            </svg>
-          </a>
-          <!-- FB -->
-          <a href="#"
-            class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:bg-white/20 hover:text-white transition-all">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-            </svg>
-          </a>
-        </div>
-
-        <div class="w-full h-px bg-white/10 mb-6"></div>
-
-        <p class="text-white/40 text-[11px] font-medium tracking-wide">© <span id="current-year"></span> Exa Home
-          Services. All rights reserved.</p>
+        <div class="footer-bottom"><p>© <span id="current-year"></span> Exa Home Services. All rights reserved.</p><a href="#hero">Back to top ↑</a></div>
       </footer>
+
 
     </main>
 
@@ -1100,7 +1156,7 @@
       { cat: 'packers', name: 'Loading & Unloading', sub: 'Labour Support', img: 'assets/images/services/Category Packers & movers.jpg', badge: '⭐ 4.6', time: 'Schedule', offer: '₹999' },
       { cat: 'dehumidifier', name: 'Dehumidifier Install', sub: 'Moisture Control', img: 'assets/images/services/Category Dehumidifier.jpg', badge: '⭐ 4.7', time: 'Today', offer: 'PREMIUM' },
       { cat: 'dehumidifier', name: 'Dehumidifier Service', sub: 'Maintenance & Repair', img: 'assets/images/services/Category Dehumidifier.jpg', badge: '⭐ 4.6', time: 'Today', offer: '10% OFF' },
-      { cat: 'pest', name: 'Pest Control', sub: 'Safe & Effective', img: 'assets/images/services/generated/pest-general.webp', badge: '⭐ 4.6', time: '2 hrs', offer: '50% OFF' },
+      { cat: 'pest', name: 'Pest Control', sub: 'Safe & Effective', img: 'assets/images/services/generated/pest-general-portrait.webp', badge: '⭐ 4.6', time: '2 hrs', offer: '50% OFF' },
       { cat: 'pest', name: 'Termite Treatment', sub: 'Deep Protection', img: 'assets/images/services/generated/pest-termite.webp', badge: '⭐ 4.7', time: '3 hrs', offer: '₹1299' },
       { cat: 'pest', name: 'Cockroach Control', sub: 'Kitchen & Bathroom', img: 'assets/images/services/generated/pest-cockroach.webp', badge: '⭐ 4.5', time: '1 hr', offer: '₹499' },
       { cat: 'pest', name: 'Bed Bug Control', sub: 'Full Room Treatment', img: 'assets/images/services/generated/pest-bedbug.webp', badge: '⭐ 4.6', time: '2 hrs', offer: '₹799' },
@@ -1114,10 +1170,10 @@
       { cat: 'gardening', name: 'Gardening', sub: 'Lawn & Landscape', img: 'assets/images/services/Category Gardening.jpg', badge: '⭐ 4.8', time: '2 hrs', offer: '₹499 Flat' },
       { cat: 'gardening', name: 'Lawn Mowing', sub: 'Regular Trim', img: 'assets/images/services/Category Gardening.jpg', badge: '⭐ 4.7', time: '1 hr', offer: '₹299' },
       { cat: 'gardening', name: 'Tree Trimming', sub: 'Branch Cutting', img: 'assets/images/services/Category Gardening.jpg', badge: '⭐ 4.6', time: '2 hrs', offer: '₹599' },
-      { cat: 'renovation', name: 'Full Renovation', sub: 'Interior Makeover', img: 'assets/images/services/Category Interior renovation.jpg', badge: '⭐ 4.9', time: 'Quote', offer: '25% OFF' },
+      { cat: 'renovation', name: 'Full Renovation', sub: 'Interior Makeover', img: 'assets/images/services/generated/renovation-portrait.webp', badge: '⭐ 4.9', time: 'Quote', offer: '25% OFF' },
       { cat: 'renovation', name: 'Interior Painting', sub: 'Walls & Ceiling', img: 'assets/images/services/Category Interior renovation.jpg', badge: '⭐ 4.8', time: 'Quote', offer: '₹8/sqft' },
       { cat: 'renovation', name: 'Carpentry Works', sub: 'Custom Woodwork', img: 'assets/images/services/Category Interior renovation.jpg', badge: '⭐ 4.7', time: 'Quote', offer: '10% OFF' },
-      { cat: 'pool', name: 'Pool Maintenance', sub: 'Cleaning & Repair', img: 'assets/images/services/Category Swimming pool maintenance .jpg', badge: '⭐ 4.4', time: 'Same Day', offer: '15% OFF' },
+      { cat: 'pool', name: 'Pool Maintenance', sub: 'Cleaning & Repair', img: 'assets/images/services/generated/pool-portrait.webp', badge: '⭐ 4.4', time: 'Same Day', offer: '15% OFF' },
       { cat: 'pool', name: 'Pool Construction', sub: 'New Build', img: 'assets/images/services/Category Swimming pool maintenance .jpg', badge: '⭐ 4.5', time: 'Quote', offer: 'Get Quote' },
       { cat: 'pool', name: 'Pool Chemical Care', sub: 'Water Treatment', img: 'assets/images/services/Category Swimming pool maintenance .jpg', badge: '⭐ 4.6', time: '1 hr', offer: '₹999' },
       { cat: 'petcare', name: 'Pet Care', sub: 'Walking & Grooming', img: 'assets/images/services/Category Pet care.jpg', badge: '⭐ 4.7', time: 'Today', offer: 'LOVING' },
@@ -1134,18 +1190,58 @@
     ];
 
     function servicePhoto(name, category) {
-      if (category === 'aircon') {
-        if (/Installation/i.test(name)) return 'aircon-installation';
-        if (/Overhaul/i.test(name)) return 'aircon-overhaul';
-        if (/Gas/i.test(name)) return 'aircon-gas';
-        if (/CU Cleaning/i.test(name)) return 'aircon-condenser';
-      }
-      if (/furniture/i.test(name)) return 'furniture-assembly';
-      if (/TV Brackets|Shelves|Mirrors|Curtain rod/i.test(name)) return 'wall-mounting';
-      if (category === 'plumbing' || /Plumbing|Water Heater|Bathroom|sealant/i.test(name)) return 'plumbing';
-      if (category === 'electrical' || /Electrical|Lighting|fan|CCTV/i.test(name)) return 'electrical';
-      if (category === 'painting' || /painting|Tile and grout/i.test(name)) return 'painting';
-      return null;
+      const photos = {
+        "Aircon General Service": "aircon-general-portrait",
+        "General Handyman Package (Half Day)": "handyman-half-day-portrait",
+        "General Handyman Package (Full Day)": "handyman-full-day",
+        "Water Heater": "water-heater",
+        "CCTV Installation": "cctv-installation",
+        "Brackets, Shelves, Mirrors & Artwork": "shelves-artwork",
+        "Bathroom accessories": "bathroom-accessories",
+        "Door and window repairs": "door-window-repair",
+        "Door hinge repair": "door-hinge",
+        "Door lock replacement": "door-lock",
+        "Curtain rod installation": "curtain-rod",
+        "Tile and grout repair": "tile-grout",
+        "Electrical services": "handyman-electrical",
+        "Bathroom sealant repairs": "bathroom-sealant",
+        "Ceiling fan replacement": "ceiling-fan-replacement",
+        "Leaky tap repair": "leaky-tap",
+        "Shower head replacement": "shower-head",
+        "Toilet flush repair": "toilet-flush",
+        "Pipe joint sealing": "pipe-joint",
+        "Tap replacement": "tap-replacement",
+        "Wash Basin Install": "basin-installation",
+        "Kitchen Sink": "kitchen-sink",
+        "Toilet Bowl / Cover / Choke": "toilet-installation",
+        "Fixing Leaks": "pipe-leak",
+        "Shower Set Install": "shower-set",
+        "Unclogging Drains": "drain-unclogging",
+        "Installing Faucets": "faucet-installation",
+        "Replacing Pipes": "pipe-replacement",
+        "General Plumbing Services": "plumbing-inspection",
+        "General Electrical Services": "electrical-inspection",
+        "Light Installation": "light-installation",
+        "Fan Installation": "fan-installation",
+        "Socket & Switches Installation": "socket-installation",
+        "Troubleshooting": "electrical-troubleshooting",
+        "PowerPoint Extension": "power-point-extension",
+        "HDB - 2 Room Flat (500 Sq.ft.)": "painting-two-room",
+        "HDB - 3 Room Flat (750 Sq.ft.)": "painting-three-room",
+        "HDB - 4 Room Flat (950 Sq.ft.)": "painting-four-room",
+        "HDB - 5 Room Flat (1200 Sq.ft.)": "painting-five-room",
+        "Executive Flat (1400 Sq.ft.)": "painting-executive",
+        "Aircon Installation": "aircon-installation",
+        "Aircon Chemical Overhaul": "aircon-overhaul",
+        "Gas Top-Up": "aircon-gas",
+        "CU Cleaning": "aircon-condenser",
+        "TV Brackets (wall mount)": "wall-mounting",
+        "furniture assembly (IKEA)": "furniture-assembly",
+        "Lighting fixtures": "electrical",
+        "Plumbing fixes": "plumbing",
+        "Wall patching and painting": "painting"
+      };
+      return photos[name] || null;
     }
 
     // Replace the sample cards with the supplied service catalogue.
@@ -1174,7 +1270,7 @@
       const rating = item.badge.replace('⭐ ', '');
 
       div.innerHTML = `
-      <div class="relative w-full h-43 rounded-2xl overflow-hidden shadow-sm">
+      <div class="service-photo-frame relative w-full h-43 rounded-2xl overflow-hidden shadow-sm" style="--service-photo:url('${item.img}')">
         <img loading="lazy" decoding="async" src="${item.img}" alt="${item.name}" class="w-full h-full object-contain"/>
         
         <!-- Top Right Heart -->
@@ -1198,7 +1294,7 @@
       div.addEventListener('click', () => {
         if (item.pricing) {
           document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });
-          document.querySelectorAll('.price-group').forEach((group, index) => { group.open = servicePricing[index].id === item.cat; });
+          selectPricingCategory(item.cat);
         } else openWA(item.name);
       });
       return div;
@@ -1276,7 +1372,7 @@
       div.addEventListener('click', () => {
         if (item.pricing) {
           document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });
-          document.querySelectorAll('.price-group').forEach((group, index) => { group.open = servicePricing[index].id === item.cat; });
+          selectPricingCategory(item.cat);
         } else openWA(item.name);
       });
       return div;
@@ -1304,42 +1400,105 @@
       new Swiper('.' + swiperClass, swiperOpts);
     }
 
-    servicePricing.forEach((group, index) => {
-      const details = document.createElement('details');
-      details.className = 'price-group';
-      details.open = index === 0;
-      details.innerHTML = `<summary>${group.name} · ${group.services.length} services</summary>
-        <div class="price-table-scroll" role="region" aria-label="${group.name} prices" tabindex="0">
-          <table class="price-table"><caption class="sr-only">${group.name} service prices</caption><thead><tr><th scope="col">Service</th>
-          ${group.id === 'aircon' ? [1,2,3,4,5].map(n => `<th scope="col">${n} ${n === 1 ? 'unit' : 'units'}</th>`).join('') : '<th scope="col">Price</th>'}
-          </tr></thead><tbody></tbody></table></div>`;
-      const body = details.querySelector('tbody');
+    let activePricingCategory = 'aircon';
+    let selectedAirconUnits = 1;
+    let pricingQuery = '';
+    const pricingNumber = price => price.toLocaleString('en');
+
+    function pricingServices() {
+      const group = servicePricing.find(group => group.id === activePricingCategory);
+      return group.services.filter(service => service.name.toLowerCase().includes(pricingQuery.toLowerCase().trim()));
+    }
+
+    function renderPricing() {
+      const group = servicePricing.find(group => group.id === activePricingCategory);
+      const isAircon = group.id === 'aircon';
+      document.getElementById('pricing-category-title').textContent = group.name;
+      document.getElementById('pricing-unit-control').hidden = !isAircon;
+      document.querySelectorAll('#pricing-categories button').forEach(button => {
+        button.setAttribute('aria-pressed', String(button.dataset.category === group.id));
+      });
+      document.querySelectorAll('#pricing-units button').forEach(button => {
+        button.setAttribute('aria-pressed', String(Number(button.dataset.units) === selectedAirconUnits));
+      });
+      const services = pricingServices();
+      document.getElementById('pricing-result-count').textContent = `${services.length} ${services.length === 1 ? 'service' : 'services'} available`;
+      const list = document.getElementById('pricing-list');
+      list.replaceChildren();
       let section = '';
-      group.services.forEach(service => {
+      services.forEach(service => {
         if (service.section && service.section !== section) {
           section = service.section;
-          const heading = body.insertRow();
-          heading.className = 'price-subheading';
-          heading.innerHTML = `<th colspan="2" scope="rowgroup">${section}</th>`;
+          const heading = document.createElement('h4');
+          heading.className = 'pricing-subheading';
+          heading.textContent = section;
+          list.appendChild(heading);
         }
-        const row = body.insertRow();
-        const label = document.createElement('th');
-        label.scope = 'row';
-        label.textContent = service.name;
-        row.appendChild(label);
-        service.prices.forEach((price, unitIndex) => {
-          const cell = row.insertCell();
-          const button = document.createElement('button');
-          button.type = 'button';
-          button.textContent = price === null ? 'Request quote' : price.toLocaleString('en');
-          const units = group.id === 'aircon' ? ` (${unitIndex + 1} ${unitIndex === 0 ? 'unit' : 'units'})` : '';
-          button.setAttribute('aria-label', `${service.name}${units}: ${button.textContent}`);
-          button.addEventListener('click', () => openWA(`${service.name}${units}${price === null ? ' — please provide a quote' : ` — listed price ${price}`}`));
-          cell.appendChild(button);
+        const price = service.prices[isAircon ? selectedAirconUnits - 1 : 0];
+        const row = document.createElement('div');
+        row.className = 'pricing-service';
+        const info = document.createElement('div');
+        const name = document.createElement('h4');
+        name.textContent = service.name;
+        const note = document.createElement('p');
+        note.textContent = isAircon ? `For ${selectedAirconUnits} ${selectedAirconUnits === 1 ? 'unit' : 'units'}` : service.section || group.name;
+        info.append(name, note);
+        const action = document.createElement('div');
+        action.className = 'pricing-service-action';
+        const amount = document.createElement('span');
+        amount.className = price === null ? 'pricing-quote' : 'pricing-amount';
+        amount.textContent = price === null ? 'Let’s get a quote' : pricingNumber(price);
+        const book = document.createElement('button');
+        book.type = 'button';
+        book.textContent = price === null ? 'Ask for a quote ↗' : 'Book service ↗';
+        book.setAttribute('aria-label', `${price === null ? 'Request a quote for' : 'Book'} ${service.name}${isAircon ? ` for ${selectedAirconUnits} ${selectedAirconUnits === 1 ? 'unit' : 'units'}` : ''}`);
+        book.addEventListener('click', () => {
+          const units = isAircon ? ` (${selectedAirconUnits} ${selectedAirconUnits === 1 ? 'unit' : 'units'})` : '';
+          openWA(`${service.name}${units}${price === null ? ' — please provide a quote' : ` — listed price ${pricingNumber(price)}`}`);
         });
+        action.append(amount, book);
+        row.append(info, action);
+        list.appendChild(row);
       });
-      document.getElementById('price-groups').appendChild(details);
+      if (!services.length) {
+        const empty = document.createElement('p');
+        empty.className = 'pricing-empty';
+        empty.textContent = 'No matching service. Try a different search or category.';
+        list.appendChild(empty);
+      }
+    }
+
+    function selectPricingCategory(category) {
+      if (!servicePricing.some(group => group.id === category)) return;
+      activePricingCategory = category;
+      pricingQuery = '';
+      document.getElementById('pricing-search').value = '';
+      renderPricing();
+    }
+
+    servicePricing.forEach(group => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.dataset.category = group.id;
+      button.textContent = group.name;
+      button.setAttribute('aria-controls', 'pricing-list');
+      button.addEventListener('click', () => selectPricingCategory(group.id));
+      document.getElementById('pricing-categories').appendChild(button);
     });
+    [1,2,3,4,5].forEach(units => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.dataset.units = units;
+      button.textContent = units;
+      button.setAttribute('aria-label', `${units} ${units === 1 ? 'aircon unit' : 'aircon units'}`);
+      button.addEventListener('click', () => { selectedAirconUnits = units; renderPricing(); });
+      document.getElementById('pricing-units').appendChild(button);
+    });
+    document.getElementById('pricing-search').addEventListener('input', event => {
+      pricingQuery = event.target.value;
+      renderPricing();
+    });
+    renderPricing();
 
     loadServiceSwiper(defaultServices);
 
@@ -1359,17 +1518,7 @@
       pagination: { el: '.swiper-pagination', clickable: true },
     });
 
-    const testimonialsSwiper = new Swiper('.testimonials-swiper', {
-      loop: true,
-      autoplay: {
-        delay: 4500,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: '.testimonials-pagination',
-        clickable: true,
-      },
-    });
+
 
     // ── Dynamic Footer Year ──
     document.getElementById('current-year').textContent = new Date().getFullYear();

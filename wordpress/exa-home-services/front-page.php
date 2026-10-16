@@ -148,124 +148,43 @@ get_header();
 
 
 
-      <section id="pricing" class="mt-6 mx-4 mb-6">
-        <h2 class="font-serif text-[20px] text-[#4E0636]">Service prices</h2>
-        <p class="pricing-note">Browse services and select a price to request a booking. <?php if (!get_option('exa_currency')) : ?>Currency is to be confirmed.<?php endif; ?></p>
-        <div id="price-groups"></div>
-      </section>
 
-      
-      <section id="testimonials" class="mt-4 mx-4 mb-2 rounded-3xl overflow-hidden fade-up relative"
-        style="animation-delay:.35s; background: linear-gradient(135deg,#4E0636,#5c0740)">
-        <div class="swiper testimonials-swiper">
-          <div class="swiper-wrapper">
-            
-            <div class="swiper-slide pt-5 px-5 pb-8">
-              <p class="text-[#E297B3] text-[10px] font-bold uppercase tracking-widest mb-1">What Clients Say</p>
-              <p class="font-serif text-white text-sm italic leading-snug">"Exa provided excellent service for my
-                apartment. Professional, punctual, and outstanding quality!"</p>
-              <div class="flex items-center gap-2 mt-3">
-                <img src="https://plus.unsplash.com/premium_photo-1682089846950-974c7c7d5e91?fm=jpg&q=60&w=200"
-                  alt="Testimonial Author" class="w-8 h-8 rounded-full object-cover border-2 border-[#BC6587]" />
-                <div>
-                  <p class="text-white font-semibold text-xs">Priya Sharma</p>
-                  <p class="text-white/50 text-[10px]">Business Owner, Bangalore</p>
-                </div>
-                <div class="ml-auto flex gap-0.5">
-                  <span class="text-[#E297B3] text-xs">★★★★★</span>
-                </div>
-              </div>
-            </div>
-            
-            <div class="swiper-slide pt-5 px-5 pb-8">
-              <p class="text-[#E297B3] text-[10px] font-bold uppercase tracking-widest mb-1">What Clients Say</p>
-              <p class="font-serif text-white text-sm italic leading-snug">"The deep cleaning team was incredibly
-                thorough. My home feels brand new! Highly recommended."</p>
-              <div class="flex items-center gap-2 mt-3">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fm=jpg&q=60&w=200"
-                  alt="Testimonial Author" class="w-8 h-8 rounded-full object-cover border-2 border-[#BC6587]" />
-                <div>
-                  <p class="text-white font-semibold text-xs">Rahul Verma</p>
-                  <p class="text-white/50 text-[10px]">Homeowner, Mumbai</p>
-                </div>
-                <div class="ml-auto flex gap-0.5">
-                  <span class="text-[#E297B3] text-xs">★★★★★</span>
-                </div>
-              </div>
-            </div>
-            
-            <div class="swiper-slide pt-5 px-5 pb-8">
-              <p class="text-[#E297B3] text-[10px] font-bold uppercase tracking-widest mb-1">What Clients Say</p>
-              <p class="font-serif text-white text-sm italic leading-snug">"Fast, reliable, and very affordable plumbing
-                fix. They arrived within the hour!"</p>
-              <div class="flex items-center gap-2 mt-3">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?fm=jpg&q=60&w=200"
-                  alt="Testimonial Author" class="w-8 h-8 rounded-full object-cover border-2 border-[#BC6587]" />
-                <div>
-                  <p class="text-white font-semibold text-xs">Anjali Desai</p>
-                  <p class="text-white/50 text-[10px]">Architect, Delhi</p>
-                </div>
-                <div class="ml-auto flex gap-0.5">
-                  <span class="text-[#E297B3] text-xs">★★★★★</span>
-                </div>
-              </div>
-            </div>
+      <section id="pricing" aria-labelledby="pricing-title">
+        <div class="pricing-heading"><p class="section-kicker">A SIMPLE PRICE GUIDE</p><h2 id="pricing-title">Choose a service.<br>Find your price.</h2><p>Pick a category, explore the services, and book when you’re ready.</p></div>
+        <div id="pricing-categories" class="pricing-categories" role="group" aria-label="Service category"></div>
+        <div class="pricing-workspace">
+          <div class="pricing-catalogue">
+            <div class="pricing-toolbar"><div><h3 id="pricing-category-title">Aircon</h3><p id="pricing-result-count" aria-live="polite"></p></div><label class="pricing-search"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="pricing-search" type="search" aria-label="Search services in the selected category" placeholder="Find a service"></label></div>
+            <div id="pricing-unit-control" class="pricing-unit-control"><div><p class="pricing-unit-label">How many aircon units?</p><p>Prices below are for your selected number of units.</p></div><div id="pricing-units" class="pricing-units" role="group" aria-label="Number of aircon units"></div></div>
+            <div id="pricing-list" class="pricing-list" aria-label="Available services"></div>
+            <p class="pricing-currency-note"><?php if (!get_option('exa_currency')) : ?>Currency is to be confirmed.<?php endif; ?></p>
           </div>
-          <div class="swiper-pagination testimonials-pagination !bottom-2"></div>
+          <aside class="pricing-help"><span class="pricing-help-icon" aria-hidden="true">↗</span><p class="section-kicker">HERE TO HELP</p><h3>Not sure what<br>you need?</h3><p>Tell us what’s happening at home. Our team can help you choose the right service.</p><a href="<?php echo esc_url('https://wa.me/' . exa_phone()); ?>" target="_blank" rel="noopener noreferrer">Chat with our team <span aria-hidden="true">↗</span></a><div class="pricing-help-note"><span aria-hidden="true">✓</span><p>Choose your service.<br>Confirm the details with our team.</p></div></aside>
         </div>
       </section>
 
-      
-      <div class="emergency-section mx-4 mt-4 mb-6 fade-up" style="animation-delay:.4s">
-        <div class="emergency-panel rounded-3xl p-5 relative overflow-hidden">
-          <div class="absolute -right-8 -top-8 w-36 h-36 rounded-full" style="background:rgba(188,101,135,.15)"></div>
-          <p class="emergency-eyebrow text-[10px] font-bold uppercase tracking-widest mb-1 relative z-10">24/7 Available
-          </p>
-          <h3 class="font-serif text-black text-lg leading-tight relative z-10">Need Emergency<br />Home Service?</h3>
-          <p class="emergency-description text-xs mt-1 mb-3 relative z-10">Our experts are ready round the clock</p>
-          <a href="<?php echo esc_url('tel:+' . exa_phone()); ?>"
-            class="gold-badge text-[#4E0636] text-xs font-bold px-5 py-2.5 rounded-xl relative z-10">Call Now: <?php echo esc_html('+' . exa_phone()); ?></a>
+
+
+      <section id="testimonials" class="reviews-section">
+        <div class="reviews-heading"><div><p class="section-kicker">CUSTOMER STORIES</p><h2>A little care.<br>A lasting difference.</h2></div><p>From everyday repairs to a home that feels new again. Here’s what our customers have to say.</p></div>
+        <div class="reviews-grid"><article class="review-card"><div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“Exa provided excellent service for my apartment. Professional, punctual, and outstanding quality!”</blockquote><div class="review-person"><span class="review-avatar" aria-hidden="true">PS</span><div><p>Priya Sharma</p><span>Business Owner, Bangalore</span></div></div></article><article class="review-card"><div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“The deep cleaning team was incredibly thorough. My home feels brand new! Highly recommended.”</blockquote><div class="review-person"><span class="review-avatar" aria-hidden="true">RV</span><div><p>Rahul Verma</p><span>Homeowner, Mumbai</span></div></div></article><article class="review-card"><div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“Fast, reliable, and very affordable plumbing fix. They arrived within the hour!”</blockquote><div class="review-person"><span class="review-avatar" aria-hidden="true">AD</span><div><p>Anjali Desai</p><span>Architect, Delhi</span></div></div></article></div>
+      </section>
+
+      <section class="contact-feature" id="contact" aria-labelledby="contact-heading">
+        <div class="contact-feature-copy"><p class="contact-availability"><span></span>24/7 AVAILABLE</p><h2 id="contact-heading">Home needs help?<br>We’re a call away.</h2><p>For urgent fixes and everyday maintenance, talk to our team and find the right service for your home.</p><div class="contact-feature-actions"><a class="contact-call" href="<?php echo esc_url('tel:+' . exa_phone()); ?>"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-2 2a14 14 0 0 1-7-7l2-2-2-5Z"/></svg>Call our team ↗</a><a class="contact-message" href="<?php echo esc_url('https://wa.me/' . exa_phone()); ?>" target="_blank" rel="noopener noreferrer">Chat on WhatsApp ↗</a></div><a class="contact-phone" href="<?php echo esc_url('tel:+' . exa_phone()); ?>"><?php echo esc_html('+' . exa_phone()); ?></a></div>
+        <div class="contact-feature-image"><img loading="lazy" src="<?php echo esc_url(get_theme_file_uri('assets/images/services/generated/handyman-full-day.webp')); ?>" alt="Home maintenance professional preparing his tools"><span>Small fixes. Better living.</span></div>
+      </section>
+
+      <footer class="site-footer">
+        <div class="footer-main">
+          <div class="footer-brand"><a href="#hero" class="footer-logo" aria-label="Exa home"><img src="<?php echo esc_url(get_theme_file_uri('assets/images/logo/logo-3.png')); ?>" alt="Exa M&E Pte Ltd"></a><p>Thoughtful care for<br>the place you call home.</p><span>Repairs, maintenance, and a fresh start.<br>All in one place.</span></div>
+          <nav aria-label="Footer services"><h3>Our services</h3><a href="#sec-aircon">Aircon care</a><a href="#sec-cleaning">Home cleaning</a><a href="#sec-handyman">Handyman</a><a href="#sec-plumbing">Plumbing</a><a href="#sec-electrical">Electrical</a><a href="#sec-painting">Painting</a></nav>
+          <nav aria-label="Footer navigation"><h3>Explore Exa</h3><a href="#hero">Home</a><a href="#services">Browse services</a><a href="#pricing">Service prices</a><a href="#testimonials">Customer stories</a></nav>
+          <div class="footer-contact"><h3>Let’s talk</h3><p>Tell us what your home needs.</p><a href="<?php echo esc_url('tel:+' . exa_phone()); ?>" class="footer-phone"><?php echo esc_html('+' . exa_phone()); ?></a><a href="<?php echo esc_url('https://wa.me/' . exa_phone()); ?>" class="footer-chat" target="_blank" rel="noopener noreferrer">Message our team <span aria-hidden="true">↗</span></a></div>
         </div>
-      </div>
-
-      
-      <footer class="mt-8 px-6 pb-24 pt-10 bg-[#4E0636] rounded-t-[40px] text-center flex flex-col items-center">
-        <h3 class="font-serif text-3xl text-[#E297B3] mb-2 tracking-wide">Exa</h3>
-        <p class="text-white/60 text-xs mb-8 max-w-[250px] leading-relaxed">Premium Home Services Delivered with
-          Excellence.</p>
-
-        <div class="flex gap-6 mb-8">
-          <a href="#hero" class="text-white/80 hover:text-[#E297B3] text-sm font-medium transition-colors">Home</a>
-          <a href="#services"
-            class="text-white/80 hover:text-[#E297B3] text-sm font-medium transition-colors">Services</a>
-          <a href="#testimonials"
-            class="text-white/80 hover:text-[#E297B3] text-sm font-medium transition-colors">Reviews</a>
-        </div>
-
-        <div class="flex gap-4 mb-8">
-          
-          <a href="#"
-            class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-white/80 hover:bg-white/20 hover:text-white transition-all">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-            </svg>
-          </a>
-          
-          <a href="#"
-            class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:bg-white/20 hover:text-white transition-all">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-            </svg>
-          </a>
-        </div>
-
-        <div class="w-full h-px bg-white/10 mb-6"></div>
-
-        <p class="text-white/40 text-[11px] font-medium tracking-wide">© <span id="current-year"></span> Exa Home
-          Services. All rights reserved.</p>
+        <div class="footer-bottom"><p>© <span id="current-year"></span> Exa Home Services. All rights reserved.</p><a href="#hero">Back to top ↑</a></div>
       </footer>
+
 
     </main>
 

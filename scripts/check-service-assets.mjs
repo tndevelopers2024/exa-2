@@ -16,10 +16,16 @@ for (const service of context.services) {
   if (!fs.existsSync(file)) throw new Error(`Missing image: ${service.name}: ${file}`);
 }
 console.log(`Verified ${context.services.length} service image URLs resolve inside the WordPress theme.`);
-for (const category of ['cleaning', 'pest']) {
+const visibleCategories = ['aircon', 'cleaning', 'handyman', 'plumbing', 'electrical', 'painting', 'pest'];
+for (const category of visibleCategories) {
   const services = context.services.filter(service => service.cat === category);
   if (new Set(services.map(service => service.img)).size !== services.length) {
     throw new Error(`${category} services must each use a distinct task-specific image.`);
   }
   console.log(`Verified each ${category} service has a distinct image.`);
 }
+const visibleServices = context.services.filter(service => visibleCategories.includes(service.cat));
+if (new Set(visibleServices.map(service => service.img)).size !== visibleServices.length) {
+  throw new Error('Different services in the displayed catalogue must not share a photograph.');
+}
+console.log(`Verified ${visibleServices.length} displayed services have distinct photographs across categories.`);

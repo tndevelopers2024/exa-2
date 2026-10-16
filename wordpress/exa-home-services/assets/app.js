@@ -91,7 +91,7 @@ const formatPrice = price => [exaSettings.currency, price.toLocaleString('en')].
       { cat: 'packers', name: 'Loading & Unloading', sub: 'Labour Support', img: `${exaSettings.assets}images/services/Category Packers & movers.jpg`, badge: '⭐ 4.6', time: 'Schedule', offer: '₹999' },
       { cat: 'dehumidifier', name: 'Dehumidifier Install', sub: 'Moisture Control', img: `${exaSettings.assets}images/services/Category Dehumidifier.jpg`, badge: '⭐ 4.7', time: 'Today', offer: 'PREMIUM' },
       { cat: 'dehumidifier', name: 'Dehumidifier Service', sub: 'Maintenance & Repair', img: `${exaSettings.assets}images/services/Category Dehumidifier.jpg`, badge: '⭐ 4.6', time: 'Today', offer: '10% OFF' },
-      { cat: 'pest', name: 'Pest Control', sub: 'Safe & Effective', img: `${exaSettings.assets}images/services/generated/pest-general.webp`, badge: '⭐ 4.6', time: '2 hrs', offer: '50% OFF' },
+      { cat: 'pest', name: 'Pest Control', sub: 'Safe & Effective', img: `${exaSettings.assets}images/services/generated/pest-general-portrait.webp`, badge: '⭐ 4.6', time: '2 hrs', offer: '50% OFF' },
       { cat: 'pest', name: 'Termite Treatment', sub: 'Deep Protection', img: `${exaSettings.assets}images/services/generated/pest-termite.webp`, badge: '⭐ 4.7', time: '3 hrs', offer: '₹1299' },
       { cat: 'pest', name: 'Cockroach Control', sub: 'Kitchen & Bathroom', img: `${exaSettings.assets}images/services/generated/pest-cockroach.webp`, badge: '⭐ 4.5', time: '1 hr', offer: '₹499' },
       { cat: 'pest', name: 'Bed Bug Control', sub: 'Full Room Treatment', img: `${exaSettings.assets}images/services/generated/pest-bedbug.webp`, badge: '⭐ 4.6', time: '2 hrs', offer: '₹799' },
@@ -105,10 +105,10 @@ const formatPrice = price => [exaSettings.currency, price.toLocaleString('en')].
       { cat: 'gardening', name: 'Gardening', sub: 'Lawn & Landscape', img: `${exaSettings.assets}images/services/Category Gardening.jpg`, badge: '⭐ 4.8', time: '2 hrs', offer: '₹499 Flat' },
       { cat: 'gardening', name: 'Lawn Mowing', sub: 'Regular Trim', img: `${exaSettings.assets}images/services/Category Gardening.jpg`, badge: '⭐ 4.7', time: '1 hr', offer: '₹299' },
       { cat: 'gardening', name: 'Tree Trimming', sub: 'Branch Cutting', img: `${exaSettings.assets}images/services/Category Gardening.jpg`, badge: '⭐ 4.6', time: '2 hrs', offer: '₹599' },
-      { cat: 'renovation', name: 'Full Renovation', sub: 'Interior Makeover', img: `${exaSettings.assets}images/services/Category Interior renovation.jpg`, badge: '⭐ 4.9', time: 'Quote', offer: '25% OFF' },
+      { cat: 'renovation', name: 'Full Renovation', sub: 'Interior Makeover', img: `${exaSettings.assets}images/services/generated/renovation-portrait.webp`, badge: '⭐ 4.9', time: 'Quote', offer: '25% OFF' },
       { cat: 'renovation', name: 'Interior Painting', sub: 'Walls & Ceiling', img: `${exaSettings.assets}images/services/Category Interior renovation.jpg`, badge: '⭐ 4.8', time: 'Quote', offer: '₹8/sqft' },
       { cat: 'renovation', name: 'Carpentry Works', sub: 'Custom Woodwork', img: `${exaSettings.assets}images/services/Category Interior renovation.jpg`, badge: '⭐ 4.7', time: 'Quote', offer: '10% OFF' },
-      { cat: 'pool', name: 'Pool Maintenance', sub: 'Cleaning & Repair', img: `${exaSettings.assets}images/services/Category Swimming pool maintenance .jpg`, badge: '⭐ 4.4', time: 'Same Day', offer: '15% OFF' },
+      { cat: 'pool', name: 'Pool Maintenance', sub: 'Cleaning & Repair', img: `${exaSettings.assets}images/services/generated/pool-portrait.webp`, badge: '⭐ 4.4', time: 'Same Day', offer: '15% OFF' },
       { cat: 'pool', name: 'Pool Construction', sub: 'New Build', img: `${exaSettings.assets}images/services/Category Swimming pool maintenance .jpg`, badge: '⭐ 4.5', time: 'Quote', offer: 'Get Quote' },
       { cat: 'pool', name: 'Pool Chemical Care', sub: 'Water Treatment', img: `${exaSettings.assets}images/services/Category Swimming pool maintenance .jpg`, badge: '⭐ 4.6', time: '1 hr', offer: '₹999' },
       { cat: 'petcare', name: 'Pet Care', sub: 'Walking & Grooming', img: `${exaSettings.assets}images/services/Category Pet care.jpg`, badge: '⭐ 4.7', time: 'Today', offer: 'LOVING' },
@@ -125,18 +125,58 @@ const formatPrice = price => [exaSettings.currency, price.toLocaleString('en')].
     ];
 
     function servicePhoto(name, category) {
-      if (category === 'aircon') {
-        if (/Installation/i.test(name)) return 'aircon-installation';
-        if (/Overhaul/i.test(name)) return 'aircon-overhaul';
-        if (/Gas/i.test(name)) return 'aircon-gas';
-        if (/CU Cleaning/i.test(name)) return 'aircon-condenser';
-      }
-      if (/furniture/i.test(name)) return 'furniture-assembly';
-      if (/TV Brackets|Shelves|Mirrors|Curtain rod/i.test(name)) return 'wall-mounting';
-      if (category === 'plumbing' || /Plumbing|Water Heater|Bathroom|sealant/i.test(name)) return 'plumbing';
-      if (category === 'electrical' || /Electrical|Lighting|fan|CCTV/i.test(name)) return 'electrical';
-      if (category === 'painting' || /painting|Tile and grout/i.test(name)) return 'painting';
-      return null;
+      const photos = {
+        "Aircon General Service": "aircon-general-portrait",
+        "General Handyman Package (Half Day)": "handyman-half-day-portrait",
+        "General Handyman Package (Full Day)": "handyman-full-day",
+        "Water Heater": "water-heater",
+        "CCTV Installation": "cctv-installation",
+        "Brackets, Shelves, Mirrors & Artwork": "shelves-artwork",
+        "Bathroom accessories": "bathroom-accessories",
+        "Door and window repairs": "door-window-repair",
+        "Door hinge repair": "door-hinge",
+        "Door lock replacement": "door-lock",
+        "Curtain rod installation": "curtain-rod",
+        "Tile and grout repair": "tile-grout",
+        "Electrical services": "handyman-electrical",
+        "Bathroom sealant repairs": "bathroom-sealant",
+        "Ceiling fan replacement": "ceiling-fan-replacement",
+        "Leaky tap repair": "leaky-tap",
+        "Shower head replacement": "shower-head",
+        "Toilet flush repair": "toilet-flush",
+        "Pipe joint sealing": "pipe-joint",
+        "Tap replacement": "tap-replacement",
+        "Wash Basin Install": "basin-installation",
+        "Kitchen Sink": "kitchen-sink",
+        "Toilet Bowl / Cover / Choke": "toilet-installation",
+        "Fixing Leaks": "pipe-leak",
+        "Shower Set Install": "shower-set",
+        "Unclogging Drains": "drain-unclogging",
+        "Installing Faucets": "faucet-installation",
+        "Replacing Pipes": "pipe-replacement",
+        "General Plumbing Services": "plumbing-inspection",
+        "General Electrical Services": "electrical-inspection",
+        "Light Installation": "light-installation",
+        "Fan Installation": "fan-installation",
+        "Socket & Switches Installation": "socket-installation",
+        "Troubleshooting": "electrical-troubleshooting",
+        "PowerPoint Extension": "power-point-extension",
+        "HDB - 2 Room Flat (500 Sq.ft.)": "painting-two-room",
+        "HDB - 3 Room Flat (750 Sq.ft.)": "painting-three-room",
+        "HDB - 4 Room Flat (950 Sq.ft.)": "painting-four-room",
+        "HDB - 5 Room Flat (1200 Sq.ft.)": "painting-five-room",
+        "Executive Flat (1400 Sq.ft.)": "painting-executive",
+        "Aircon Installation": "aircon-installation",
+        "Aircon Chemical Overhaul": "aircon-overhaul",
+        "Gas Top-Up": "aircon-gas",
+        "CU Cleaning": "aircon-condenser",
+        "TV Brackets (wall mount)": "wall-mounting",
+        "furniture assembly (IKEA)": "furniture-assembly",
+        "Lighting fixtures": "electrical",
+        "Plumbing fixes": "plumbing",
+        "Wall patching and painting": "painting"
+      };
+      return photos[name] || null;
     }
 
     // Replace the sample cards with the supplied service catalogue.
@@ -165,7 +205,7 @@ const formatPrice = price => [exaSettings.currency, price.toLocaleString('en')].
       const rating = item.badge.replace('⭐ ', '');
 
       div.innerHTML = `
-      <div class="relative w-full h-43 rounded-2xl overflow-hidden shadow-sm">
+      <div class="service-photo-frame relative w-full h-43 rounded-2xl overflow-hidden shadow-sm" style="--service-photo:url('${item.img}')">
         <img loading="lazy" decoding="async" src="${item.img}" alt="${item.name}" class="w-full h-full object-contain"/>
         
         <!-- Top Right Heart -->
@@ -189,7 +229,7 @@ const formatPrice = price => [exaSettings.currency, price.toLocaleString('en')].
       div.addEventListener('click', () => {
         if (item.pricing) {
           document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });
-          document.querySelectorAll('.price-group').forEach((group, index) => { group.open = servicePricing[index].id === item.cat; });
+          selectPricingCategory(item.cat);
         } else openWA(item.name);
       });
       return div;
@@ -267,7 +307,7 @@ const formatPrice = price => [exaSettings.currency, price.toLocaleString('en')].
       div.addEventListener('click', () => {
         if (item.pricing) {
           document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });
-          document.querySelectorAll('.price-group').forEach((group, index) => { group.open = servicePricing[index].id === item.cat; });
+          selectPricingCategory(item.cat);
         } else openWA(item.name);
       });
       return div;
@@ -295,42 +335,105 @@ const formatPrice = price => [exaSettings.currency, price.toLocaleString('en')].
       new Swiper('.' + swiperClass, swiperOpts);
     }
 
-    servicePricing.forEach((group, index) => {
-      const details = document.createElement('details');
-      details.className = 'price-group';
-      details.open = index === 0;
-      details.innerHTML = `<summary>${group.name} · ${group.services.length} services</summary>
-        <div class="price-table-scroll" role="region" aria-label="${group.name} prices" tabindex="0">
-          <table class="price-table"><caption class="sr-only">${group.name} service prices</caption><thead><tr><th scope="col">Service</th>
-          ${group.id === 'aircon' ? [1,2,3,4,5].map(n => `<th scope="col">${n} ${n === 1 ? 'unit' : 'units'}</th>`).join('') : '<th scope="col">Price</th>'}
-          </tr></thead><tbody></tbody></table></div>`;
-      const body = details.querySelector('tbody');
+    let activePricingCategory = 'aircon';
+    let selectedAirconUnits = 1;
+    let pricingQuery = '';
+    const pricingNumber = price => formatPrice(price);
+
+    function pricingServices() {
+      const group = servicePricing.find(group => group.id === activePricingCategory);
+      return group.services.filter(service => service.name.toLowerCase().includes(pricingQuery.toLowerCase().trim()));
+    }
+
+    function renderPricing() {
+      const group = servicePricing.find(group => group.id === activePricingCategory);
+      const isAircon = group.id === 'aircon';
+      document.getElementById('pricing-category-title').textContent = group.name;
+      document.getElementById('pricing-unit-control').hidden = !isAircon;
+      document.querySelectorAll('#pricing-categories button').forEach(button => {
+        button.setAttribute('aria-pressed', String(button.dataset.category === group.id));
+      });
+      document.querySelectorAll('#pricing-units button').forEach(button => {
+        button.setAttribute('aria-pressed', String(Number(button.dataset.units) === selectedAirconUnits));
+      });
+      const services = pricingServices();
+      document.getElementById('pricing-result-count').textContent = `${services.length} ${services.length === 1 ? 'service' : 'services'} available`;
+      const list = document.getElementById('pricing-list');
+      list.replaceChildren();
       let section = '';
-      group.services.forEach(service => {
+      services.forEach(service => {
         if (service.section && service.section !== section) {
           section = service.section;
-          const heading = body.insertRow();
-          heading.className = 'price-subheading';
-          heading.innerHTML = `<th colspan="2" scope="rowgroup">${section}</th>`;
+          const heading = document.createElement('h4');
+          heading.className = 'pricing-subheading';
+          heading.textContent = section;
+          list.appendChild(heading);
         }
-        const row = body.insertRow();
-        const label = document.createElement('th');
-        label.scope = 'row';
-        label.textContent = service.name;
-        row.appendChild(label);
-        service.prices.forEach((price, unitIndex) => {
-          const cell = row.insertCell();
-          const button = document.createElement('button');
-          button.type = 'button';
-          button.textContent = price === null ? 'Request quote' : formatPrice(price);
-          const units = group.id === 'aircon' ? ` (${unitIndex + 1} ${unitIndex === 0 ? 'unit' : 'units'})` : '';
-          button.setAttribute('aria-label', `${service.name}${units}: ${button.textContent}`);
-          button.addEventListener('click', () => openWA(`${service.name}${units}${price === null ? ' — please provide a quote' : ` — listed price ${price}`}`));
-          cell.appendChild(button);
+        const price = service.prices[isAircon ? selectedAirconUnits - 1 : 0];
+        const row = document.createElement('div');
+        row.className = 'pricing-service';
+        const info = document.createElement('div');
+        const name = document.createElement('h4');
+        name.textContent = service.name;
+        const note = document.createElement('p');
+        note.textContent = isAircon ? `For ${selectedAirconUnits} ${selectedAirconUnits === 1 ? 'unit' : 'units'}` : service.section || group.name;
+        info.append(name, note);
+        const action = document.createElement('div');
+        action.className = 'pricing-service-action';
+        const amount = document.createElement('span');
+        amount.className = price === null ? 'pricing-quote' : 'pricing-amount';
+        amount.textContent = price === null ? 'Let’s get a quote' : pricingNumber(price);
+        const book = document.createElement('button');
+        book.type = 'button';
+        book.textContent = price === null ? 'Ask for a quote ↗' : 'Book service ↗';
+        book.setAttribute('aria-label', `${price === null ? 'Request a quote for' : 'Book'} ${service.name}${isAircon ? ` for ${selectedAirconUnits} ${selectedAirconUnits === 1 ? 'unit' : 'units'}` : ''}`);
+        book.addEventListener('click', () => {
+          const units = isAircon ? ` (${selectedAirconUnits} ${selectedAirconUnits === 1 ? 'unit' : 'units'})` : '';
+          openWA(`${service.name}${units}${price === null ? ' — please provide a quote' : ` — listed price ${pricingNumber(price)}`}`);
         });
+        action.append(amount, book);
+        row.append(info, action);
+        list.appendChild(row);
       });
-      document.getElementById('price-groups').appendChild(details);
+      if (!services.length) {
+        const empty = document.createElement('p');
+        empty.className = 'pricing-empty';
+        empty.textContent = 'No matching service. Try a different search or category.';
+        list.appendChild(empty);
+      }
+    }
+
+    function selectPricingCategory(category) {
+      if (!servicePricing.some(group => group.id === category)) return;
+      activePricingCategory = category;
+      pricingQuery = '';
+      document.getElementById('pricing-search').value = '';
+      renderPricing();
+    }
+
+    servicePricing.forEach(group => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.dataset.category = group.id;
+      button.textContent = group.name;
+      button.setAttribute('aria-controls', 'pricing-list');
+      button.addEventListener('click', () => selectPricingCategory(group.id));
+      document.getElementById('pricing-categories').appendChild(button);
     });
+    [1,2,3,4,5].forEach(units => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.dataset.units = units;
+      button.textContent = units;
+      button.setAttribute('aria-label', `${units} ${units === 1 ? 'aircon unit' : 'aircon units'}`);
+      button.addEventListener('click', () => { selectedAirconUnits = units; renderPricing(); });
+      document.getElementById('pricing-units').appendChild(button);
+    });
+    document.getElementById('pricing-search').addEventListener('input', event => {
+      pricingQuery = event.target.value;
+      renderPricing();
+    });
+    renderPricing();
 
     loadServiceSwiper(defaultServices);
 
@@ -350,17 +453,7 @@ const formatPrice = price => [exaSettings.currency, price.toLocaleString('en')].
       pagination: { el: '.swiper-pagination', clickable: true },
     });
 
-    const testimonialsSwiper = new Swiper('.testimonials-swiper', {
-      loop: true,
-      autoplay: {
-        delay: 4500,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: '.testimonials-pagination',
-        clickable: true,
-      },
-    });
+
 
     // ── Dynamic Footer Year ──
     document.getElementById('current-year').textContent = new Date().getFullYear();

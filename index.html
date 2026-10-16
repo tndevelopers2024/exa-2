@@ -22,10 +22,10 @@
   <meta property="og:site_name" content="Exa">
 
   <!-- Swiper JS & CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="assets/vendor/swiper.css" />
+  <script src="assets/vendor/swiper.js"></script>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/vendor/tailwind.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -38,7 +38,7 @@
       },
     }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+  <link href="assets/vendor/inter.css" rel="stylesheet" />
   <style>
     :root {
       --primary: #4E0636;
@@ -491,12 +491,83 @@
       cursor: pointer;
       text-decoration: none;
     }
+    .pricing-note { font-size:12px; color:#666; margin:8px 0 14px; line-height:1.6; }
+    .price-group { border:1px solid #eadce4; border-radius:16px; margin-bottom:10px; background:#fff; overflow:hidden; }
+    .price-group summary { padding:16px; cursor:pointer; color:#4E0636; font-weight:700; }
+    .price-table-scroll { overflow-x:auto; }
+    .price-table { width:100%; border-collapse:collapse; font-size:12px; text-align:left; }
+    .price-table th, .price-table td { padding:12px; border-top:1px solid #f1e8ed; }
+    .price-table th { background:#fcf6f9; color:#4E0636; }
+    .price-table th[scope="row"] { font-weight:500; background:white; min-width:160px; }
+    .price-table button { border:1px solid #eadce4; border-radius:8px; padding:7px 9px; color:#4E0636; white-space:nowrap; background:#fcf6f9; cursor:pointer; }
+    .price-table button:hover, .price-table button:focus-visible { background:#4E0636; color:white; }
+    .price-subheading th { font-weight:700; }
+    .desktop-nav, .hero-copy, .desktop-categories { display:none; }
+    .site-shell { width:100%; max-width:480px; margin-inline:auto; min-width:0; }
+    #main-scroll { min-width:0; }
+    html { scroll-behavior:smooth; }
+    @media (min-width:600px) and (max-width:899px) {
+      .site-shell { max-width:760px; width:calc(100% - 48px); }
+    }
+    @media (min-width: 900px) {
+      body > .site-shell { width:calc(100% - 96px); max-width:1480px; padding:0; }
+      #main-header { padding:26px 0; border-bottom:1px solid #e8dfe3; background:transparent; }
+      #main-header > div:first-child { margin-bottom:0; }
+      #main-header img { height:48px; }
+      #main-header button[onclick="toggleMenu()"] { display:none; }
+      .desktop-nav { display:flex; align-items:center; gap:30px; font-size:13px; font-weight:600; color:#4E0636; }
+      .desktop-nav a:hover { color:#BC6587; }
+      .desktop-nav .nav-cta, .hero-primary { background:#4E0636; color:white; padding:14px 22px; border-radius:10px; }
+      #main-scroll { overflow:visible; }
+      #hero { display:grid; grid-template-columns:1fr 1.08fr; gap:48px; align-items:center; margin-top:40px; padding:32px 0 48px; cursor:default; }
+      .hero-copy { display:block; }
+      .hero-eyebrow { text-transform:uppercase; letter-spacing:2px; font-size:11px; font-weight:700; color:#A04D73; margin-bottom:18px; }
+      .hero-copy h1 { font-size:clamp(38px,4.4vw,60px); line-height:1.08; letter-spacing:-2.5px; font-weight:650; color:#4E0636; }
+      .hero-copy > p:not(.hero-eyebrow) { font-size:15px; line-height:1.8; color:#74656e; margin-top:22px; max-width:390px; }
+      .hero-actions { display:flex; align-items:center; gap:24px; margin-top:30px; font-size:13px; font-weight:600; }
+      .hero-secondary { color:#4E0636; border-bottom:1px solid #b996aa; padding-bottom:4px; }
+      #hero .hero-swiper { width:100%; min-width:0; border-radius:24px; overflow:hidden; box-shadow:0 18px 50px #4e063610; }
+      #hero > *, #price-groups > * { min-width:0; }
+      #hero .hero-swiper img { aspect-ratio:1.45; object-fit:cover; }
+      .desktop-categories { display:flex; flex-wrap:wrap; gap:12px; padding:22px 0; border-top:1px solid #e8dfe3; border-bottom:1px solid #e8dfe3; margin-bottom:44px; }
+      .desktop-categories a { flex:1; min-width:140px; text-align:center; font-size:13px; color:#4E0636; padding:14px 18px; background:white; border:1px solid #eadce4; border-radius:10px; }
+      .desktop-categories a:hover { border-color:#BC6587; background:#fcf0f5; }
+      #main-scroll > section { margin-top:46px; }
+      #main-scroll > section > div:first-child { padding-left:0; padding-right:0; margin-bottom:22px; }
+      #main-scroll section h2 { font-size:26px; font-weight:600; letter-spacing:-.7px; }
+      .services-swiper .swiper-wrapper, .aircon-swiper .swiper-wrapper, .cleaning-swiper .swiper-wrapper, .handyman-swiper .swiper-wrapper, .pest-swiper .swiper-wrapper { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:22px; transform:none !important; }
+      .services-swiper .swiper-slide, .cat-section-slide { width:100% !important; margin:0 !important; min-width:0; }
+      .services-swiper .swiper-slide > div:first-child { height:210px; background:#fff; }
+      .services-swiper img { object-fit:cover; }
+      .cat-slide-img { aspect-ratio:1.35; }
+      .cat-slide-body { padding:18px; }
+      .cat-slide-title { font-size:15px; white-space:normal; line-height:1.5; }
+      .cat-slide-sub, .cat-slide-rating { font-size:12px; margin-top:8px; }
+      .lift:hover { transform:translateY(-4px); }
+      #hero.lift:hover { transform:none; }
+      #pricing { margin:64px 0 48px; padding:32px; border-radius:24px; background:#f0e8ed; }
+      #pricing .pricing-note { font-size:13px; margin-bottom:24px; }
+      #price-groups { display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start; }
+      .price-group { margin:0; }
+      .price-group:first-child { grid-column:1/-1; }
+      .price-group summary { padding:20px; }
+      .price-table { font-size:13px; }
+      .price-table th, .price-table td { padding:14px 18px; }
+      #testimonials { margin:48px 0; }
+      #svc-popup { max-width:680px; }
+      .floating-actions { right:24px; bottom:24px; }
+    }
+    @media (min-width:1200px) {
+      .services-swiper .swiper-wrapper { grid-template-columns:repeat(4,minmax(0,1fr)); }
+      .handyman-swiper .swiper-wrapper { grid-template-columns:repeat(5,minmax(0,1fr)); }
+    }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .fade-up { animation:none; opacity:1; transform:none; } }
   </style>
 </head>
 
 <body>
 
-  <div class="mx-auto max-w-[420px] bg-[#f8f6f2] min-h-screen flex flex-col relative"
+  <div class="site-shell mx-auto bg-[#f8f6f2] min-h-screen flex flex-col relative"
     style="font-family:'Inter',sans-serif">
 
     <!-- ═══════════ STICKY HEADER ═══════════ -->
@@ -506,6 +577,12 @@
         <div class="flex items-center gap-3">
           <img src="assets/images/logo/logo-3.png" alt="Exa" class="h-9 object-contain drop-shadow-lg" />
         </div>
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a href="#services">Our services</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#testimonials">Customer stories</a>
+          <a class="nav-cta" href="#pricing">Find your service ↗</a>
+        </nav>
         <div class="flex items-center gap-2.5">
           <button onclick="toggleMenu()" class="w-9 h-9 rounded-full flex items-center justify-center"
             style="background:rgba(188,101,135,.25); border:1px solid rgba(188,101,135,.4)">
@@ -558,6 +635,12 @@
 
       <!-- ── Hero Card ── -->
       <div id="hero" class=" mt-4 overflow-hidden relative lift fade-up" style="animation-delay:.05s">
+        <div class="hero-copy">
+          <p class="hero-eyebrow">A little care. A better home.</p>
+          <h1>Good homes<br>deserve great care.</h1>
+          <p>From everyday fixes to a fresh start. Find the right service for your home, all in one place.</p>
+          <div class="hero-actions"><a class="hero-primary" href="#services">Explore services ↗</a><a class="hero-secondary" href="#pricing">View service prices</a></div>
+        </div>
         <div class="swiper hero-swiper h-42 bg-[#f8f6f2]">
           <div class="swiper-wrapper">
             <div class="swiper-slide cursor-pointer" onclick="openWA('Exa Featured Service')">
@@ -580,6 +663,9 @@
       <!-- ════════════════════════════════════‰
          ROW 1: Top Services 🏆
     ═══════════════════════════════════════ -->
+      <nav class="desktop-categories" aria-label="Browse services">
+        <a href="#sec-aircon">Aircon</a><a href="#sec-cleaning">Cleaning</a><a href="#sec-handyman">Handyman</a><a href="#pricing">Plumbing</a><a href="#pricing">Electrical</a><a href="#pricing">Painting</a>
+      </nav>
       <section id="services" class="mt-6 fade-up" style="animation-delay:.1s">
         <div class="flex items-center justify-between px-4 mb-3">
           <h2 class="font-serif text-[17px] text-[#4E0636]">Top Services </h2>
@@ -655,6 +741,12 @@
     </section> -->
 
 
+
+      <section id="pricing" class="mt-6 mx-4 mb-6">
+        <h2 class="font-serif text-[20px] text-[#4E0636]">Service prices</h2>
+        <p class="pricing-note">Browse services and select a price to request a booking. Currency is to be confirmed.</p>
+        <div id="price-groups"></div>
+      </section>
 
       <!-- ── Testimonial Strip ── -->
       <section id="testimonials" class="mt-4 mx-4 mb-2 rounded-3xl overflow-hidden fade-up relative"
@@ -800,7 +892,7 @@
   </nav> -->
 
     <!-- ── Floating Actions (Glassmorphism) ── -->
-    <div class="fixed bottom-6 right-4 sm:right-[calc(50vw-200px)] z-[60] flex flex-col gap-3">
+    <div class="floating-actions fixed bottom-6 right-4 sm:right-[calc(50vw-200px)] z-[60] flex flex-col gap-3">
       <!-- WhatsApp -->
       <a href="https://wa.me/919876543210" target="_blank"
         class="w-12 h-12 rounded-full flex items-center justify-center glass-btn text-[#25D366] transition-transform active:scale-95">
@@ -859,6 +951,7 @@
         <a href="#trending" onclick="toggleMenu()" class="hover:text-[#E297B3] transition-colors">Trending</a>
         <a href="#premium" onclick="toggleMenu()" class="hover:text-[#E297B3] transition-colors">Premium Picks</a>
         <a href="#quickfix" onclick="toggleMenu()" class="hover:text-[#E297B3] transition-colors">Quick Fixes</a>
+        <a href="#pricing" onclick="toggleMenu()" class="hover:text-[#E297B3] transition-colors">Service Prices</a>
         <a href="#testimonials" onclick="toggleMenu()" class="hover:text-[#E297B3] transition-colors">Reviews</a>
       </div>
 
@@ -885,6 +978,7 @@
 
   </div>
 
+  <script src="assets/service-pricing.js"></script>
   <script>
     function toggleMenu() {
       const menu = document.getElementById('mobile-menu');
@@ -1009,6 +1103,16 @@
       { cat: 'eldercare', name: 'Daily Assistance', sub: 'Home Care', img: 'assets/images/services/Category Elder care.jpg', badge: '⭐ 4.7', time: 'Schedule', offer: '₹799/day' },
     ];
 
+    // Replace the sample cards with the supplied service catalogue.
+    allServices.splice(0, allServices.length, ...allServices.filter(s => !['aircon', 'handyman'].includes(s.cat)));
+    servicePricing.forEach(group => group.services.forEach(service => {
+      const price = service.prices[0];
+      allServices.push({ cat: group.id, name: service.name, sub: service.section || group.name,
+        img: `assets/images/services/Category ${group.id === 'aircon' ? 'Aircon' : 'Handyman'}.jpg`,
+        badge: '', time: 'Request booking', offer: price === null ? 'Request quote' : `Price: ${price.toLocaleString('en')}`,
+        pricing: service });
+    }));
+
     // Default top picks (one from each major category)
     const defaultServices = allServices.filter(s =>
       ['aircon', 'cleaning', 'handyman', 'pest', 'appliance', 'gardening', 'renovation', 'pool'].includes(s.cat)
@@ -1041,11 +1145,16 @@
         <h3 class="font-serif text-[15px] font-bold text-[#1a1a2e] leading-tight truncate">${item.name}</h3>
         <div class="flex items-center gap-1 mt-1">
           <div class="w-4 h-4 rounded-full bg-green-700 flex items-center justify-center text-white text-[9px]">★</div>
-          <span class="text-[12px] font-bold text-[#1a1a2e]">${rating} • ${item.time}</span>
+          <span class="text-[12px] font-bold text-[#1a1a2e]">${item.pricing ? item.offer : `${rating} • ${item.time}`}</span>
         </div>
         <p class="text-[12px] text-gray-500 truncate mt-0.5">${item.sub}</p>
       </div>`;
-      div.addEventListener('click', () => openWA(item.name));
+      div.addEventListener('click', () => {
+        if (item.pricing) {
+          document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });
+          document.querySelectorAll('.price-group').forEach((group, index) => { group.open = servicePricing[index].id === item.cat; });
+        } else openWA(item.name);
+      });
       return div;
     }
 
@@ -1091,11 +1200,13 @@
 
     // ── Swiper config helper ──
     const swiperOpts = {
+      enabled: !window.matchMedia('(min-width: 900px)').matches,
       slidesPerView: 'auto',
       spaceBetween: 14,
       freeMode: true,
       slidesOffsetBefore: 16,
       slidesOffsetAfter: 16,
+      breakpoints: { 900: { enabled: false, slidesOffsetBefore: 0, slidesOffsetAfter: 0, spaceBetween: 0 } },
     };
 
     // ── Category card renderer (for per-category sections) ──
@@ -1113,10 +1224,15 @@
           <p class="cat-slide-sub">${item.sub}</p>
           <div class="cat-slide-rating" style="margin-top:6px">
             <span class="star-dot">★</span>
-            <span>${rating} · ${item.time}</span>
+            <span>${item.pricing ? item.offer : `${rating} · ${item.time}`}</span>
           </div>
         </div>`;
-      div.addEventListener('click', () => openWA(item.name));
+      div.addEventListener('click', () => {
+        if (item.pricing) {
+          document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });
+          document.querySelectorAll('.price-group').forEach((group, index) => { group.open = servicePricing[index].id === item.cat; });
+        } else openWA(item.name);
+      });
       return div;
     }
 
@@ -1141,6 +1257,43 @@
       getServicesByCat(catId).forEach(s => wrapper.appendChild(catServiceCard(s, accentColor)));
       new Swiper('.' + swiperClass, swiperOpts);
     }
+
+    servicePricing.forEach((group, index) => {
+      const details = document.createElement('details');
+      details.className = 'price-group';
+      details.open = index === 0;
+      details.innerHTML = `<summary>${group.name} · ${group.services.length} services</summary>
+        <div class="price-table-scroll" role="region" aria-label="${group.name} prices" tabindex="0">
+          <table class="price-table"><caption class="sr-only">${group.name} service prices</caption><thead><tr><th scope="col">Service</th>
+          ${group.id === 'aircon' ? [1,2,3,4,5].map(n => `<th scope="col">${n} ${n === 1 ? 'unit' : 'units'}</th>`).join('') : '<th scope="col">Price</th>'}
+          </tr></thead><tbody></tbody></table></div>`;
+      const body = details.querySelector('tbody');
+      let section = '';
+      group.services.forEach(service => {
+        if (service.section && service.section !== section) {
+          section = service.section;
+          const heading = body.insertRow();
+          heading.className = 'price-subheading';
+          heading.innerHTML = `<th colspan="2" scope="rowgroup">${section}</th>`;
+        }
+        const row = body.insertRow();
+        const label = document.createElement('th');
+        label.scope = 'row';
+        label.textContent = service.name;
+        row.appendChild(label);
+        service.prices.forEach((price, unitIndex) => {
+          const cell = row.insertCell();
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.textContent = price === null ? 'Request quote' : price.toLocaleString('en');
+          const units = group.id === 'aircon' ? ` (${unitIndex + 1} ${unitIndex === 0 ? 'unit' : 'units'})` : '';
+          button.setAttribute('aria-label', `${service.name}${units}: ${button.textContent}`);
+          button.addEventListener('click', () => openWA(`${service.name}${units}${price === null ? ' — please provide a quote' : ` — listed price ${price}`}`));
+          cell.appendChild(button);
+        });
+      });
+      document.getElementById('price-groups').appendChild(details);
+    });
 
     loadServiceSwiper(defaultServices);
 

@@ -919,7 +919,7 @@
             <div class="pricing-toolbar"><div><h3 id="pricing-category-title">Aircon</h3><p id="pricing-result-count" aria-live="polite"></p></div><label class="pricing-search"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="pricing-search" type="search" aria-label="Search services in the selected category" placeholder="Find a service"></label></div>
             <div id="pricing-unit-control" class="pricing-unit-control"><div><p class="pricing-unit-label">How many aircon units?</p><p>Prices below are for your selected number of units.</p></div><div id="pricing-units" class="pricing-units" role="group" aria-label="Number of aircon units"></div></div>
             <div id="pricing-list" class="pricing-list" aria-label="Available services"></div>
-            <p class="pricing-currency-note">Currency is to be confirmed.</p>
+            <p class="pricing-currency-note">All prices are in Singapore dollars (SGD).</p>
           </div>
           <aside class="pricing-help"><span class="pricing-help-icon" aria-hidden="true">↗</span><p class="section-kicker">HERE TO HELP</p><h3>Not sure what<br>you need?</h3><p>Tell us what’s happening at home. Our team can help you choose the right service.</p><a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">Chat with our team <span aria-hidden="true">↗</span></a><div class="pricing-help-note"><span aria-hidden="true">✓</span><p>Choose your service.<br>Confirm the details with our team.</p></div></aside>
         </div>
@@ -1251,7 +1251,7 @@
       const photo = servicePhoto(service.name, group.id);
       allServices.push({ cat: group.id, name: service.name, sub: service.section || group.name,
         img: photo ? `assets/images/services/generated/${photo}.webp` : `assets/images/services/Category ${group.id === 'aircon' ? 'Aircon' : 'Handyman'}.jpg`,
-        badge: '', time: 'Request booking', offer: price === null ? 'Request quote' : `Price: ${price.toLocaleString('en')}`,
+        badge: '', time: 'Request booking', offer: price === null ? 'Request quote' : `Price: S$${price.toLocaleString('en-SG')}`,
         pricing: service });
     }));
 
@@ -1403,7 +1403,7 @@
     let activePricingCategory = 'aircon';
     let selectedAirconUnits = 1;
     let pricingQuery = '';
-    const pricingNumber = price => price.toLocaleString('en');
+    const pricingNumber = price => `S$${price.toLocaleString('en-SG')}`;
 
     function pricingServices() {
       const group = servicePricing.find(group => group.id === activePricingCategory);

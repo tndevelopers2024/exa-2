@@ -157,7 +157,7 @@ get_header();
             <div class="pricing-toolbar"><div><h3 id="pricing-category-title">Aircon</h3><p id="pricing-result-count" aria-live="polite"></p></div><label class="pricing-search"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="pricing-search" type="search" aria-label="Search services in the selected category" placeholder="Find a service"></label></div>
             <div id="pricing-unit-control" class="pricing-unit-control"><div><p class="pricing-unit-label">How many aircon units?</p><p>Prices below are for your selected number of units.</p></div><div id="pricing-units" class="pricing-units" role="group" aria-label="Number of aircon units"></div></div>
             <div id="pricing-list" class="pricing-list" aria-label="Available services"></div>
-            <p class="pricing-currency-note"><?php if (!get_option('exa_currency')) : ?>Currency is to be confirmed.<?php endif; ?></p>
+            <p class="pricing-currency-note">All prices are in Singapore dollars (SGD).</p>
           </div>
           <aside class="pricing-help"><span class="pricing-help-icon" aria-hidden="true">↗</span><p class="section-kicker">HERE TO HELP</p><h3>Not sure what<br>you need?</h3><p>Tell us what’s happening at home. Our team can help you choose the right service.</p><a href="<?php echo esc_url('https://wa.me/' . exa_phone()); ?>" target="_blank" rel="noopener noreferrer">Chat with our team <span aria-hidden="true">↗</span></a><div class="pricing-help-note"><span aria-hidden="true">✓</span><p>Choose your service.<br>Confirm the details with our team.</p></div></aside>
         </div>

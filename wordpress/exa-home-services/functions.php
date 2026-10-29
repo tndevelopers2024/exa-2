@@ -47,7 +47,7 @@ add_action('wp_enqueue_scripts', function () {
         $settings = array(
             'assets' => trailingslashit(get_theme_file_uri('assets')),
             'phone' => exa_phone(),
-            'currency' => get_option('exa_currency', ''),
+            'currency' => 'S$',
             'pricing' => exa_pricing(),
         );
         wp_add_inline_script('exa-app', 'const exaSettings = ' . wp_json_encode($settings, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';', 'before');
@@ -105,7 +105,7 @@ function exa_settings_page() {
         <?php settings_fields('exa_settings'); ?>
         <table class="form-table" role="presentation">
           <tr><th><label for="exa-phone">WhatsApp / contact number</label></th><td><input id="exa-phone" name="exa_phone" type="text" value="<?php echo esc_attr(exa_phone()); ?>" required><p class="description">Include the country code. This updates booking links and contact details throughout the homepage.</p></td></tr>
-          <tr><th><label for="exa-currency">Currency label</label></th><td><input id="exa-currency" name="exa_currency" type="text" value="<?php echo esc_attr(get_option('exa_currency', '')); ?>"><p class="description">For example SGD, S$, or INR. Leave empty until the currency is confirmed.</p></td></tr>
+          <tr><th><label for="exa-currency">Currency label</label></th><td><span id="exa-currency">Singapore dollars (SGD)</span></td></tr>
         </table>
         <?php foreach (exa_pricing() as $group) : ?>
           <h2><?php echo esc_html($group['name']); ?></h2>
